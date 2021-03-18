@@ -1,4 +1,3 @@
-
 <!-- Start Shop Newsletter  -->
 <section class="shop-newsletter section">
     <div class="container">
@@ -7,12 +6,12 @@
                 <div class="col-lg-8 offset-lg-2 col-12">
                     <!-- Start Newsletter Inner -->
                     <div class="inner">
-                        <h4>Newsletter</h4>
-                        <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
-                        <form action="{{route('subscribe')}}" method="post" class="newsletter-inner">
+                        <h4>จดหมายข่าว</h4>
+                        <p> สมัครรับจดหมายข่าวของเราและรับ <span>10%</span> สำหรับการซื้อครั้งแรกของคุณ </p>
+                        <form action="{{ route('subscribe') }}" method="post" class="newsletter-inner">
                             @csrf
-                            <input name="email" placeholder="Your email address" required="" type="email">
-                            <button class="btn" type="submit">Subscribe</button>
+                            <input name="email" placeholder="ที่อยู่อีเมลของคุณ..." required="" type="email">
+                            <button class="btn" type="submit">ติดตาม</button>
                         </form>
                     </div>
                     <!-- End Newsletter Inner -->
