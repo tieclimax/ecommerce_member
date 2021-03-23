@@ -231,12 +231,19 @@ class FrontendController extends Controller
     {
         $products = Category::getProductByCat($request->slug);
         // return $request->slug;
-        $recent_products = Product::where('status', 'active')->orderBy('id', 'DESC')->limit(3)->get();
+
+        $recent_products = Product::where('status', 'active')->orderBy('id', 'DESC')->paginate('3');
+        // $recent_products = Product::where('status', 'active')->orderBy('id', 'DESC')->limit(3)->get();
 
         if (request()->is('e-shop.loc/product-grids')) {
             return view('frontend.pages.product-grids')->with('products', $products->products)->with('recent_products', $recent_products);
         } else {
-            return view('frontend.pages.product-lists')->with('products', $products->products)->with('recent_products', $recent_products);
+            // dd("show");
+            try {
+                return view('frontend.pages.product-lists')->with('products', $products->products)->with('recent_products', $recent_products);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
         }
     }
     public function productSubCat(Request $request)

@@ -189,6 +189,7 @@
                         <div class="row">
                             {{-- {{$products}} --}}
                             @if (count($products) > 0)
+
                                 @foreach ($products as $product)
                                     <div class="col-lg-4 col-md-6 col-12">
                                         <div class="single-product">
@@ -228,12 +229,13 @@
                                                 @php
                                                     $after_discount = $product->price - ($product->price * $product->discount) / 100;
                                                 @endphp
-                                                <span>${{ number_format($after_discount, 2) }}</span>
+                                                <span>฿{{ number_format($after_discount, 2) }}</span>
                                                 <del
-                                                    style="padding-left:4%;">${{ number_format($product->price, 2) }}</del>
+                                                    style="padding-left:4%;">฿{{ number_format($product->price, 2) }}</del>
                                             </div>
                                         </div>
                                     </div>
+
                                 @endforeach
                             @else
                                 <h4 class="text-warning" style="margin:100px auto;">ไม่มีสินค้า</h4>
@@ -244,7 +246,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 justify-content-center d-flex">
-                                {{ $products->appends($_GET)->links() }}
+                                {{-- {{ $products->appends($_GET)->links() }} --}}
                             </div>
                         </div>
 

@@ -25,7 +25,7 @@ class MessageSent implements ShouldBroadcast
     {
         // return $message;
         // dd($message);
-        $this->message=$message;
+        $this->message = $message;
     }
 
     /**

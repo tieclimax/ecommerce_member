@@ -120,7 +120,7 @@
                             <ul class="nav nav-tabs filter-tope-group" id="myTab" role="tablist">
                                 @php
                                     $categories = DB::table('categories')
-                                        ->where('status', 'active')
+                                        ->where('is_featured', 'active')
                                         ->where('is_parent', 1)
                                         ->get();
                                     // dd($categories);
@@ -187,12 +187,13 @@
                                                         href="{{ route('product-detail', $product->slug) }}">{{ $product->title }}</a>
                                                 </h3>
                                                 <div class="product-price">
+
                                                     @php
                                                         $after_discount = $product->price - ($product->price * $product->discount) / 100;
                                                     @endphp
-                                                    <span>${{ number_format($after_discount, 2) }}</span>
-                                                    <del
-                                                        style="padding-left:4%;">${{ number_format($product->price, 2) }}</del>
+                                                    <span>฿{{ number_format($after_discount, 2) }}</span>
+                                                    <del style="padding-left:4%;">${{ number_format($product->price, 2) }}
+                                                    </del>
                                                 </div>
                                             </div>
                                         </div>
@@ -739,7 +740,7 @@
     </script> --}}
     <script>
         /*==================================================================
-                                                                                                                                            [ Isotope ]*/
+                                                                                                                                                                        [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 

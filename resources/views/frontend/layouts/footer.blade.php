@@ -88,14 +88,14 @@
         <div class="container">
             <div class="inner">
                 <div class="row">
-                    <div class="col-lg-6 col-12">
+                    <div class="col-lg-9 col-12">
                         <div class="left">
                             <p>Copyright © {{ date('Y') }} <span href="" target="_blank">Panuwat Khrai-udom ,
                                     Peerapoj Sunhathum</span> - All Rights Reserved.
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-12">
+                    <div class="col-lg-3     col-12">
                         <div class="right">
                             <img src="{{ asset('backend/img/payments.png') }}" alt="#">
                         </div>

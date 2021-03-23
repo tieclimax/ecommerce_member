@@ -142,11 +142,54 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     // Password Change
     Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
+
+    Route::resource('/myproduct', 'MyshopController');
 });
 
 
+// Backend for Super admin section start
+Route::group(['prefix' => '/superadmin', 'middleware' => ['auth', 'superadmin']], function () {
+    Route::get('/', 'Superadmin\SuperadminController@index')->name('superadmin');
 
+    Route::get('/file-manager', function () {
+        return view('superadmin.layouts.file-manager');
+    })->name('superadmin.file-manager');
 
+    Route::resource('/superadminreview', 'Superadmin\ProductReviewController');
+
+    // Post
+    Route::resource('/superadminpost', 'Superadmin\PostController');
+
+    // POST category
+    Route::resource('/superadminpost-category', 'Superadmin\PostCategoryController');
+
+    // Post tag
+    Route::resource('/superadminpost-tag', 'Superadmin\PostTagController');
+    // Comment
+    Route::resource('/superadmincomment', 'Superadmin\PostCommentController');
+    // Coupon
+    Route::resource('/superadmincoupon', 'Superadmin\CouponController');
+
+    // user route
+    Route::resource('superadminusers', 'Superadmin\UsersController');
+
+    // Profile
+    Route::get('/profile', 'Superadmin\SuperadminController@profile')->name('superadmin-profile');
+    Route::post('/profile/{id}', 'Superadmin\SuperadminController@profileUpdate')->name('superadminprofile-update');
+
+    // Settings
+    Route::get('settings', 'Superadmin\SuperadminController@settings')->name('superadminsettings');
+    Route::post('setting/update', 'Superadmin\SuperadminController@settingsUpdate')->name('superadminsettings.update');
+
+    // Notification
+    Route::get('/notification/{id}', 'Superadmin\NotificationController@show')->name('superadmin.notification');
+    Route::get('/notifications', 'Superadmin\NotificationController@index')->name('superadminall.notification');
+    Route::delete('/notification/{id}', 'Superadmin\NotificationController@delete')->name('superadminnotification.delete');
+
+    // Message
+    Route::resource('/message', 'Superadmin\MessageController');
+    Route::get('/message/five', 'Superadmin\MessageController@messageFive')->name('superadminmessages.five');
+});
 
 
 
