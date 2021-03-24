@@ -189,12 +189,6 @@ Route::group(['prefix' => '/superadmin', 'middleware' => ['auth', 'superadmin']]
     // Message
     Route::resource('/message', 'Superadmin\MessageController');
     Route::get('/message/five', 'Superadmin\MessageController@messageFive')->name('superadminmessages.five');
-
-    Route::get("/storage-link", function () {
-        $targetFolder = storage_path("app/public");
-        $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
-        symlink($targetFolder, $linkFolder);
-    });
 });
 
 
