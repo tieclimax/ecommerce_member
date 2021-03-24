@@ -6,7 +6,7 @@
             <img src={{ asset('images/icons/ecommerce.png') }} style="width: 40px" alt="">
             {{-- <i class="fas fa-laugh-wink"></i> --}}
         </div>
-        <div class="sidebar-brand-text mx-3">{{ Auth::user()->name }}</div>
+        <div class="sidebar-brand-text mx-3">TopShop</div>
     </a>
 
     <!-- Divider -->

@@ -1,0 +1,87 @@
+version: "3"
+services:
+  #PHP Service
+  nginx_topshop:
+    restart: always
+    image: jwilder/nginx-proxy
+    container_name: nginx_topshop
+    networks:
+      - app_topshop
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
+
+  app_topshop:
+    restart: always
+    build: ./image/
+    container_name: app_topshop
+    networks:
+      - app_topshop
+    volumes:
+      - ./:/var/www/laravel
+    environment:
+      - VIRTUAL_HOST=${MEMBER}
+
+  home_topshop:
+    restart: always
+    build: .
+    container_name: home_topshop
+    networks:
+      - app_topshop
+    volumes:
+      - ./home:/var/www/html
+    environment:
+      - VIRTUAL_HOST=${WWW}
+
+  db:
+    container_name: db
+    image: mysql:5.7
+    restart: always
+    networks:
+      - app_topshop
+    environment:
+      MYSQL_DATABASE: admin_topshop
+      MYSQL_USER: admin_topshop
+      MYSQL_PASSWORD: password#10
+      MYSQL_ROOT_PASSWORD: password#10
+    volumes:
+      - ./../databasae:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin_topshop:
+    container_name: phpmyadmin_topshop
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8003:80
+    environment:
+      - VIRTUAL_HOST=${MYADMIN}
+    depends_on:
+      - db
+    networks:
+      - app_topshop
+
+  ftp_topshop:
+    container_name: ftp_topshop
+    image: docker.io/panubo/vsftpd
+    restart: always
+    networks:
+      - app_topshop
+    environment:
+      FTP_USER: admin
+      FTP_PASSWORD: Mfg@me999d0tv1p
+      FTP_CHOWN_ROOT: 1
+    ports:
+      - "21:21"
+      - "4559-4564:4559-4564"
+    volumes:
+      - ./home:/srv
+
+#Docker Networks
+networks:
+  app_topshop:
+    driver: bridge

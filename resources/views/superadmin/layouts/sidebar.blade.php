@@ -3,7 +3,8 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('superadmin') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <img src={{ asset('images/icons/ecommerce.png') }} style="width: 40px" alt="">
+            {{-- <i class="fas fa-laugh-wink"></i> --}}
         </div>
         <div class="sidebar-brand-text mx-3">TopShop</div>
     </a>
