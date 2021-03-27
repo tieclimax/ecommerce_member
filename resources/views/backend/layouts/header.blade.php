@@ -85,10 +85,10 @@
                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
                     เปลี่ยนรหัสผ่าน
                 </a>
-                <a class="dropdown-item" href="{{ route('settings') }}">
+                {{-- <a class="dropdown-item" href="{{ route('settings') }}">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     ตั้งค่า
-                </a>
+                </a> --}}
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

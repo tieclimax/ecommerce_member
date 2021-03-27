@@ -26,7 +26,7 @@
                         <option value="inactive" {{ $review->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">อัปเดท</button>
             </form>
         </div>
     </div>

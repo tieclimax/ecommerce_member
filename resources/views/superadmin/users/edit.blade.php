@@ -9,7 +9,7 @@
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Name</label>
+                    <label for="inputTitle" class="col-form-label">ชื่อ</label>
                     <input id="inputTitle" type="text" name="name" placeholder="Enter name" value="{{ $user->name }}"
                         class="form-control">
                     @error('name')
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputEmail" class="col-form-label">Email</label>
+                    <label for="inputEmail" class="col-form-label">อีเมล</label>
                     <input id="inputEmail" type="email" name="email" placeholder="Enter email" value="{{ $user->email }}"
                         class="form-control">
                     @error('email')
@@ -35,7 +35,7 @@
         </div> --}}
 
                 <div class="form-group">
-                    <label for="inputPhoto" class="col-form-label">Photo</label>
+                    <label for="inputPhoto" class="col-form-label">รูป</label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -82,7 +82,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">Update</button>
+                    <button class="btn btn-success" type="submit">อัปเดท</button>
                 </div>
             </form>
         </div>

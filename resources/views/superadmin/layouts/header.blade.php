@@ -77,15 +77,15 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ route('admin-profile') }}">
+                <a class="dropdown-item" href="{{ route('superadmin-profile') }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     โปรไฟล์
                 </a>
-                <a class="dropdown-item" href="{{ route('change.password.form') }}">
+                <a class="dropdown-item" href="{{ route('superadminchange.password.form') }}">
                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
                     เปลี่ยนรหัสผ่าน
                 </a>
-                <a class="dropdown-item" href="{{ route('settings') }}">
+                <a class="dropdown-item" href="{{ route('superadminsettings') }}">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     ตั้งค่า
                 </a>

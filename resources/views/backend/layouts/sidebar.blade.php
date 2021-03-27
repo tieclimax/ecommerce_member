@@ -235,11 +235,11 @@
     <!-- General settings -->
 
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('settings') }}">
             <i class="fas fa-cog"></i>
             <span>ตั้งค่า</span></a>
-    </li>
+    </li> --}}
 
 
     <!-- Sidebar Toggler (Sidebar) -->

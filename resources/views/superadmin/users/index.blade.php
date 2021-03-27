@@ -19,9 +19,9 @@
                     <thead>
                         <tr>
                             <th>S.N.</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Photo</th>
+                            <th>ชื่อ</th>
+                            <th>อีเมล</th>
+                            <th>รูป</th>
                             <th>Join Date</th>
                             <th>Role</th>
                             <th>Status</th>
@@ -31,9 +31,9 @@
                     <tfoot>
                         <tr>
                             <th>S.N.</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Photo</th>
+                            <th>ชื่อ</th>
+                            <th>อีเมล</th>
+                            <th>รูป</th>
                             <th>Join Date</th>
                             <th>Role</th>
                             <th>Status</th>

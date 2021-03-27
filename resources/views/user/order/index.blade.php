@@ -19,8 +19,8 @@
                             <tr>
                                 <th>S.N.</th>
                                 <th>Order No.</th>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>ชื่อ</th>
+                                <th>อีเมล</th>
                                 <th>Quantity</th>
                                 <th>Charge</th>
                                 <th>Total Amount</th>
@@ -32,8 +32,8 @@
                             <tr>
                                 <th>S.N.</th>
                                 <th>Order No.</th>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>ชื่อ</th>
+                                <th>อีเมล</th>
                                 <th>Quantity</th>
                                 <th>Charge</th>
                                 <th>Total Amount</th>

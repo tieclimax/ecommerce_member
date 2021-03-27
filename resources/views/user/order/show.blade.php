@@ -16,8 +16,8 @@
                         <tr>
                             <th>S.N.</th>
                             <th>Order No.</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>ชื่อ</th>
+                            <th>อีเมล</th>
                             <th>Quantity</th>
                             <th>Charge</th>
                             <th>Total Amount</th>
@@ -127,7 +127,7 @@
                                             <td> : {{ $order->first_name }} {{ $order->last_name }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Email</td>
+                                            <td>อีเมล</td>
                                             <td> : {{ $order->email }}</td>
                                         </tr>
                                         <tr>

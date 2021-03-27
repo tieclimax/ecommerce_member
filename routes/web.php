@@ -131,9 +131,10 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::resource('/shipping', 'ShippingController');
     // Coupon
     Route::resource('/coupon', 'CouponController');
-    // Settings
-    Route::get('settings', 'AdminController@settings')->name('settings');
-    Route::post('setting/update', 'AdminController@settingsUpdate')->name('settings.update');
+
+    // // Settings
+    // Route::get('settings', 'AdminController@settings')->name('settings');
+    // Route::post('setting/update', 'AdminController@settingsUpdate')->name('settings.update');
 
     // Notification
     Route::get('/notification/{id}', 'NotificationController@show')->name('admin.notification');
@@ -189,6 +190,10 @@ Route::group(['prefix' => '/superadmin', 'middleware' => ['auth', 'superadmin']]
     // Message
     Route::resource('/message', 'Superadmin\MessageController');
     Route::get('/message/five', 'Superadmin\MessageController@messageFive')->name('superadminmessages.five');
+
+    // Password Change
+    Route::get('change-password', 'Superadmin\SuperadminController@changePassword')->name('superadminchange.password.form');
+    Route::post('change-password', 'Superadmin\SuperadminController@changPasswordStore')->name('superadminchange.password');
 });
 
 

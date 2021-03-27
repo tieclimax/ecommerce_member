@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPhoto" class="col-form-label">Photo</label>
+                    <label for="inputPhoto" class="col-form-label">รูป</label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">

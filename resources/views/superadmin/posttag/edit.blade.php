@@ -10,8 +10,8 @@
                 @method('PATCH')
                 <div class="form-group">
                     <label for="inputTitle" class="col-form-label">Title</label>
-                    <input id="inputTitle" type="text" name="title" placeholder="Enter title" value="{{ $postTag->title }}"
-                        class="form-control">
+                    <input id="inputTitle" type="text" name="title" placeholder="Enter title"
+                        value="{{ $postTag->title }}" class="form-control">
                     @error('title')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -28,7 +28,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">Update</button>
+                    <button class="btn btn-success" type="submit">อัปเดท</button>
                 </div>
             </form>
         </div>

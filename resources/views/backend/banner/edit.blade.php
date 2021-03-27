@@ -19,7 +19,8 @@
 
                 <div class="form-group">
                     <label for="inputDesc" class="col-form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description">{{ $banner->description }}</textarea>
+                    <textarea class="form-control" id="description"
+                        name="description">{{ $banner->description }}</textarea>
                     @error('description')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -52,7 +53,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">Update</button>
+                    <button class="btn btn-success" type="submit">อัปเดท</button>
                 </div>
             </form>
         </div>

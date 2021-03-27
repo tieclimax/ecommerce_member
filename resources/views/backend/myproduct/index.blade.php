@@ -29,7 +29,7 @@
                                 <th>Condition</th>
                                 <th>Brand</th>
                                 <th>Stock</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -46,7 +46,7 @@
                                 <th>Condition</th>
                                 <th>Brand</th>
                                 <th>Stock</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -165,8 +165,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                                        display: none;
-                                    } */
+                                            display: none;
+                                        } */
 
         .zoom {
             transition: transform .2s;

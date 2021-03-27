@@ -11,10 +11,10 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h4 class=" font-weight-bold">Profile</h4>
+            <h4 class=" font-weight-bold">โปรไฟล์</h4>
             <ul class="breadcrumbs">
-                <li><a href="{{ route('superadmin') }}" style="color:#999">Dashboard</a></li>
-                <li><a href="" class="active text-primary">Profile Page</a></li>
+                <li><a href="{{ route('superadmin') }}" style="color:#999">แดชบอร์ด</a></li>
+                <li><a href="" class="active text-primary">หน้าโปรไฟล์</a></li>
             </ul>
         </div>
         <div class="card-body">
@@ -48,7 +48,7 @@
                         action="{{ route('superadminprofile-update', $profile->id) }}">
                         @csrf
                         <div class="form-group">
-                            <label for="inputTitle" class="col-form-label">Name</label>
+                            <label for="inputTitle" class="col-form-label">ชื่อ</label>
                             <input id="inputTitle" type="text" name="name" placeholder="Enter name"
                                 value="{{ $profile->name }}" class="form-control">
                             @error('name')
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="inputEmail" class="col-form-label">Email</label>
+                            <label for="inputEmail" class="col-form-label">อีเมล</label>
                             <input id="inputEmail" disabled type="email" name="email" placeholder="Enter email"
                                 value="{{ $profile->email }}" class="form-control">
                             @error('email')
@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="inputPhoto" class="col-form-label">Photo</label>
+                            <label for="inputPhoto" class="col-form-label">รูป</label>
                             <div class="input-group">
                                 <span class="input-group-btn">
                                     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -95,7 +95,7 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-success btn-sm">Update</button>
+                        <button type="submit" class="btn btn-success btn-sm">อัปเดท</button>
                     </form>
                 </div>
             </div>

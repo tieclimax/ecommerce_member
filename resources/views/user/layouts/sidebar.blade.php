@@ -16,7 +16,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>แดชบอร์ด</span></a>
     </li>
 
     <!-- Divider -->

@@ -22,7 +22,7 @@
                                 <th>S.N.</th>
                                 <th>Title</th>
                                 <th>Slug</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -32,7 +32,7 @@
                                 <th>S.N.</th>
                                 <th>Title</th>
                                 <th>Slug</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>

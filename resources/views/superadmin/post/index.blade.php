@@ -24,7 +24,7 @@
                                 <th>Category</th>
                                 <th>Tag</th>
                                 <th>Author</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -36,7 +36,7 @@
                                 <th>Category</th>
                                 <th>Tag</th>
                                 <th>Author</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>

@@ -24,7 +24,7 @@
                                 <th>Slug</th>
                                 <th>Is Parent</th>
                                 <th>Parent Category</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>IsFeatured</th>
                                 <th>Action</th>
@@ -37,7 +37,7 @@
                                 <th>Slug</th>
                                 <th>Is Parent</th>
                                 <th>Parent Category</th>
-                                <th>Photo</th>
+                                <th>รูป</th>
                                 <th>Status</th>
                                 <th>IsFeatured</th>
                                 <th>Action</th>
@@ -140,8 +140,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                display: none;
-            } */
+                    display: none;
+                } */
 
     </style>
 @endpush

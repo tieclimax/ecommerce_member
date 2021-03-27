@@ -13,7 +13,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">ชื่อ</th>
                             <th scope="col">Subject</th>
                             <th scope="col">Date</th>
                             <th scope="col">Action</th>
