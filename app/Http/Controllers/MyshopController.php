@@ -78,6 +78,7 @@ class MyshopController extends Controller
         $data['slug'] = $slug;
         // dd($data['slug']);
         $data['is_featured'] = $request->input('is_featured', 0);
+        $data['product_confirmed'] = $request->input('product_confirmed', 0);
         // dd($data['is_featured']);
         $size = $request->input('size');
         // dd($size);
@@ -87,8 +88,7 @@ class MyshopController extends Controller
             // dd($size);
             $data['size'] = '';
         }
-        // return $size;
-        // return $data;
+        // dd($data);
         $countTitle = Product::where('title', $data['title'])->count();
         if ($countTitle == 0) {
             $status = Product::create($data);
