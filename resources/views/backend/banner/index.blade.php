@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
+                                <th>หัวข้อ</th>
                                 <th>Slug</th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
@@ -30,7 +30,7 @@
                         <tfoot>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
+                                <th>หัวข้อ</th>
                                 <th>Slug</th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>

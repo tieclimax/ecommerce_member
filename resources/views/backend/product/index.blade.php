@@ -11,7 +11,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary float-left">Product Lists</h6>
             <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip"
-                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
+                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> เพิ่มสินค้า</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -20,15 +20,15 @@
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Is Featured</th>
-                                <th>Price</th>
-                                <th>Discount</th>
-                                <th>Size</th>
-                                <th>Condition</th>
-                                <th>Brand</th>
-                                <th>Stock</th>
+                                <th>หัวข้อ</th>
+                                <th>หมวดหมู่</th>
+                                <th>กำลังมาเเรง</th>
+                                <th>ราคา</th>
+                                <th>ส่วนลด</th>
+                                <th>ขนาด</th>
+                                <th> เงื่อนไข </th>
+                                <th> แบรนด์ </th>
+                                <th> อยู่ในคลัง </th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
@@ -37,15 +37,15 @@
                         <tfoot>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Is Featured</th>
-                                <th>Price</th>
-                                <th>Discount</th>
-                                <th>Size</th>
-                                <th>Condition</th>
-                                <th>Brand</th>
-                                <th>Stock</th>
+                                <th>หัวข้อ</th>
+                                <th>หมวดหมู่</th>
+                                <th>กำลังมาเเรง</th>
+                                <th>ราคา</th>
+                                <th>ส่วนลด</th>
+                                <th>ขนาด</th>
+                                <th> เงื่อนไข </th>
+                                <th> แบรนด์ </th>
+                                <th> อยู่ในคลัง </th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>

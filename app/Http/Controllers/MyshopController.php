@@ -22,12 +22,20 @@ class MyshopController extends Controller
     {
         // $id = Auth::user()->id;
 
-        $products = Product::getMyProduct();
+        $products = Product::getMyProduct()->where('product_confirmed','1');
         // dd($products);
 
         // return $products;
         return view('backend.myproduct.index')->with('products', $products);
     }
+    
+    public function show()
+    { 
+        $products = Product::getMyProduct()->where('product_confirmed','0');
+        // dd($products);
+        return view('backend.myproduct.productpadding')->with('products', $products);
+    }
+
     public function create()
     {
         $brand = Brand::get();

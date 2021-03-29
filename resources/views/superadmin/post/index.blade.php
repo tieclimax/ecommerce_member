@@ -20,8 +20,8 @@
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
-                                <th>Category</th>
+                                <th>หัวข้อ</th>
+                                <th>หมวดหมู่</th>
                                 <th>Tag</th>
                                 <th> ผู้แต่ง </th>
                                 <th>รูป</th>
@@ -32,8 +32,8 @@
                         <tfoot>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
-                                <th>Category</th>
+                                <th>หัวข้อ</th>
+                                <th>หมวดหมู่</th>
                                 <th>Tag</th>
                                 <th> ผู้แต่ง </th>
                                 <th>รูป</th>

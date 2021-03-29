@@ -20,8 +20,8 @@
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
-                                <th>Price</th>
+                                <th>หัวข้อ</th>
+                                <th>ราคา</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -29,8 +29,8 @@
                         <tfoot>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
-                                <th>Price</th>
+                                <th>หัวข้อ</th>
+                                <th>ราคา</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>

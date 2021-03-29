@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
+                                <th>หัวข้อ</th>
                                 <th>Slug</th>
                                 <th>Is Parent</th>
                                 <th>Parent Category</th>
@@ -33,7 +33,7 @@
                         <tfoot>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>Title</th>
+                                <th>หัวข้อ</th>
                                 <th>Slug</th>
                                 <th>Is Parent</th>
                                 <th>Parent Category</th>

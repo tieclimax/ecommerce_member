@@ -66,8 +66,9 @@
         <div id="myshopCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">ตัวเลือกร้านค้าของฉัน:</h6>
-                <a class="collapse-item" href="{{ route('myproduct.index') }}">ผลิตภัณฑ์</a>
-                <a class="collapse-item" href="{{ route('myproduct.create') }}">เพิ่มผลิตภัณฑ์</a>
+                <a class="collapse-item" href="{{ route('myproduct.index') }}">สินค้า</a>
+                <a class="collapse-item" href="{{ route('myproduct.productpadding') }}">สินค้ารอการตรวจสอบ</a>
+                <a class="collapse-item" href="{{ route('myproduct.create') }}">เพิ่มสินค้า</a>
             </div>
         </div>
     </li>
@@ -153,12 +154,12 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+    {{-- <!-- Heading -->
     <div class="sidebar-heading">
         กระทู้
-    </div>
+    </div> --}}
 
-    <!-- Posts -->
+    {{-- <!-- Posts -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCollapse" aria-expanded="true"
             aria-controls="postCollapse">
@@ -172,7 +173,7 @@
                 <a class="collapse-item" href="{{ route('post.create') }}">เพิ่มกระทู้</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Category -->
     <li class="nav-item">
@@ -215,13 +216,13 @@
     </li>
 
 
-    <!-- Divider -->
+    {{-- <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Heading -->
     <div class="sidebar-heading">
         การตั้งค่าทั่วไป
-    </div>
-    <li class="nav-item">
+    </div> --}}
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('coupon.index') }}">
             <i class="fas fa-table"></i>
             <span>คูปอง</span></a>
@@ -231,7 +232,7 @@
         <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-users"></i>
             <span>ผู้ใช้</span></a>
-    </li>
+    </li> --}}
     <!-- General settings -->
 
 

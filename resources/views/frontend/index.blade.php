@@ -321,6 +321,7 @@
                         @php
                             $product_lists = DB::table('products')
                                 ->where('status', 'active')
+                                ->where('product_confirmed',1)
                                 ->orderBy('id', 'DESC')
                                 ->limit(6)
                                 ->get();

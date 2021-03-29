@@ -102,7 +102,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         return view('backend.layouts.file-manager');
     })->name('file-manager');
     // user route
-    Route::resource('users', 'UsersController');
+    // Route::resource('users', 'UsersController');
     // Banner
     Route::resource('banner', 'BannerController');
     // Brand
@@ -120,8 +120,8 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::resource('/post-category', 'PostCategoryController');
     // Post tag
     Route::resource('/post-tag', 'PostTagController');
-    // Post
-    Route::resource('/post', 'PostController');
+    // // Post
+    // Route::resource('/post', 'PostController');
     // Message
     Route::resource('/message', 'MessageController');
     Route::get('/message/five', 'MessageController@messageFive')->name('messages.five');
@@ -131,7 +131,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     // Shipping
     Route::resource('/shipping', 'ShippingController');
     // Coupon
-    Route::resource('/coupon', 'CouponController');
+    // Route::resource('/coupon', 'CouponController');
 
     // // Settings
     // Route::get('settings', 'AdminController@settings')->name('settings');
@@ -146,6 +146,8 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
 
     Route::resource('/myproduct', 'MyshopController');
+    Route::get('/myproduct/productpadding', 'MyshopController@show')->name('myproduct.productpadding');
+    
 });
 
 
