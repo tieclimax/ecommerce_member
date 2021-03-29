@@ -19,20 +19,20 @@
                     <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>S.N.</th>
+                                <th>ลำดับ</th>
                                 <th>Title</th>
                                 <th>Slug</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>S.N.</th>
+                                <th>ลำดับ</th>
                                 <th>Title</th>
                                 <th>Slug</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </tfoot>
                         <tbody>

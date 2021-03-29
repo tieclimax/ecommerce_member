@@ -86,7 +86,7 @@
                         <a href="product-details.html">
                             <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                             <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                            <span class="new">New</span>
+                            <span class="new">ใหม่</span>
                         </a>
                         <div class="button-head">
                             <div class="product-action">
@@ -306,7 +306,7 @@
                         <a href="product-details.html">
                             <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                             <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                            <span class="new">New</span>
+                            <span class="new">ใหม่</span>
                         </a>
                         <div class="button-head">
                             <div class="product-action">
@@ -526,7 +526,7 @@
                         <a href="product-details.html">
                             <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                             <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                            <span class="new">New</span>
+                            <span class="new">ใหม่</span>
                         </a>
                         <div class="button-head">
                             <div class="product-action">
@@ -746,7 +746,7 @@
                         <a href="product-details.html">
                             <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                             <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                            <span class="new">New</span>
+                            <span class="new">ใหม่</span>
                         </a>
                         <div class="button-head">
                             <div class="product-action">
@@ -966,7 +966,7 @@
                         <a href="product-details.html">
                             <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                             <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                            <span class="new">New</span>
+                            <span class="new">ใหม่</span>
                         </a>
                         <div class="button-head">
                             <div class="product-action">

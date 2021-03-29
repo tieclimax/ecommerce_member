@@ -4,7 +4,7 @@
 
 @section('main-content')
     <div class="card">
-        <h5 class="card-header">Comment Edit</h5>
+        <h5 class="card-header">แก้ไขความคิดเห็น</h5>
         <div class="card-body">
             <form action="{{ route('superadmincomment.update', $comment->id) }}" method="POST">
                 @csrf
@@ -19,14 +19,14 @@
                         class="form-control">{{ $comment->comment }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="status">Status :</label>
+                    <label for="status">สถานะ :</label>
                     <select name="status" id="" class="form-control">
-                        <option value="">--Select Status--</option>
+                        <option value="">--เลือกสถานะ--</option>
                         <option value="active" {{ $comment->status == 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $comment->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">อัปเดท</button>
+                <button type="submit" class="btn btn-primary">อัปเดต</button>
             </form>
         </div>
     </div>

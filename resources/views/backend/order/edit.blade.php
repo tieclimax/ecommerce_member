@@ -4,22 +4,22 @@
 
 @section('main-content')
     <div class="card">
-        <h5 class="card-header">Order Edit</h5>
+        <h5 class="card-header"> แก้ไขคำสั่งซื้อ </h5>
         <div class="card-body">
             <form action="{{ route('order.update', $order->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="status">Status :</label>
+                    <label for="status">สถานะ :</label>
                     <select name="status" id="" class="form-control">
-                        <option value="">--Select Status--</option>
-                        <option value="new" {{ $order->status == 'new' ? 'selected' : '' }}>New</option>
-                        <option value="process" {{ $order->status == 'process' ? 'selected' : '' }}>process</option>
-                        <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>Delivered</option>
-                        <option value="cancel" {{ $order->status == 'cancel' ? 'selected' : '' }}>Cancel</option>
+                        <option value="">--เลือกสถานะ--</option>
+                        <option value="new" {{ $order->status == 'new' ? 'selected' : '' }}>ใหม่</option>
+                        <option value="process" {{ $order->status == 'process' ? 'selected' : '' }}> กำลังดำเนินการ </option>
+                        <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}> จัดส่งแล้ว </option>
+                        <option value="cancel" {{ $order->status == 'cancel' ? 'selected' : '' }}>ยกเลิก</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">อัปเดท</button>
+                <button type="submit" class="btn btn-primary">อัปเดต</button>
             </form>
         </div>
     </div>

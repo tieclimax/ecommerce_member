@@ -9,7 +9,7 @@
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
+                    <label for="inputTitle" class="col-form-label"> หัวข้อ <span class="text-danger">*</span></label>
                     <input id="inputTitle" type="text" name="title" placeholder="Enter title" value="{{ $brand->title }}"
                         class="form-control">
                     @error('title')
@@ -17,7 +17,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+                    <label for="status" class="col-form-label">สถานะ <span class="text-danger">*</span></label>
                     <select name="status" class="form-control">
                         <option value="active" {{ $brand->status == 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $brand->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
@@ -27,7 +27,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">อัปเดท</button>
+                    <button class="btn btn-success" type="submit">อัปเดต</button>
                 </div>
             </form>
         </div>

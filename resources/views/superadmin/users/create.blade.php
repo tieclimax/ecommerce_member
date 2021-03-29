@@ -3,7 +3,7 @@
 @section('main-content')
 
     <div class="card">
-        <h5 class="card-header">Add User</h5>
+        <h5 class="card-header"> เพิ่มผู้ใช้ </h5>
         <div class="card-body">
             <form method="post" action="{{ route('superadminusers.store') }}">
                 {{ csrf_field() }}
@@ -39,7 +39,7 @@
                     <div class="input-group">
                         <span class="input-group-btn">
                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                <i class="fa fa-picture-o"></i> Choose
+                                <i class="fa fa-picture-o"></i> เลือก
                             </a>
                         </span>
                         <input id="thumbnail" class="form-control" type="text" name="photo" value="{{ old('photo') }}">
@@ -55,9 +55,9 @@
                         ->get();
                 @endphp
                 <div class="form-group">
-                    <label for="role" class="col-form-label">Role</label>
+                    <label for="role" class="col-form-label"> บทบาท </label>
                     <select name="role" class="form-control">
-                        <option value="">-----Select Role-----</option>
+                        <option value="">-----เลือกบทบาท-----</option>
                         @foreach ($roles as $role)
                             <option value="{{ $role->role }}">{{ $role->role }}</option>
                         @endforeach
@@ -67,7 +67,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="status" class="col-form-label">Status</label>
+                    <label for="status" class="col-form-label">สถานะ</label>
                     <select name="status" class="form-control">
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
@@ -77,8 +77,8 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button type="reset" class="btn btn-warning">Reset</button>
-                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button type="reset" class="btn btn-warning"> รีเซ็ต </button>
+                    <button class="btn btn-success" type="submit"> ส่ง </button>
                 </div>
             </form>
         </div>

@@ -24,13 +24,13 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Shop
+        ร้านค้า
     </div>
     <!--Orders -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.order.index') }}">
             <i class="fas fa-hammer fa-chart-area"></i>
-            <span>Orders</span>
+            <span>คำสั่งซื้อ</span>
         </a>
     </li>
 
@@ -38,7 +38,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.productreview.index') }}">
             <i class="fas fa-comments"></i>
-            <span>Reviews</span></a>
+            <span>รีวิว</span></a>
     </li>
 
 
@@ -47,13 +47,13 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Posts
+        โพส
     </div>
     <!-- Comments -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.post-comment.index') }}">
             <i class="fas fa-comments fa-chart-area"></i>
-            <span>Comments</span>
+            <span> ความคิดเห็น </span>
         </a>
     </li>
     <!-- Sidebar Toggler (Sidebar) -->

@@ -1,6 +1,6 @@
 @extends('user.layouts.master')
 
-@section('title', 'Admin Profile')
+@section('title', 'Admin โปรไฟล์')
 
 @section('main-content')
 
@@ -81,9 +81,9 @@
                             @enderror
                         </div>
                         {{-- <div class="form-group">
-                          <label for="role" class="col-form-label">Role</label>
+                          <label for="role" class="col-form-label"> บทบาท </label>
                           <select name="role" class="form-control">
-                              <option value="">-----Select Role-----</option>
+                              <option value="">-----เลือกบทบาท-----</option>
                                   <option value="admin" {{(($profile->role=='admin')? 'selected' : '')}}>Admin</option>
                                   <option value="user" {{(($profile->role=='user')? 'selected' : '')}}>User</option>
                           </select>
@@ -92,7 +92,7 @@
                         @enderror
                         </div> --}}
 
-                        <button type="submit" class="btn btn-success btn-sm">อัปเดท</button>
+                        <button type="submit" class="btn btn-success btn-sm">อัปเดต</button>
                     </form>
                 </div>
             </div>

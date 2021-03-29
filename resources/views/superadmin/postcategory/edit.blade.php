@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="status" class="col-form-label">Status</label>
+                    <label for="status" class="col-form-label">สถานะ</label>
                     <select name="status" class="form-control">
                         <option value="active" {{ $postCategory->status == 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $postCategory->status == 'inactive' ? 'selected' : '' }}>Inactive
@@ -29,7 +29,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">อัปเดท</button>
+                    <button class="btn btn-success" type="submit">อัปเดต</button>
                 </div>
             </form>
         </div>

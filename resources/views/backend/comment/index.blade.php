@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Comment Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left">รายการความคิดเห็น</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -17,24 +17,24 @@
                     <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>S.N.</th>
-                                <th>Author</th>
-                                <th>Post Title</th>
-                                <th>Message</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>ลำดับ</th>
+                                <th> ผู้แต่ง </th>
+                                <th> หัวข้อโพสต์ </th>
+                                <th> ข้อความ </th>
+                                <th> วันที่ </th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>S.N.</th>
-                                <th>Author</th>
-                                <th>Post Title</th>
-                                <th>Message</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>ลำดับ</th>
+                                <th> ผู้แต่ง </th>
+                                <th> หัวข้อโพสต์ </th>
+                                <th> ข้อความ </th>
+                                <th> วันที่ </th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -82,7 +82,7 @@
                     </table>
                     <span style="float:right">{{ $comments->links() }}</span>
                 @else
-                    <h6 class="text-center">No post comments found!!!</h6>
+                    <h6 class="text-center">ไม่พบโพสต์ความคิดเห็น !!!</h6>
                 @endif
             </div>
         </div>

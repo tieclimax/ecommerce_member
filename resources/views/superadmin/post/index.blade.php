@@ -19,26 +19,26 @@
                     <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>S.N.</th>
+                                <th>ลำดับ</th>
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Tag</th>
-                                <th>Author</th>
+                                <th> ผู้แต่ง </th>
                                 <th>รูป</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>S.N.</th>
+                                <th>ลำดับ</th>
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Tag</th>
-                                <th>Author</th>
+                                <th> ผู้แต่ง </th>
                                 <th>รูป</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </tfoot>
                         <tbody>

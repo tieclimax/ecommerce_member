@@ -4,9 +4,9 @@
 
 @section('main-content')
     <div class="card">
-        <h5 class="card-header">Order <a href="{{ route('order.pdf', $order->id) }}"
+        <h5 class="card-header">คำสั่งซื้อ <a href="{{ route('order.pdf', $order->id) }}"
                 class=" btn btn-sm btn-primary shadow-sm float-right"><i class="fas fa-download fa-sm text-white-50"></i>
-                Generate PDF</a>
+                สร้าง PDF</a>
         </h5>
         <div class="card-body">
             @if ($order)
@@ -18,15 +18,15 @@
                     @endphp
                     <thead>
                         <tr>
-                            <th>S.N.</th>
-                            <th>Order No.</th>
+                            <th>ลำดับ</th>
+                            <th> หมายเลขคำสั่งซื้อ </th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
-                            <th>Quantity</th>
-                            <th>Charge</th>
-                            <th>Total Amount</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th> ปริมาณ </th>
+                            <th>ค่าบริการเพิ่มเติม</th>
+                            <th> จำนวนเงินทั้งหมด </th>
+                            <th>สถานะ</th>
+                            <th> การกระทำ </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,23 +75,23 @@
                         <div class="row">
                             <div class="col-lg-6 col-lx-4">
                                 <div class="order-info">
-                                    <h4 class="text-center pb-4">ORDER INFORMATION</h4>
+                                    <h4 class="text-center pb-4"> ข้อมูลการสั่งซื้อ </h4>
                                     <table class="table">
                                         <tr class="">
-                                            <td>Order Number</td>
+                                            <td> หมายเลขคำสั่งซื้อ </td>
                                             <td> : {{ $order->order_number }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Order Date</td>
+                                            <td> วันที่สั่งซื้อ </td>
                                             <td> : {{ $order->created_at->format('D d M, Y') }} at
                                                 {{ $order->created_at->format('g : i a') }} </td>
                                         </tr>
                                         <tr>
-                                            <td>Quantity</td>
+                                            <td> ปริมาณ </td>
                                             <td> : {{ $order->quantity }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Order Status</td>
+                                            <td> สถานะการสั่งซื้อ </td>
                                             <td> : {{ $order->status }}</td>
                                         </tr>
                                         <tr>
@@ -100,7 +100,7 @@
                                                     ->where('id', $order->shipping_id)
                                                     ->pluck('price');
                                             @endphp
-                                            <td>Shipping Charge</td>
+                                            <td> ค่าจัดส่ง </td>
                                             <td> : $ {{ number_format($shipping_charge[0], 2) }}</td>
                                         </tr>
                                         <tr>
@@ -108,17 +108,17 @@
                                             <td> : $ {{ number_format($order->coupon, 2) }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Total Amount</td>
+                                            <td> จำนวนเงินทั้งหมด </td>
                                             <td> : $ {{ number_format($order->total_amount, 2) }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Payment Method</td>
+                                            <td> วิธีการชำระเงิน </td>
                                             <td> : @if ($order->payment_method == 'cod')
-                                                Cash on Delivery @else Paypal @endif
+                                                เก็บเงินปลายทาง @else Paypal @endif
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Payment Status</td>
+                                            <td> สถานะการชำระเงิน </td>
                                             <td> : {{ $order->payment_status }}</td>
                                         </tr>
                                     </table>
@@ -127,10 +127,10 @@
 
                             <div class="col-lg-6 col-lx-4">
                                 <div class="shipping-info">
-                                    <h4 class="text-center pb-4">SHIPPING INFORMATION</h4>
+                                    <h4 class="text-center pb-4"> ข้อมูลการจัดส่ง </h4>
                                     <table class="table">
                                         <tr class="">
-                                            <td>Full Name</td>
+                                            <td> ชื่อนามสกุล </td>
                                             <td> : {{ $order->first_name }} {{ $order->last_name }}</td>
                                         </tr>
                                         <tr>
@@ -138,19 +138,19 @@
                                             <td> : {{ $order->email }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Phone No.</td>
+                                           <td> เบอร์โทรศัพท์ </td>
                                             <td> : {{ $order->phone }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Address</td>
+                                            <td>ที่อยู่</td>
                                             <td> : {{ $order->address1 }}, {{ $order->address2 }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Country</td>
+                                            <td>ประเทศ</td>
                                             <td> : {{ $order->country }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Post Code</td>
+                                            <td> รหัสไปรษณีย์ </td>
                                             <td> : {{ $order->post_code }}</td>
                                         </tr>
                                     </table>

@@ -3,13 +3,13 @@
 @section('main-content')
 
     <div class="card">
-        <h5 class="card-header">Edit Post</h5>
+        <h5 class="card-header">แก้ไขโพส</h5>
         <div class="card-body">
             <form method="post" action="{{ route('post.update', $post->id) }}">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
+                    <label for="inputTitle" class="col-form-label"> หัวข้อ <span class="text-danger">*</span></label>
                     <input id="inputTitle" type="text" name="title" placeholder="Enter title" value="{{ $post->title }}"
                         class="form-control">
                     @error('title')
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description" class="col-form-label">Description</label>
+                    <label for="description" class="col-form-label"> คำอธิบาย </label>
                     <textarea class="form-control" id="description" name="description">{{ $post->description }}</textarea>
                     @error('description')
                         <span class="text-danger">{{ $message }}</span>
@@ -79,11 +79,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+                    <label for="inputPhoto" class="col-form-label"> รูป<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                <i class="fa fa-picture-o"></i> Choose
+                                <i class="fa fa-picture-o"></i> เลือก
                             </a>
                         </span>
                         <input id="thumbnail" class="form-control" type="text" name="photo" value="{{ $post->photo }}">
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+                    <label for="status" class="col-form-label">สถานะ <span class="text-danger">*</span></label>
                     <select name="status" class="form-control">
                         <option value="active" {{ $post->status == 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $post->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
@@ -106,7 +106,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">อัปเดท</button>
+                    <button class="btn btn-success" type="submit">อัปเดต</button>
                 </div>
             </form>
         </div>

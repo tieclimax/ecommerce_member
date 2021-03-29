@@ -51,7 +51,7 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Order</div>
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">คำสั่งซื้อ</div>
                 <div class="row no-gutters align-items-center">
                   <div class="col-auto">
                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\Models\Order::countActiveOrder()}}</div>
@@ -98,26 +98,26 @@
                 <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>S.N.</th>
-                            <th>Order No.</th>
+                            <th>ลำดับ</th>
+                            <th> หมายเลขคำสั่งซื้อ </th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
-                            <th>Quantity</th>
-                            <th>Total Amount</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th> ปริมาณ </th>
+                            <th> จำนวนเงินทั้งหมด </th>
+                            <th>สถานะ</th>
+                            <th> การกระทำ </th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>S.N.</th>
-                            <th>Order No.</th>
+                            <th>ลำดับ</th>
+                            <th> หมายเลขคำสั่งซื้อ </th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
-                            <th>Quantity</th>
-                            <th>Total Amount</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th> ปริมาณ </th>
+                            <th> จำนวนเงินทั้งหมด </th>
+                            <th>สถานะ</th>
+                            <th> การกระทำ </th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -159,7 +159,7 @@
                             @endforeach
                         @else
                             <td colspan="8" class="text-center">
-                                <h4 class="my-4">You have no order yet!! Please order some products</h4>
+                                <h4 class="my-4">คุณยังไม่มีคำสั่งซื้อ !! กรุณาสั่งซื้อสินค้าบางรายการ</h4>
                             </td>
                         @endif
                     </tbody>

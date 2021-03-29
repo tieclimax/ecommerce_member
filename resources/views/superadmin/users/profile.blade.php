@@ -1,6 +1,6 @@
 @extends('superadmin.layouts.master')
 
-@section('title', 'Admin Profile')
+@section('title', 'Admin โปรไฟล์')
 
 @section('main-content')
 
@@ -70,7 +70,7 @@
                             <div class="input-group">
                                 <span class="input-group-btn">
                                     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                        <i class="fa fa-picture-o"></i> Choose
+                                        <i class="fa fa-picture-o"></i> เลือก
                                     </a>
                                 </span>
                                 <input id="thumbnail" class="form-control" type="text" name="photo"
@@ -81,9 +81,9 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="role" class="col-form-label">Role</label>
+                            <label for="role" class="col-form-label"> บทบาท </label>
                             <select name="role" class="form-control">
-                                <option value="">-----Select Role-----</option>
+                                <option value="">-----เลือกบทบาท-----</option>
                                 <option value="admin" {{ $profile->role == 'admin' ? 'selected' : '' }}>Admin</option>
                                 <option value="user" {{ $profile->role == 'user' ? 'selected' : '' }}>User</option>
                                 <option value="superadmin" {{ $profile->role == 'superadmin' ? 'selected' : '' }}>Super
@@ -95,7 +95,7 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-success btn-sm">อัปเดท</button>
+                        <button type="submit" class="btn btn-success btn-sm">อัปเดต</button>
                     </form>
                 </div>
             </div>

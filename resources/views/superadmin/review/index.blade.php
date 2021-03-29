@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Review Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left">รายการรีวิว</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -17,26 +17,26 @@
                     <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>S.N.</th>
-                                <th>Review By</th>
-                                <th>Product Title</th>
-                                <th>Review</th>
-                                <th>Rate</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>ลำดับ</th>
+                                <th>รีวิวโดย</th>
+                                <th> ชื่อผลิตภัณฑ์ </th>
+                                <th> รีวิว</th>
+                                <th> คะแนน </th>
+                                <th> วันที่ </th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>S.N.</th>
-                                <th>Review By</th>
-                                <th>Product Title</th>
-                                <th>Review</th>
-                                <th>Rate</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>ลำดับ</th>
+                                <th>รีวิวโดย</th>
+                                <th> ชื่อผลิตภัณฑ์ </th>
+                                <th> รีวิว</th>
+                                <th> คะแนน </th>
+                                <th> วันที่ </th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -95,7 +95,7 @@
                     </table>
                     <span style="float:right">{{ $reviews->links() }}</span>
                 @else
-                    <h6 class="text-center">No reviews found!!!</h6>
+                    <h6 class="text-center"> ไม่พบรีวิว !!!</h6>
                 @endif
             </div>
         </div>

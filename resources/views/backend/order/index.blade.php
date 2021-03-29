@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Order Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left">รายการคำสั่งซื้อ</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -17,28 +17,28 @@
                     <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>S.N.</th>
-                                <th>Order No.</th>
+                                <th>ลำดับ</th>
+                                <th> หมายเลขคำสั่งซื้อ </th>
                                 <th>ชื่อ</th>
                                 <th>อีเมล</th>
-                                <th>Quantity</th>
-                                <th>Charge</th>
-                                <th>Total Amount</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th> ปริมาณ </th>
+                                <th>ค่าบริการเพิ่มเติม</th>
+                                <th> จำนวนเงินทั้งหมด </th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>S.N.</th>
-                                <th>Order No.</th>
+                                <th>ลำดับ</th>
+                                <th> หมายเลขคำสั่งซื้อ </th>
                                 <th>ชื่อ</th>
                                 <th>อีเมล</th>
-                                <th>Quantity</th>
-                                <th>Charge</th>
-                                <th>Total Amount</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th> ปริมาณ </th>
+                                <th>ค่าบริการเพิ่มเติม</th>
+                                <th> จำนวนเงินทั้งหมด </th>
+                                <th>สถานะ</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -94,7 +94,7 @@
                     </table>
                     <span style="float:right">{{ $orders->links() }}</span>
                 @else
-                    <h6 class="text-center">No orders found!!! Please order some products</h6>
+                    <h6 class="text-center">ไม่พบคำสั่งซื้อ !!! กรุณาสั่งซื้อสินค้าบางรายการ</h6>
                 @endif
             </div>
         </div>

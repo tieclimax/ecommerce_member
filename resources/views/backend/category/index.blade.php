@@ -19,28 +19,28 @@
                     <table class="table table-bordered banner-dataTable" id="" width="100%">
                         <thead>
                             <tr>
-                                <th>S.N.</th>
+                                <th>ลำดับ</th>
                                 <th>Title</th>
                                 <th>Slug</th>
                                 <th>Is Parent</th>
                                 <th>Parent Category</th>
                                 <th>รูป</th>
-                                <th>Status</th>
+                                <th>สถานะ</th>
                                 <th>IsFeatured</th>
-                                <th>Action</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>S.N.</th>
+                                <th>ลำดับ</th>
                                 <th>Title</th>
                                 <th>Slug</th>
                                 <th>Is Parent</th>
                                 <th>Parent Category</th>
                                 <th>รูป</th>
-                                <th>Status</th>
+                                <th>สถานะ</th>
                                 <th>IsFeatured</th>
-                                <th>Action</th>
+                                <th> การกระทำ </th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -140,8 +140,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                    display: none;
-                } */
+                                display: none;
+                            } */
 
     </style>
 @endpush

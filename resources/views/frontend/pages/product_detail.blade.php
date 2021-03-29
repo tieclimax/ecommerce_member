@@ -313,7 +313,7 @@
                                                                             alt="{{ $data->user_info['photo'] }}">
                                                                     @else
                                                                         <img src="{{ asset('backend/img/avatar.png') }}"
-                                                                            alt="Profile.jpg">
+                                                                            alt="โปรไฟล์.jpg">
                                                                     @endif
                                                                 </div>
                                                                 <div class="rating-des">

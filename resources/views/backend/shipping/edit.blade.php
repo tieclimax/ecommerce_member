@@ -25,7 +25,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+                    <label for="status" class="col-form-label">สถานะ <span class="text-danger">*</span></label>
                     <select name="status" class="form-control">
                         <option value="active" {{ $shipping->status == 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $shipping->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
@@ -35,7 +35,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">อัปเดท</button>
+                    <button class="btn btn-success" type="submit">อัปเดต</button>
                 </div>
             </form>
         </div>

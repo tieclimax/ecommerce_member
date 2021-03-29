@@ -24,7 +24,7 @@
         </div>
         
         <div class="form-group">
-          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">สถานะ <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
@@ -34,8 +34,8 @@
           @enderror
         </div>
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Reset</button>
-           <button class="btn btn-success" type="submit">Submit</button>
+          <button type="reset" class="btn btn-warning"> รีเซ็ต </button>
+           <button class="btn btn-success" type="submit"> ส่ง </button>
         </div>
       </form>
     </div>

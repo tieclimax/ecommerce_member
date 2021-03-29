@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes(['register' => false]);
+Auth::routes(['verify' => true]);
 
 Route::get('user/login', 'FrontendController@login')->name('login.form');
 Route::post('user/login', 'FrontendController@loginSubmit')->name('login.submit');
@@ -49,7 +50,7 @@ Route::post('cart-update', 'CartController@cartUpdate')->name('cart.update');
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 })->name('cart');
-Route::get('/checkout', 'CartController@checkout')->name('checkout')->middleware('user');
+Route::get('/checkout', 'CartController@checkout')->name('checkout')->middleware('user')->middleware('verified');
 // Wishlist
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
@@ -106,7 +107,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::resource('banner', 'BannerController');
     // Brand
     Route::resource('brand', 'BrandController');
-    // Profile
+    // โปรไฟล์
     Route::get('/profile', 'AdminController@profile')->name('admin-profile');
     Route::post('/profile/{id}', 'AdminController@profileUpdate')->name('profile-update');
     // Category
@@ -174,7 +175,7 @@ Route::group(['prefix' => '/superadmin', 'middleware' => ['auth', 'superadmin']]
     // user route
     Route::resource('superadminusers', 'Superadmin\UsersController');
 
-    // Profile
+    // โปรไฟล์
     Route::get('/profile', 'Superadmin\SuperadminController@profile')->name('superadmin-profile');
     Route::post('/profile/{id}', 'Superadmin\SuperadminController@profileUpdate')->name('superadminprofile-update');
 
@@ -204,7 +205,7 @@ Route::group(['prefix' => '/superadmin', 'middleware' => ['auth', 'superadmin']]
 // User section start
 Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
     Route::get('/', 'HomeController@index')->name('user');
-    // Profile
+    // โปรไฟล์
     Route::get('/profile', 'HomeController@profile')->name('user-profile');
     Route::post('/profile/{id}', 'HomeController@profileUpdate')->name('user-profile-update');
     //  Order

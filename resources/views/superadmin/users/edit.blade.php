@@ -3,7 +3,7 @@
 @section('main-content')
 
     <div class="card">
-        <h5 class="card-header">Edit User</h5>
+        <h5 class="card-header"> แก้ไขผู้ใช้ </h5>
         <div class="card-body">
             <form method="post" action="{{ route('superadminusers.update', $user->id) }}">
                 @csrf
@@ -39,7 +39,7 @@
                     <div class="input-group">
                         <span class="input-group-btn">
                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                <i class="fa fa-picture-o"></i> Choose
+                                <i class="fa fa-picture-o"></i> เลือก
                             </a>
                         </span>
                         <input id="thumbnail" class="form-control" type="text" name="photo" value="{{ $user->photo }}">
@@ -57,9 +57,9 @@
                     // dd($roles);
                 @endphp
                 <div class="form-group">
-                    <label for="role" class="col-form-label">Role</label>
+                    <label for="role" class="col-form-label"> บทบาท </label>
                     <select name="role" class="form-control">
-                        <option value="">-----Select Role-----</option>
+                        <option value="">-----เลือกบทบาท-----</option>
                         @foreach ($roles as $role)
                             <option value="{{ $role->role }}" {{ $role->role == 'admin' ? 'selected' : '' }}>Admin
                             </option>
@@ -72,7 +72,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="status" class="col-form-label">Status</label>
+                    <label for="status" class="col-form-label">สถานะ</label>
                     <select name="status" class="form-control">
                         <option value="active" {{ $user->status == 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $user->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
@@ -82,7 +82,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">อัปเดท</button>
+                    <button class="btn btn-success" type="submit">อัปเดต</button>
                 </div>
             </form>
         </div>

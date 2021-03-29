@@ -10,7 +10,7 @@
                 @method('PATCH')
                 <input type="hidden" name="owner_id" value={{ Auth::user()->id }}>
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
+                    <label for="inputTitle" class="col-form-label"> หัวข้อ <span class="text-danger">*</span></label>
                     <input id="inputTitle" type="text" name="title" placeholder="Enter title"
                         value="{{ $product->title }}" class="form-control">
                     @error('title')
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description" class="col-form-label">Description</label>
+                    <label for="description" class="col-form-label"> คำอธิบาย </label>
                     <textarea class="form-control" id="description"
                         name="description">{{ $product->description }}</textarea>
                     @error('description')
@@ -120,7 +120,7 @@
                     <select name="condition" class="form-control">
                         <option value="">--Select Condition--</option>
                         <option value="default" {{ $product->condition == 'default' ? 'selected' : '' }}>Default</option>
-                        <option value="new" {{ $product->condition == 'new' ? 'selected' : '' }}>New</option>
+                        <option value="new" {{ $product->condition == 'new' ? 'selected' : '' }}>ใหม่</option>
                         <option value="hot" {{ $product->condition == 'hot' ? 'selected' : '' }}>Hot</option>
                     </select>
                 </div>
@@ -134,11 +134,11 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+                    <label for="inputPhoto" class="col-form-label"> รูป<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                                <i class="fas fa-image"></i> Choose
+                                <i class="fas fa-image"></i> เลือก
                             </a>
                         </span>
                         <input id="thumbnail" class="form-control" type="text" name="photo"
@@ -151,7 +151,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+                    <label for="status" class="col-form-label">สถานะ <span class="text-danger">*</span></label>
                     <select name="status" class="form-control">
                         <option value="active" {{ $product->status == 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $product->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
@@ -161,7 +161,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <button class="btn btn-success" type="submit">อัปเดท</button>
+                    <button class="btn btn-success" type="submit">อัปเดต</button>
                 </div>
             </form>
         </div>
