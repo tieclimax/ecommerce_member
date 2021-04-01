@@ -142,7 +142,7 @@ class OrderController extends Controller
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
 
         // dd($users);
-        request()->session()->flash('success', 'Your product successfully placed in order');
+        request()->session()->flash('success', 'สินค้าของคุณถูกจัดเรียงตามคำสั่งซื้อเรียบร้อยแล้ว');
         return redirect()->route('home');
     }
 

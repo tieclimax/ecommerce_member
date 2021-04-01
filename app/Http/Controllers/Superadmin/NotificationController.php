@@ -29,7 +29,7 @@ class NotificationController extends Controller
                 request()->session()->flash('success', 'Notification successfully deleted');
                 return back();
             } else {
-                request()->session()->flash('error', 'Error please try again');
+                request()->session()->flash('error', 'Error กรุณาลองอีกครั้ง!');
                 return back();
             }
         } else {

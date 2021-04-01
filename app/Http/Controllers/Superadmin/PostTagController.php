@@ -53,7 +53,7 @@ class PostTagController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Post Tag Successfully added');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadminpost-tag.index');
     }
@@ -101,7 +101,7 @@ class PostTagController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Post Tag Successfully updated');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadminpost-tag.index');
     }

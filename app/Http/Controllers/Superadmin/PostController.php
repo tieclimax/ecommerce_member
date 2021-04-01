@@ -79,7 +79,7 @@ class PostController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Post Successfully added');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadminpost.index');
     }
@@ -147,7 +147,7 @@ class PostController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Post Successfully updated');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadminpost.index');
     }

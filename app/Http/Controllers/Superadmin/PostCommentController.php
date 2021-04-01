@@ -60,7 +60,7 @@ class PostCommentController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Thank you for your comment');
         } else {
-            request()->session()->flash('error', 'Something went wrong! Please try again!!');
+            request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
         }
         return redirect()->back();
     }
@@ -110,7 +110,7 @@ class PostCommentController extends Controller
             if ($status) {
                 request()->session()->flash('success', 'Comment successfully updated');
             } else {
-                request()->session()->flash('error', 'Something went wrong! Please try again!!');
+                request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
             }
             return redirect()->route('superadmincomment.index');
         } else {
@@ -133,7 +133,7 @@ class PostCommentController extends Controller
             if ($status) {
                 request()->session()->flash('success', 'Post Comment successfully deleted');
             } else {
-                request()->session()->flash('error', 'Error occurred please try again');
+                request()->session()->flash('error', 'Error occurred กรุณาลองอีกครั้ง!');
             }
             return back();
         } else {

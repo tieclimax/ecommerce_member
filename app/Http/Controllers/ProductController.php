@@ -86,7 +86,7 @@ class ProductController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Product Successfully added');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('product.index');
     }
@@ -160,7 +160,7 @@ class ProductController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Product Successfully updated');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('product.index');
     }

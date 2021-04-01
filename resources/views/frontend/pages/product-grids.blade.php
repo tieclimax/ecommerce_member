@@ -241,13 +241,15 @@
 
 
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 justify-content-center d-flex">
-                                {{ $products->appends($_GET)->links() }}
-                            </div>
+                       <div class="row">
+                            <div  class="col-md-12 justify-content-center d-flex" > 
+                                {{ 
+                                $products->appends($_GET)->links('frontend.layouts.pagination',['paginator' => $products,
+                                'link_limit' => $products->perPage()]) 
+                                }}
+                          </div> 
                         </div>
-
-                    </div>
+                       
                 </div>
             </div>
         </section>
@@ -329,7 +331,7 @@
                                         @endphp
                                         <h3><small><del
                                                     class="text-muted">${{ number_format($product->price, 2) }}</del></small>
-                                            ${{ number_format($after_discount, 2) }} </h3>
+                                            ฿{{ number_format($after_discount, 2) }} </h3>
                                         <div class="quickview-peragraph">
                                             <p>{!! html_entity_decode($product->summary) !!}</p>
                                         </div>
@@ -418,10 +420,13 @@
 
 @endsection
 @push('styles')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+    
     <style>
-        .pagination {
+        /* .pagination {
             display: inline-flex;
-        }
+        } */
 
         .filter_button {
             /* height:20px; */
@@ -435,6 +440,11 @@
     </style>
 @endpush
 @push('scripts')
+<!-- Page level plugins -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     {{-- <script>
         $('.cart').click(function(){
@@ -499,6 +509,10 @@
                     "  -  " + m_currency + $("#slider-range").slider("values", 1));
             }
         })
+
+        $(document).ready(function() {
+            $('.product-dataTable').DataTable();
+        });
 
     </script>
 @endpush

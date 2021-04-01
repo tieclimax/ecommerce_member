@@ -44,7 +44,7 @@ class SuperadminController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Successfully updated your profile');
         } else {
-            request()->session()->flash('error', 'Please try again!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
         }
         return redirect()->back();
     }
@@ -73,9 +73,9 @@ class SuperadminController extends Controller
         // return $settings;
         $status = $settings->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Setting successfully updated');
+            request()->session()->flash('success', 'อัปเดตการตั้งค่าสำเร็จแล้ว');
         } else {
-            request()->session()->flash('error', 'Please try again');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
         }
         return redirect()->route('superadmin');
     }
@@ -94,7 +94,7 @@ class SuperadminController extends Controller
 
         User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
 
-        return redirect()->route('superadmin')->with('success', 'Password successfully changed');
+        return redirect()->route('superadmin')->with('success', 'เปลี่ยนรหัสผ่านสำเร็จแล้ว');
     }
 
     // Pie chart

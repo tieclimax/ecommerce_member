@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes(['register' => false]);
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
 Route::get('user/login', 'FrontendController@login')->name('login.form');
 Route::post('user/login', 'FrontendController@loginSubmit')->name('login.submit');
@@ -50,7 +50,7 @@ Route::post('cart-update', 'CartController@cartUpdate')->name('cart.update');
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 })->name('cart');
-Route::get('/checkout', 'CartController@checkout')->name('checkout')->middleware('user')->middleware('verified');
+Route::get('/checkout', 'CartController@checkout')->name('checkout')->middleware('user');
 // Wishlist
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
@@ -147,7 +147,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
 
     Route::resource('/myproduct', 'MyshopController');
     Route::get('/myproduct/productpadding', 'MyshopController@show')->name('myproduct.productpadding');
-    
 });
 
 

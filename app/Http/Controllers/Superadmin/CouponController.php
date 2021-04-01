@@ -50,7 +50,7 @@ class CouponController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Coupon Successfully added');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadmincoupon.index');
     }
@@ -102,7 +102,7 @@ class CouponController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Coupon Successfully updated');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadmincoupon.index');
     }
@@ -121,7 +121,7 @@ class CouponController extends Controller
             if ($status) {
                 request()->session()->flash('success', 'Coupon successfully deleted');
             } else {
-                request()->session()->flash('error', 'Error, Please try again');
+                request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
             }
             return redirect()->route('superadmincoupon.index');
         } else {
@@ -136,7 +136,7 @@ class CouponController extends Controller
         $coupon = Coupon::where('code', $request->code)->first();
         // dd($coupon);
         if (!$coupon) {
-            request()->session()->flash('error', 'Invalid coupon code, Please try again');
+            request()->session()->flash('error', 'Invalid coupon code, กรุณาลองอีกครั้ง!');
             return back();
         }
         if ($coupon) {

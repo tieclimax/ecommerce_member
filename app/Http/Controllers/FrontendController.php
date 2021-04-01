@@ -29,11 +29,12 @@ class FrontendController extends Controller
 
     public function home()
     {
-        $featured = Product::where('status', 'active')->where('is_featured', 1)->where('product_confirmed',1)->orderBy('price', 'DESC')->limit(2)->get();
+        $featured = Product::where('status', 'active')->where('is_featured', 1)->where('product_confirmed', 1)->orderBy('price', 'DESC')->limit(2)->get();
         $posts = Post::where('status', 'active')->orderBy('id', 'DESC')->limit(3)->get();
         $banners = Banner::where('status', 'active')->limit(3)->orderBy('id', 'DESC')->get();
         // return $banner;
-        $products = Product::where('status', 'active')->where('product_confirmed',1)->orderBy('id', 'DESC')->limit(8)->get();
+
+        $products = Product::where('status', 'active')->where('product_confirmed', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $category = Category::where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
         // return $category;
         return view('frontend.index')
@@ -97,7 +98,7 @@ class FrontendController extends Controller
             $products->whereBetween('price', $price);
         }
 
-        $recent_products = Product::where('status', 'active')->where('product_confirmed',1)->orderBy('id', 'DESC')->limit(3)->get();
+        $recent_products = Product::where('status', 'active')->where('product_confirmed', 1)->orderBy('id', 'DESC')->limit(3)->get();
         // Sort by number
         if (!empty($_GET['show'])) {
             $products = $products->where('status', 'active')->paginate($_GET['show']);
@@ -368,10 +369,10 @@ class FrontendController extends Controller
         $data = $request->all();
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'status' => 'active'])) {
             Session::put('user', $data['email']);
-            request()->session()->flash('success', 'Successfully login');
+            request()->session()->flash('success', 'เข้าสู่ระบบสำเร็จ');
             return redirect()->route('home');
         } else {
-            request()->session()->flash('error', 'Invalid email and password pleas try again!');
+            request()->session()->flash('error', 'อีเมลและรหัสผ่านไม่ถูกต้องโปรดลองอีกครั้ง!');
             return redirect()->back();
         }
     }
@@ -380,7 +381,7 @@ class FrontendController extends Controller
     {
         Session::forget('user');
         Auth::logout();
-        request()->session()->flash('success', 'Logout successfully');
+        request()->session()->flash('success', 'ออกจากระบบเรียบร้อยแล้ว');
         return back();
     }
 
@@ -401,10 +402,10 @@ class FrontendController extends Controller
         $check = $this->create($data);
         Session::put('user', $data['email']);
         if ($check) {
-            request()->session()->flash('success', 'Successfully registered');
+            request()->session()->flash('success', 'ลงทะเบียนเรียบร้อยแล้ว');
             return redirect()->route('home');
         } else {
-            request()->session()->flash('error', 'Please try again!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
             return back();
         }
     }
@@ -445,14 +446,14 @@ class FrontendController extends Controller
         if (!Newsletter::isSubscribed($request->email)) {
             Newsletter::subscribePending($request->email);
             if (Newsletter::lastActionSucceeded()) {
-                request()->session()->flash('success', 'Subscribed! Please check your email');
+                request()->session()->flash('success', 'สมัครสมาชิกแล้ว! โปรดตรวจสอบอีเมลของคุณ');
                 return redirect()->route('home');
             } else {
                 Newsletter::getLastError();
-                return back()->with('error', 'Something went wrong! please try again');
+                return back()->with('error', 'มีอะไรบางอย่างผิดปกติ! กรุณาลองอีกครั้ง');
             }
         } else {
-            request()->session()->flash('error', 'Already Subscribed');
+            request()->session()->flash('error', 'สมัครรับข้อมูลแล้ว');
             return back();
         }
     }

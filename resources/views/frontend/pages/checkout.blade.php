@@ -376,7 +376,7 @@
                                                     @foreach (Helper::shipping() as $shipping)
                                                         <option value="{{ $shipping->id }}" class="shippingOption"
                                                             data-price="{{ $shipping->price }}">{{ $shipping->type }}:
-                                                            ${{ $shipping->price }}</option>
+                                                            ฿{{ $shipping->price }}</option>
                                                     @endforeach
                                                 </select>
                                             @else

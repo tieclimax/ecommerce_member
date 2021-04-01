@@ -54,7 +54,7 @@ class PostCategoryController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Post Category Successfully added');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadminpost-category.index');
     }
@@ -102,7 +102,7 @@ class PostCategoryController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Post Category Successfully updated');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
         return redirect()->route('superadminpost-category.index');
     }

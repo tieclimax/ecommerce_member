@@ -63,7 +63,7 @@ class ProductReviewController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Thank you for your feedback');
         } else {
-            request()->session()->flash('error', 'Something went wrong! Please try again!!');
+            request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
         }
         return redirect()->back();
     }
@@ -120,7 +120,7 @@ class ProductReviewController extends Controller
             if ($status) {
                 request()->session()->flash('success', 'Review Successfully updated');
             } else {
-                request()->session()->flash('error', 'Something went wrong! Please try again!!');
+                request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
             }
         } else {
             request()->session()->flash('error', 'Review not found!!');
