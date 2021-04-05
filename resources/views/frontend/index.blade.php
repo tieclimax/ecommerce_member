@@ -271,8 +271,10 @@
                                                 $photo = explode(',', $product->photo);
                                                 // dd($photo);
                                             @endphp
-                                            <img class="default-img" src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
-                                            <img class="hover-img" src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
+                                            <img class="default-img" style="height: 160px" src="{{ $photo[0] }}"
+                                                alt="{{ $photo[0] }}">
+                                            <img class="hover-img" style="height: 160px" src="{{ $photo[0] }}"
+                                                alt="{{ $photo[0] }}">
                                             {{-- <span class="out-of-stock">Hot</span> --}}
                                         </a>
                                         <div class="button-head">
@@ -750,7 +752,7 @@
     </script> --}}
     <script>
         /*==================================================================
-                                                                                                                                                                                                                                                                                                            [ Isotope ]*/
+                                                                                                                                                                                                                                                                                                                        [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 
