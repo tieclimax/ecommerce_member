@@ -3,22 +3,22 @@
 @section('main-content')
 
     <div class="card">
-        <h5 class="card-header">Edit Product</h5>
+        <h5 class="card-header">แก้ไขสินค้า</h5>
         <div class="card-body">
             <form method="post" action="{{ route('product.update', $product->id) }}">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
                     <label for="inputTitle" class="col-form-label"> หัวข้อ <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="title" placeholder="Enter title" value="{{ $product->title }}"
-                        class="form-control">
+                    <input id="inputTitle" type="text" name="title" placeholder="Enter title"
+                        value="{{ $product->title }}" class="form-control">
                     @error('title')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <div class="form-group">
-                    <label for="summary" class="col-form-label">Summary <span class="text-danger">*</span></label>
+                    <label for="summary" class="col-form-label">คำอธิบายสั้นๆ<span class="text-danger">*</span></label>
                     <textarea class="form-control" id="summary" name="summary">{{ $product->summary }}</textarea>
                     @error('summary')
                         <span class="text-danger">{{ $message }}</span>
@@ -36,19 +36,19 @@
 
 
                 <div class="form-group">
-                    <label for="is_featured">Is Featured</label><br>
+                    <label for="is_featured"> กำลังมาแรง </label><br>
                     <input type="checkbox" name='is_featured' id='is_featured' value='{{ $product->is_featured }}'
                         {{ $product->is_featured ? 'checked' : '' }}> Yes
                 </div>
                 {{-- {{$categories}} --}}
 
                 <div class="form-group">
-                    <label for="cat_id">Category <span class="text-danger">*</span></label>
+                    <label for="cat_id"> หมวดหมู่ <span class="text-danger">*</span></label>
                     <select name="cat_id" id="cat_id" class="form-control">
-                        <option value="">--Select any category--</option>
-                        @foreach ($categories as $key => $cat_data)
-                            <option value='{{ $cat_data->id }}' {{ $product->cat_id == $cat_data->id ? 'selected' : '' }}>
-                                {{ $cat_data->title }}</option>
+                        <option value="">-->เลือกหมวดหมู่ใดก็ได้<--< /option>
+                                @foreach ($categories as $key => $cat_data)
+                        <option value='{{ $cat_data->id }}' {{ $product->cat_id == $cat_data->id ? 'selected' : '' }}>
+                            {{ $cat_data->title }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -61,9 +61,9 @@
                 @endphp
                 {{-- {{$product->child_cat_id}} --}}
                 <div class="form-group {{ $product->child_cat_id ? '' : 'd-none' }}" id="child_cat_div">
-                    <label for="child_cat_id">Sub Category</label>
+                    <label for="child_cat_id"> หมวดหมู่ย่อย </label>
                     <select name="child_cat_id" id="child_cat_id" class="form-control">
-                        <option value="">--Select any sub category--</option>
+                        <option value="">--เลือกหมวดหมู่ย่อยใด ๆ--</option>
 
                     </select>
                 </div>
@@ -88,34 +88,35 @@
                 <div class="form-group">
                     <label for="size">Size</label>
                     <select name="size[]" class="form-control selectpicker" multiple data-live-search="true">
-                        <option value="">--Select any size--</option>
+                        <option value="">--เลือกขนาดใดก็ได้--</option>
                         @foreach ($items as $item)
                             @php
                                 $data = explode(',', $item->size);
                                 // dd($data);
                             @endphp
-                            <option value="S" @if (in_array('S', $data)) selected @endif>Small</option>
-                            <option value="M" @if (in_array('M', $data)) selected @endif>Medium</option>
-                            <option value="L" @if (in_array('L', $data)) selected @endif>Large</option>
-                            <option value="XL" @if (in_array('XL', $data)) selected @endif>Extra Large</option>
+                            <option value="S" @if (in_array('S', $data)) selected @endif>เล็ก</option>
+                            <option value="M" @if (in_array('M', $data)) selected @endif>ปานกลาง</option>
+                            <option value="L" @if (in_array('L', $data)) selected @endif>ใหญ่</option>
+                            <option value="XL" @if (in_array('XL', $data)) selected @endif>>ใหญ่มาก</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="brand_id">Brand</label>
+                    <label for="brand_id">ยี่ห้อ</label>
                     <select name="brand_id" class="form-control">
-                        <option value="">--Select Brand--</option>
+                        <option value="">--เลือกยี่ห้อ--</option>
                         @foreach ($brands as $brand)
-                            <option value="{{ $brand->id }}" {{ $product->brand_id == $brand->id ? 'selected' : '' }}>
+                            <option value="{{ $brand->id }}"
+                                {{ $product->brand_id == $brand->id ? 'selected' : '' }}>
                                 {{ $brand->title }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="condition">Condition</label>
+                    <label for="condition"> เงื่อนไข </label>
                     <select name="condition" class="form-control">
-                        <option value="">--Select Condition--</option>
+                        <option value="">--เลือกเงื่อนไข--</option>
                         <option value="default" {{ $product->condition == 'default' ? 'selected' : '' }}>Default</option>
                         <option value="new" {{ $product->condition == 'new' ? 'selected' : '' }}>ใหม่</option>
                         <option value="hot" {{ $product->condition == 'hot' ? 'selected' : '' }}>Hot</option>
@@ -123,7 +124,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="stock">Quantity <span class="text-danger">*</span></label>
+                    <label for="stock"> ปริมาณ <span class="text-danger">*</span></label>
                     <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"
                         value="{{ $product->stock }}" class="form-control">
                     @error('stock')
@@ -138,7 +139,8 @@
                                 <i class="fas fa-image"></i> เลือก
                             </a>
                         </span>
-                        <input id="thumbnail" class="form-control" type="text" name="photo" value="{{ $product->photo }}">
+                        <input id="thumbnail" class="form-control" type="text" name="photo"
+                            value="{{ $product->photo }}">
                     </div>
                     <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     @error('photo')
@@ -213,7 +215,7 @@
                         if (typeof(response) != 'object') {
                             response = $.parseJSON(response);
                         }
-                        var html_option = "<option value=''>--Select any one--</option>";
+                        var html_option = "<option value=''>--เลือกคนใดคนหนึ่ง--</option>";
                         if (response.status) {
                             var data = response.data;
                             if (response.data) {

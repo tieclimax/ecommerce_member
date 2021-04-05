@@ -172,7 +172,7 @@
                                                 <option value="title" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'title') selected @endif>ชื่อ</option>
                                                 <option value="price" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'price') selected @endif>Price</option>
                                                 <option value="category" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'category') selected @endif>Category</option>
-                                                <option value="brand" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'brand') selected @endif>Brand</option>
+                                                <option value="brand" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'brand') selected @endif>ยี่ห้อ</option>
                                             </select>
                                         </div>
                                     </div>
@@ -241,17 +241,14 @@
 
 
                         </div>
-                       <div class="row">
-                            <div  class="col-md-12 justify-content-center d-flex" > 
-                                {{ 
-                                $products->appends($_GET)->links('frontend.layouts.pagination',['paginator' => $products,
-                                'link_limit' => $products->perPage()]) 
-                                }}
-                          </div> 
+                        <div class="row">
+                            <div class="col-md-12 justify-content-center d-flex">
+                                {{ $products->appends($_GET)->links('frontend.layouts.pagination', ['paginator' => $products, 'link_limit' => $products->perPage()]) }}
+                            </div>
                         </div>
-                       
+
+                    </div>
                 </div>
-            </div>
         </section>
     </form>
 
@@ -420,13 +417,13 @@
 
 @endsection
 @push('styles')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
     <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
-    
+
     <style>
         /* .pagination {
-            display: inline-flex;
-        } */
+                    display: inline-flex;
+                } */
 
         .filter_button {
             /* height:20px; */
@@ -440,11 +437,11 @@
     </style>
 @endpush
 @push('scripts')
-<!-- Page level plugins -->
+    <!-- Page level plugins -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     {{-- <script>
         $('.cart').click(function(){

@@ -31,7 +31,7 @@
                                 <th> อยู่ในคลัง </th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
-                                <th> การกระทำ </th>
+                                {{-- <th> การกระทำ </th> --}}
                             </tr>
                         </thead>
                         <tfoot>
@@ -48,7 +48,7 @@
                                 <th> อยู่ในคลัง </th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
-                                <th> การกระทำ </th>
+                                {{-- <th> การกระทำ </th> --}}
                             </tr>
                         </tfoot>
                         <tbody>
@@ -111,7 +111,7 @@
                                             <span class="badge badge-warning">{{ $product->status }}</span>
                                         @endif
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('myproduct.edit', $product->id) }}"
                                             class="btn btn-primary btn-sm float-left mr-1"
                                             style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
@@ -124,7 +124,7 @@
                                                 data-placement="bottom" title="Delete"><i
                                                     class="fas fa-trash-alt"></i></button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                     {{-- Delete Modal --}}
                                     {{-- <div class="modal fade" id="delModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="#delModal{{$user->id}}Label" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -165,8 +165,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                                                        display: none;
-                                                    } */
+                                                            display: none;
+                                                        } */
 
         .zoom {
             transition: transform .2s;

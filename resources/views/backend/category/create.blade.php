@@ -36,9 +36,9 @@
                 <div class="form-group d-none" id='parent_cat_div'>
                     <label for="parent_id">Parent Category</label>
                     <select name="parent_id" class="form-control">
-                        <option value="">--Select any category--</option>
-                        @foreach ($parent_cats as $key => $parent_cat)
-                            <option value='{{ $parent_cat->id }}'>{{ $parent_cat->title }}</option>
+                        <option value="">-->เลือกหมวดหมู่ใดก็ได้<--< /option>
+                                @foreach ($parent_cats as $key => $parent_cat)
+                        <option value='{{ $parent_cat->id }}'>{{ $parent_cat->title }}</option>
                         @endforeach
                     </select>
                 </div>

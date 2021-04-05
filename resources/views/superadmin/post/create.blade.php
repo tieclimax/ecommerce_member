@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="summary" class="col-form-label">Summary <span class="text-danger">*</span></label>
+                    <label for="summary" class="col-form-label">คำอธิบายสั้นๆ<span class="text-danger">*</span></label>
                     <textarea class="form-control" id="summary" name="summary">{{ old('summary') }}</textarea>
                     @error('summary')
                         <span class="text-danger">{{ $message }}</span>
@@ -41,11 +41,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="post_cat_id">Category <span class="text-danger">*</span></label>
+                    <label for="post_cat_id"> หมวดหมู่ <span class="text-danger">*</span></label>
                     <select name="post_cat_id" class="form-control">
-                        <option value="">--Select any category--</option>
-                        @foreach ($categories as $key => $data)
-                            <option value='{{ $data->id }}'>{{ $data->title }}</option>
+                        <option value="">-->เลือกหมวดหมู่ใดก็ได้<--< /option>
+                                @foreach ($categories as $key => $data)
+                        <option value='{{ $data->id }}'>{{ $data->title }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -53,16 +53,16 @@
                 <div class="form-group">
                     <label for="tags">Tag</label>
                     <select name="tags[]" multiple data-live-search="true" class="form-control selectpicker">
-                        <option value="">--Select any tag--</option>
+                        <option value="">--เลือกแท็กใดก็ได้--</option>
                         @foreach ($tags as $key => $data)
                             <option value='{{ $data->title }}'>{{ $data->title }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="added_by">Author</label>
+                    <label for="added_by">ผู้เขียน</label>
                     <select name="added_by" class="form-control">
-                        <option value="">--Select any one--</option>
+                        <option value="">--เลือกคนใดคนหนึ่ง--</option>
                         @foreach ($users as $key => $data)
                             <option value='{{ $data->id }}' {{ $key == 0 ? 'selected' : '' }}>{{ $data->name }}
                             </option>
