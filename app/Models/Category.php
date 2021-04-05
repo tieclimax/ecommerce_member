@@ -69,4 +69,13 @@ class Category extends Model
         }
         return 0;
     }
+    public static function countMyActiveCategory()
+    {
+        $id = Auth::user()->id;
+        $data = Category::where('owner_id', $id)->where('status', 'active')->count();
+        if ($data) {
+            return $data;
+        }
+        return 0;
+    }
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'slug', 'summary', 'description', 'cat_id', 'child_cat_id', 'price', 'brand_id', 'discount', 'status', 'photo', 'size', 'stock', 'is_featured', 'condition', 'owner_id','product_confirmed'];
+    protected $fillable = ['title', 'slug', 'summary', 'description', 'cat_id', 'child_cat_id', 'price', 'brand_id', 'discount', 'status', 'photo', 'size', 'stock', 'is_featured', 'condition', 'owner_id', 'product_confirmed'];
 
     public function cat_info()
     {
@@ -42,6 +42,15 @@ class Product extends Model
     public static function countActiveProduct()
     {
         $data = Product::where('status', 'active')->count();
+        if ($data) {
+            return $data;
+        }
+        return 0;
+    }
+    public static function countMyActiveProduct()
+    {
+        $id = Auth::user()->id;
+        $data = Product::where('owner_id', $id)->where('status', 'active')->count();
         if ($data) {
             return $data;
         }

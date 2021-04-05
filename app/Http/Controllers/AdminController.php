@@ -23,10 +23,11 @@ class AdminController extends Controller
         foreach ($data as $key => $value) {
             $array[++$key] = [$value->day_name, $value->count];
         }
+
+
         //  return $data;
         return view('backend.index')->with('users', json_encode($array));
     }
-
     public function profile()
     {
         $profile = Auth()->user();

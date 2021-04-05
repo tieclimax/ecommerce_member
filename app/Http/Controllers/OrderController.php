@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\Shipping;
 use App\User;
 use PDF;
@@ -57,7 +58,7 @@ class OrderController extends Controller
         // return $request->all();
 
         if (empty(Cart::where('user_id', auth()->user()->id)->where('order_id', null)->first())) {
-            request()->session()->flash('error', 'Cart is Empty !');
+            request()->session()->flash('error', 'ตะกร้าว่าง !');
             return back();
         }
         // $cart=Cart::get();
@@ -122,6 +123,10 @@ class OrderController extends Controller
             $order_data['payment_method'] = 'cod';
             $order_data['payment_status'] = 'Unpaid';
         }
+        $carts =  Cart::where('user_id', auth()->user()->id)->where('order_id', null)->first();
+        $owner_product = Product::where('id', $carts->product_id)->first();
+        dd($owner_product->owner_id);
+        $order_data['owner_id'] = $owner_product->owner_id;
         $order->fill($order_data);
         $status = $order->save();
         if ($order)
