@@ -196,7 +196,7 @@ class OrderController extends Controller
         }
         $status = $order->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Successfully updated order');
+            request()->session()->flash('success', 'อัปเดตคำสั่งซื้อสำเร็จแล้ว');
         } else {
             request()->session()->flash('error', 'Error while updating order');
         }
@@ -240,13 +240,13 @@ class OrderController extends Controller
                 request()->session()->flash('success', 'ส่งคำสั่งซื้อของคุณแล้ว โปรดรอ');
                 return redirect()->route('home');
             } elseif ($order->status == "process") {
-                request()->session()->flash('success', 'คำสั่งซื้อของคุณอยู่ระหว่างดำเนินการโปรดรอสักครู่');
+                request()->session()->flash('success', 'คำสั่งซื้อของคุณอยู่ระหว่างดำเนินการ โปรดรอสักครู่');
                 return redirect()->route('home');
             } elseif ($order->status == "delivered") {
                 request()->session()->flash('success', 'ส่งคำสั่งซื้อของคุณอยู่ระหว่างการจัดส่ง');
                 return redirect()->route('home');
             } else {
-                request()->session()->flash('error', 'คำสั่งซื้อของคุณถูกยกเลิก กรุณาลองอีกครั้ง');
+                request()->session()->flash('error', 'คำสั่งซื้อของคุณถูกยกเลิก โปรดติดต่อร้านค้า');
                 return redirect()->route('home');
             }
         } else {

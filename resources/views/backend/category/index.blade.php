@@ -11,7 +11,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
             <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip"
-                data-placement="bottom" title=""><i class="fas fa-plus"></i> Add Category</a>
+                data-placement="bottom" title=""><i class="fas fa-plus"></i> เพิ่มหมวดหมู่</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -140,8 +140,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                                display: none;
-                            } */
+                                    display: none;
+                                } */
 
     </style>
 @endpush

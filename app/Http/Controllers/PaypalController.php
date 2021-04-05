@@ -19,14 +19,16 @@ class PaypalController extends Controller
 
         // return $cart;
         $data['items'] = array_map(function ($item) use ($cart) {
+            $dolla = 32;
             $name = Product::where('id', $item['product_id'])->pluck('title');
             return [
                 'name' => $name,
-                'price' => $item['price'],
+                'price' => $item['price'] / 32,
                 'desc'  => 'Thank you for using paypal',
                 'qty' => $item['quantity']
             ];
         }, $cart);
+        // dd($data['items']);
 
         $data['invoice_id'] = 'ORD-' . strtoupper(uniqid());
         $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
@@ -34,11 +36,13 @@ class PaypalController extends Controller
         $data['cancel_url'] = route('payment.cancel');
 
         $total = 0;
+
         foreach ($data['items'] as $item) {
             $total += $item['price'] * $item['qty'];
         }
 
-        $data['total'] = $total;
+        $data['total'] = ($total);
+        // dd($data['total']);
         if (session('coupon')) {
             $data['shipping_discount'] = session('coupon')['value'];
         }
@@ -46,7 +50,8 @@ class PaypalController extends Controller
 
         // return session()->get('id');
         $provider = new ExpressCheckout;
-
+        // dd($provider);
+        // dd($data);
         $response = $provider->setExpressCheckout($data);
 
         return redirect($response['paypal_link']);
@@ -74,13 +79,13 @@ class PaypalController extends Controller
         // return $response;
 
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            request()->session()->flash('success', 'You successfully pay from Paypal! Thank You');
+            request()->session()->flash('success', 'คุณชำระเงินจาก Paypal เรียบร้อยแล้ว! ขอขอบคุณ');
             session()->forget('cart');
             session()->forget('coupon');
             return redirect()->route('home');
         }
 
-        request()->session()->flash('error', 'Something went wrong กรุณาลองอีกครั้ง!!!');
+        request()->session()->flash('error', 'อะไรบางอย่างผิดปกติ กรุณาลองอีกครั้ง!!!');
         return redirect()->back();
     }
 }
