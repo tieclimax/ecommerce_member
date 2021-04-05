@@ -34,6 +34,13 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>ผู้จัดการสื่อ</span></a>
     </li>
+    <!-- Products Management -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('product-management.index') }}">
+
+            <i class="fab  fa-fw fa-product-hunt"></i>
+            <span>จัดการสินค้า</span></a>
+    </li>
 
     <!-- Reviews -->
     <li class="nav-item">

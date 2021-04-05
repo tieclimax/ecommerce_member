@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="price" class="col-form-label">Price(NRS) <span class="text-danger">*</span></label>
+                    <label for="price" class="col-form-label"> ราคา(THB) <span class="text-danger">*</span></label>
                     <input id="price" type="number" name="price" placeholder="Enter price" value="{{ old('price') }}"
                         class="form-control">
                     @error('price')
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="discount" class="col-form-label">Discount(%)</label>
+                    <label for="discount" class="col-form-label"> ส่วนลด(%) </label>
                     <input id="discount" type="number" name="discount" min="0" max="100" placeholder="Enter discount"
                         value="{{ old('discount') }}" class="form-control">
                     @error('discount')
@@ -80,10 +80,10 @@
                     <label for="size">Size</label>
                     <select name="size[]" class="form-control selectpicker" multiple data-live-search="true">
                         <option value="">--เลือกขนาดใดก็ได้--</option>
-                        <option value="S">Small (S)</option>
-                        <option value="M">Medium (M)</option>
-                        <option value="L">Large (L)</option>
-                        <option value="XL">Extra Large (XL)</option>
+                        <option value="S">เล็ก (S)</option>
+                        <option value="M">กลาง (M)</option>
+                        <option value="L">ใหญ่ (L)</option>
+                        <option value="XL">ใหญ่มาก (XL)</option>
                     </select>
                 </div>
 
@@ -167,7 +167,7 @@
 
         $(document).ready(function() {
             $('#summary').summernote({
-                placeholder: "Write short description.....",
+                placeholder: "เขียนบรรยายสั้น ๆ ..... ",
                 tabsize: 2,
                 height: 100
             });
@@ -175,7 +175,7 @@
 
         $(document).ready(function() {
             $('#description').summernote({
-                placeholder: "Write detail description.....",
+                placeholder: "เขียนคำอธิบายรายละเอียด ..... ",
                 tabsize: 2,
                 height: 150
             });
@@ -202,7 +202,7 @@
                             response = $.parseJSON(response)
                         }
                         // console.log(response);
-                        var html_option = "<option value=''>----Select sub category----</option>"
+                        var html_option = "<option value=''>----เลือกหมวดหมู่ย่อย----</option>"
                         if (response.status) {
                             var data = response.data;
                             // alert(data);

@@ -158,7 +158,7 @@ class ProductController extends Controller
         // return $data;
         $status = $product->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Product Successfully updated');
+            request()->session()->flash('success', 'อัปเดตสินค้าเรียบร้อยแล้ว');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }

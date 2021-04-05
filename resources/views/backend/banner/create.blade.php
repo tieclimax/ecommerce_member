@@ -73,7 +73,7 @@
 
         $(document).ready(function() {
             $('#description').summernote({
-                placeholder: "Write short description.....",
+                placeholder: "เขียนบรรยายสั้น ๆ ..... ",
                 tabsize: 2,
                 height: 150
             });

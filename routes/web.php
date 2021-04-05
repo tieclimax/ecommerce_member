@@ -196,6 +196,10 @@ Route::group(['prefix' => '/superadmin', 'middleware' => ['auth', 'superadmin']]
     // Password Change
     Route::get('change-password', 'Superadmin\SuperadminController@changePassword')->name('superadminchange.password.form');
     Route::post('change-password', 'Superadmin\SuperadminController@changPasswordStore')->name('superadminchange.password');
+
+    // Products Managemecnt
+    Route::resource('/product-management', 'Superadmin\ProductManagementController');
+    Route::post('/product-management/{id}', 'Superadmin\ProductManagementController@cancel')->name('product-management.cancel');
 });
 
 

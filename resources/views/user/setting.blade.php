@@ -10,8 +10,7 @@
                 {{-- @method('PATCH') --}}
                 {{-- {{dd($data)}} --}}
                 <div class="form-group">
-                    <label for="short_des" class="col-form-label"> คำอธิบายสั้น ๆ <span
-                            class="text-danger">*</span></label>
+                    <label for="short_des" class="col-form-label"> คำอธิบายสั้น ๆ <span class="text-danger">*</span></label>
                     <textarea class="form-control" id="quote" name="short_des">{{ $data->short_des }}</textarea>
                     @error('short_des')
                         <span class="text-danger">{{ $message }}</span>
@@ -116,7 +115,7 @@
 
         $(document).ready(function() {
             $('#summary').summernote({
-                placeholder: "Write short description.....",
+                placeholder: "เขียนบรรยายสั้น ๆ ..... ",
                 tabsize: 2,
                 height: 150
             });
@@ -131,7 +130,7 @@
         });
         $(document).ready(function() {
             $('#description').summernote({
-                placeholder: "Write detail description.....",
+                placeholder: "เขียนคำอธิบายรายละเอียด ..... ",
                 tabsize: 2,
                 height: 150
             });

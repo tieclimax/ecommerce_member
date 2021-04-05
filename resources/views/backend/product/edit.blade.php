@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="price" class="col-form-label">Price(NRS) <span class="text-danger">*</span></label>
+                    <label for="price" class="col-form-label"> ราคา(THB) <span class="text-danger">*</span></label>
                     <input id="price" type="number" name="price" placeholder="Enter price" value="{{ $product->price }}"
                         class="form-control">
                     @error('price')
@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="discount" class="col-form-label">Discount(%)</label>
+                    <label for="discount" class="col-form-label"> ส่วนลด(%) </label>
                     <input id="discount" type="number" name="discount" min="0" max="100" placeholder="Enter discount"
                         value="{{ $product->discount }}" class="form-control">
                     @error('discount')
@@ -182,7 +182,7 @@
 
         $(document).ready(function() {
             $('#summary').summernote({
-                placeholder: "Write short description.....",
+                placeholder: "เขียนบรรยายสั้น ๆ ..... ",
                 tabsize: 2,
                 height: 150
             });
