@@ -91,7 +91,7 @@
                     <div class="col-lg-9 col-12">
                         <div class="left">
                             <p>Copyright © {{ date('Y') }} <span href="" target="_blank">Panuwat Khrai-udom ,
-                                    Peerapoj Sunhathum</span> - All Rights Reserved.
+                                    Pherapoj Sunhathum</span> - All Rights Reserved.
                             </p>
                         </div>
                     </div>

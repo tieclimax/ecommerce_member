@@ -3,7 +3,7 @@
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; <a href="https://github.com/tieclimax" target="_blank">Panuwat Khrai-udom ,
-                    Peerapoj Sunhathum</a> {{ date('Y') }}</span>
+                    Pherapoj Sunhathum</a> {{ date('Y') }}</span>
         </div>
     </div>
 </footer>
