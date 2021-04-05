@@ -151,7 +151,7 @@
                     </table>
                     <span style="float:right">{{ $products->links() }}</span>
                 @else
-                    <h6 class="text-center"> ไม่พบสินค้า !!! โปรดสร้างผลิตภัณฑ์ </h6>
+                    <h6 class="text-center mt-3"> ไม่พบสินค้า !!! โปรดสร้างผลิตภัณฑ์ </h6>
                 @endif
             </div>
         </div>

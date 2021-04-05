@@ -96,7 +96,7 @@
                     </table>
                     <span style="float:right">{{ $reviews->links() }}</span>
                 @else
-                    <h6 class="text-center"> ไม่พบรีวิว !!!</h6>
+                    <h6 class="text-center mt-3"> ไม่พบรีวิว !!!</h6>
                 @endif
             </div>
         </div>

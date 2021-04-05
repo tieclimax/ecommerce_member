@@ -119,7 +119,7 @@ class FrontendController extends Controller
             // dd($slug);
             $cat_ids = Category::select('id')->whereIn('slug', $slug)->pluck('id')->toArray();
             // dd($cat_ids);
-            $products->whereIn('cat_id', $cat_ids)->paginate;
+            $products->whereIn('cat_id', $cat_ids);
             // return $products;
         }
         if (!empty($_GET['brand'])) {
@@ -233,7 +233,7 @@ class FrontendController extends Controller
         $products = Category::getProductByCat($request->slug);
         // return $request->slug;
 
-        $recent_products = Product::where('status', 'active')->orderBy('id', 'DESC')->paginate('3');
+        $recent_products = Product::where('status', 'active')->where('product_confirmed', '1')->orderBy('id', 'DESC')->paginate('3');
         // $recent_products = Product::where('status', 'active')->orderBy('id', 'DESC')->limit(3)->get();
 
         if (request()->is('e-shop.loc/product-grids')) {
@@ -241,7 +241,9 @@ class FrontendController extends Controller
         } else {
             // dd("show");
             try {
-                return view('frontend.pages.product-lists')->with('products', $products->products)->with('recent_products', $recent_products);
+                // dd($products->products);
+                $products = $products->products;
+                return view('frontend.pages.product-lists')->with('products', $products)->with('recent_products', $recent_products);
             } catch (\Throwable $th) {
                 //throw $th;
             }
@@ -284,7 +286,7 @@ class FrontendController extends Controller
         if (!empty($_GET['show'])) {
             $post = $post->where('status', 'active')->orderBy('id', 'DESC')->paginate($_GET['show']);
         } else {
-            $post = $post->where('status', 'active')->orderBy('id', 'DESC')->paginate(9);
+            $post = $post->where('status', 'active')->orderBy('id', 'DESC')->paginate(4);
         }
         // $post=Post::where('status','active')->paginate(8);
         $rcnt_post = Post::where('status', 'active')->orderBy('id', 'DESC')->limit(3)->get();

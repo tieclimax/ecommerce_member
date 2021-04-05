@@ -9,7 +9,7 @@
                         <ul class="list-main">
                             @php
                                 $settings = DB::table('settings')->get();
-
+                                
                             @endphp
                             <li><i class="ti-headphone-alt"></i>
                                 @foreach ($settings as $data) {{ $data->phone }}
@@ -148,7 +148,7 @@
                                                 <h4><a href="{{ route('product-detail', $data->product['slug']) }}"
                                                         target="_blank">{{ $data->product['title'] }}</a></h4>
                                                 <p class="quantity">{{ $data->quantity }} x - <span
-                                                        class="amount">${{ number_format($data->price, 2) }}</span></p>
+                                                        class="amount">฿{{ number_format($data->price, 2) }}</span></p>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -156,7 +156,7 @@
                                         <div class="total">
                                             <span>ทั้งหมด</span>
                                             <span
-                                                class="total-amount">${{ number_format(Helper::totalWishlistPrice(), 2) }}</span>
+                                                class="total-amount">฿{{ number_format(Helper::totalWishlistPrice(), 2) }}</span>
                                         </div>
                                         <a href="{{ route('cart') }}" class="btn animate">ตะกร้าสินค้า</a>
                                     </div>
@@ -191,7 +191,7 @@
                                                 <h4><a href="{{ route('product-detail', $data->product['slug']) }}"
                                                         target="_blank">{{ $data->product['title'] }}</a></h4>
                                                 <p class="quantity">{{ $data->quantity }} x - <span
-                                                        class="amount">${{ number_format($data->price, 2) }}</span></p>
+                                                        class="amount">฿{{ number_format($data->price, 2) }}</span></p>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -199,7 +199,7 @@
                                         <div class="total">
                                             <span>ทั้งหมด</span>
                                             <span
-                                                class="total-amount">${{ number_format(Helper::totalCartPrice(), 2) }}</span>
+                                                class="total-amount">฿{{ number_format(Helper::totalCartPrice(), 2) }}</span>
                                         </div>
                                         <a href="{{ route('checkout') }}" class="btn animate">เช็คเอาท์</a>
                                     </div>

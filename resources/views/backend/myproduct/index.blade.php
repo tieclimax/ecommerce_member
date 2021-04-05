@@ -16,7 +16,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($products) > 0)
-                    <table class="table table-bordered product-dataTable" id="" width="100%">
+                    <table class="table table-bordered" id="product-dataTable" width="100%">
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
@@ -149,9 +149,9 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- <span style="float:right">{{ $products->links() }}</span> --}}
+                    <span style="float:right">{{ $products->links() }}</span>
                 @else
-                    <h6 class="text-center">ไม่มีสินค้าของคุณ กรุณาเพิ่มสินค้าของคุณ</h6>
+                    <h6 class="text-center mt-3">ไม่มีสินค้าของคุณ กรุณาเพิ่มสินค้าของคุณ</h6>
                 @endif
             </div>
         </div>
@@ -159,14 +159,19 @@
 @endsection
 
 @push('styles')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
-    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
-    {{-- <link href="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <style>
+        div.dataTables_wrapper div.dataTables_paginate {
+            display: none;
+        }
+
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                                                        display: none;
-                                                    } */
+                                                                                                            display: none;
+                                                                                                        } */
 
         .zoom {
             transition: transform .2s;
@@ -182,14 +187,14 @@
 
 @push('scripts')
 
+    <script src="{{ asset('backend/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    {{-- <script src="{{ asset('backend/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script> --}}
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
@@ -201,7 +206,17 @@
         //     }]
         // });
         $(document).ready(function() {
-            $('.product-dataTable').DataTable();
+            $('#product-dataTable').dataTable({
+                "order": [
+                    [0, "desc"]
+                ],
+                "bOrdering": true,
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": false
+            });
         });
 
         // Sweet alert

@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Post Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left">รายการโพสต์</h6>
             <a href="{{ route('superadminpost.create') }}" class="btn btn-primary btn-sm float-right"
-                data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post</a>
+                data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> เพิ่มโพสต์</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -99,7 +99,7 @@
                     </table>
                     <span style="float:right">{{ $posts->links() }}</span>
                 @else
-                    <h6 class="text-center">No posts found!!! Please create Post</h6>
+                    <h6 class="text-center mt-3">ไม่พบกระทู้ !!! โปรดสร้างโพสต์</h6>
                 @endif
             </div>
         </div>

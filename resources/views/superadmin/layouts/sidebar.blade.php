@@ -79,13 +79,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCategoryCollapse"
             aria-expanded="true" aria-controls="postCategoryCollapse">
             <i class="fas fa-sitemap fa-folder"></i>
-            <span>หมวดหมู่</span>
+            <span>หมวดหมู่โพสต์</span>
         </a>
         <div id="postCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">ตัวเลือกหมวดหมู่:</h6>
-                <a class="collapse-item" href="{{ route('superadminpost-category.index') }}">หมวดหมู่</a>
-                <a class="collapse-item" href="{{ route('superadminpost-category.create') }}">เพิ่มหมวดหมู่</a>
+                <h6 class="collapse-header">ตัวเลือกหมวดหมู่โพสต์:</h6>
+                <a class="collapse-item" href="{{ route('superadminpost-category.index') }}">หมวดหมู่โพสต์</a>
+                <a class="collapse-item" href="{{ route('superadminpost-category.create') }}">เพิ่มหมวดหมู่โพสต์</a>
             </div>
         </div>
     </li>

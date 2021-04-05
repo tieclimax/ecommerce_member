@@ -17,24 +17,24 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="user-dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>ลำดับ</th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
-                            <th>รูป</th>
-                            <th>Join Date</th>
+                            <th>รูปโปรไฟล์</th>
+                            <th>เข้าร่วมมาเเล้ว</th>
                             <th> บทบาท </th>
                             <th>สถานะ</th>
                             <th> การกระทำ </th>
                         </tr>
                     </thead>
                     <tfoot>
-                        <tr>
+                        <tr class="text-center">
                             <th>ลำดับ</th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
-                            <th>รูป</th>
-                            <th>Join Date</th>
+                            <th>รูปโปรไฟล์</th>
+                            <th>เข้าร่วมมาเเล้ว</th>
                             <th> บทบาท </th>
                             <th>สถานะ</th>
                             <th> การกระทำ </th>
@@ -56,7 +56,7 @@
                                     @endif
                                 </td>
                                 <td>{{ $user->created_at ? $user->created_at->diffForHumans() : '' }}</td>
-                                <td>{{ $user->role }}</td>
+                                <td>{{ Str::ucfirst($user->role) }}</td>
                                 <td>
                                     @if ($user->status == 'active')
                                         <span class="badge badge-success">{{ $user->status }}</span>

@@ -175,21 +175,7 @@
         </div>
     </li> --}}
 
-    <!-- Category -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCategoryCollapse"
-            aria-expanded="true" aria-controls="postCategoryCollapse">
-            <i class="fas fa-sitemap fa-folder"></i>
-            <span>หมวดหมู่</span>
-        </a>
-        <div id="postCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">ตัวเลือกหมวดหมู่:</h6>
-                <a class="collapse-item" href="{{ route('post-category.index') }}">หมวดหมู่</a>
-                <a class="collapse-item" href="{{ route('post-category.create') }}">เพิ่มหมวดหมู่</a>
-            </div>
-        </div>
-    </li>
+
 
     <!-- Tags -->
     <li class="nav-item">

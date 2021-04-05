@@ -53,7 +53,7 @@
                                                 <p class="product-des">{!! $cart['summary'] !!}</p>
                                             </td>
                                             <td class="price" data-title="Price">
-                                                <span>${{ number_format($cart['price'], 2) }}</span>
+                                                <span>฿{{($cart['price'], 2) }}</span>
                                             </td>
                                             <td class="qty" data-title="Qty">
                                                 <!-- Input Order -->

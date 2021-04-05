@@ -21,7 +21,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -30,7 +30,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -88,7 +88,7 @@
                     </table>
                     <span style="float:right">{{ $brands->links() }}</span>
                 @else
-                    <h6 class="text-center">No brands found!!! Please create brand</h6>
+                    <h6 class="text-center mt-3">ไม่พบยี่ห้อ !!! กรุณาสร้างแบรนด์</h6>
                 @endif
             </div>
         </div>

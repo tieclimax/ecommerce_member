@@ -83,7 +83,7 @@
                     </table>
                     <span style="float:right">{{ $comments->links() }}</span>
                 @else
-                    <h6 class="text-center">ไม่พบโพสต์ความคิดเห็น !!!</h6>
+                    <h6 class="text-center mt-3">ไม่พบโพสต์ความคิดเห็น !!!</h6>
                 @endif
             </div>
         </div>

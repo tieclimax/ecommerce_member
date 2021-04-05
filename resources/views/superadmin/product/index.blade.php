@@ -149,7 +149,7 @@
                     </table>
                     {{-- <span style="float:right">{{ $products->links() }}</span> --}}
                 @else
-                    <h6 class="text-center">ไม่มีสินค้ารอการอนุมัติ กรุณารอสินค้าจากผู้ขาย</h6>
+                    <h6 class="text-center mt-3">ไม่มีสินค้ารอการอนุมัติ กรุณารอสินค้าจากผู้ขาย</h6>
                 @endif
             </div>
         </div>
@@ -163,8 +163,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                                                                                                                                                                                                                                                                                                                                                                                                    display: none;
-                                                                                                                                                                                                                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                                                                                                                                                                        display: none;
+                                                                                                                                                                                                                                                                                                                                                                                                    } */
 
         .zoom {
             transition: transform .2s;

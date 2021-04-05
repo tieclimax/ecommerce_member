@@ -16,7 +16,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($products) > 0)
-                    <table class="table table-bordered product-dataTable" id="" width="100%">
+                    <table class="table table-bordered" id="" width="100%">
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
@@ -111,47 +111,14 @@
                                             <span class="badge badge-warning">{{ $product->status }}</span>
                                         @endif
                                     </td>
-                                    {{-- <td>
-                                        <a href="{{ route('myproduct.edit', $product->id) }}"
-                                            class="btn btn-primary btn-sm float-left mr-1"
-                                            style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                            title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                                        <form method="POST" action="{{ route('myproduct.destroy', [$product->id]) }}">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn btn-danger btn-sm dltBtn" data-id={{ $product->id }}
-                                                style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                                data-placement="bottom" title="Delete"><i
-                                                    class="fas fa-trash-alt"></i></button>
-                                        </form>
-                                    </td> --}}
-                                    {{-- Delete Modal --}}
-                                    {{-- <div class="modal fade" id="delModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="#delModal{{$user->id}}Label" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form method="post" action="{{ route('categorys.destroy',$user->id) }}">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                    </div> --}}
+
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- <span style="float:right">{{ $products->links() }}</span> --}}
+                    <span style="float:right">{{ $products->links() }}</span>
                 @else
-                    <h6 class="text-center">ไม่มีสินค้าของคุณ กรุณาเพิ่มสินค้าของคุณ</h6>
+                    <h6 class="text-center mt-3">ไม่มีสินค้าของคุณ กรุณาเพิ่มสินค้าของคุณ</h6>
                 @endif
             </div>
         </div>
@@ -165,8 +132,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                                                            display: none;
-                                                        } */
+                                                                            display: none;
+                                                                        } */
 
         .zoom {
             transition: transform .2s;
@@ -194,16 +161,6 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
     <script>
-        // $('#product-dataTable').DataTable({
-        //     "columnDefs": [{
-        //         "orderable": false,
-        //         "targets": [3, 4, 5]
-        //     }]
-        // });
-        $(document).ready(function() {
-            $('.product-dataTable').DataTable();
-        });
-
         // Sweet alert
 
         function deleteData(id) {

@@ -58,7 +58,7 @@
                                         @foreach ($shipping_charge as $data) $
                                             {{ number_format($data, 2) }} @endforeach
                                     </td>
-                                    <td>${{ number_format($order->total_amount, 2) }}</td>
+                                    <td>฿{{ number_format($order->total_amount, 2) }}</td>
                                     <td>
                                         @if ($order->status == 'new')
                                             <span class="badge badge-primary">{{ $order->status }}</span>
@@ -90,7 +90,7 @@
                     </table>
                     <span style="float:right">{{ $orders->links() }}</span>
                 @else
-                    <h6 class="text-center">ไม่พบคำสั่งซื้อ !!! กรุณาสั่งซื้อสินค้าบางรายการ</h6>
+                    <h6 class="text-center mt-3">ไม่พบคำสั่งซื้อ !!! กรุณาสั่งซื้อสินค้าบางรายการ</h6>
                 @endif
             </div>
         </div>

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-
+@section('title', 'TopShop || Category Page')
 @section('main-content')
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -9,24 +9,24 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left"> รายการหมวดหมู่ </h6>
             <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip"
                 data-placement="bottom" title=""><i class="fas fa-plus"></i> เพิ่มหมวดหมู่</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($categories) > 0)
-                    <table class="table table-bordered banner-dataTable" id="" width="100%">
+                    <table class="table table-bordered" id="" width="100%">
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
-                                <th>Is Parent</th>
-                                <th>Parent Category</th>
+                                <th>คำอธิบายสั้น</th>
+                                <th> หมวดหมู่หลัก </th>
+                                <th> หมวดหมู่ย่อย </th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
-                                <th>IsFeatured</th>
+                                <th>กำลังมาแรง</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
@@ -34,12 +34,12 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
-                                <th>Is Parent</th>
-                                <th>Parent Category</th>
+                                <th>คำอธิบายสั้น</th>
+                                <th> หมวดหมู่หลัก </th>
+                                <th> หมวดหมู่ย่อย </th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
-                                <th>IsFeatured</th>
+                                <th>กำลังมาแรง</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </tfoot>
@@ -124,9 +124,9 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- <span style="float:right">{{ $categories->links() }}</span> --}}
+                    <span style="float:right">{{ $categories->links() }}</span>
                 @else
-                    <h6 class="text-center">No Categories found!!! Please create Category</h6>
+                    <h6 class="text-center mt-3">ไม่พบหมวดหมู่ !!! โปรดสร้างหมวดหมู่</h6>
                 @endif
             </div>
         </div>
@@ -134,22 +134,22 @@
 @endsection
 
 @push('styles')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
-    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" /> --}}
     {{-- <link href="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
-        /* div.dataTables_wrapper div.dataTables_paginate {
-                                    display: none;
-                                } */
+        div.dataTables_wrapper div.dataTables_paginate {
+            display: none;
+        }
 
     </style>
 @endpush
 
 @push('scripts')
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script> --}}
     <!-- Page level plugins -->
     {{-- <script src="{{ asset('backend/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script> --}}
@@ -158,15 +158,9 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
     <script>
-        // $('.banner-dataTable').DataTable({
-        //     "columnDefs": [{
-        //         "orderable": false,
-        //         "targets": [3, 4, 5]
-        //     }]
+        // $(document).ready(function() {
+        //     $('.banner-dataTable').DataTable();
         // });
-        $(document).ready(function() {
-            $('.banner-dataTable').DataTable();
-        });
 
 
         // Sweet alert

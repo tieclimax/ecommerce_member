@@ -40,7 +40,7 @@
                                 <tr>
                                     <td>{{ $shipping->id }}</td>
                                     <td>{{ $shipping->type }}</td>
-                                    <td>${{ $shipping->price }}</td>
+                                    <td>฿{{ $shipping->price }}</td>
                                     <td>
                                         @if ($shipping->status == 'active')
                                             <span class="badge badge-success">{{ $shipping->status }}</span>
@@ -88,7 +88,7 @@
                     </table>
                     <span style="float:right">{{ $shippings->links() }}</span>
                 @else
-                    <h6 class="text-center">No shippings found!!! Please create shipping</h6>
+                    <h6 class="text-center mt-3">ไม่พบสินค้า !!! โปรดสร้างการจัดส่ง</h6>
                 @endif
             </div>
         </div>

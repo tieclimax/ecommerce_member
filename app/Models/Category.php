@@ -20,7 +20,7 @@ class Category extends Model
     public static function getMyCategory()
     {
         $id = Auth::user()->id;
-        return  Category::where('owner_id', $id)->orderBy('id', 'DESC')->with('parent_info')->get();
+        return  Category::where('owner_id', $id)->orderBy('id', 'DESC')->with('parent_info')->paginate(5);
     }
 
     public static function shiftChild($cat_id)

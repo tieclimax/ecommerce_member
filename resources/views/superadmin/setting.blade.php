@@ -3,7 +3,7 @@
 @section('main-content')
 
     <div class="card">
-        <h5 class="card-header">แก้ไขโพส</h5>
+        <h5 class="card-header">แก้ไขข้อมูลเว็บไซต์</h5>
         <div class="card-body">
             <form method="post" action="{{ route('superadminsettings.update') }}">
                 @csrf

@@ -6,8 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>TopShop || DASHBOARD</title>
-
+    <!-- Meta Tag -->
+    @yield('meta')
+    <!-- Title Tag  -->
+    <title>@yield('title')</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/icons/ecommerce.png">
     <!-- Custom fonts for this template-->
     <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link

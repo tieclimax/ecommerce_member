@@ -103,7 +103,7 @@
                     </table>
                     <span style="float:right">{{ $coupons->links() }}</span>
                 @else
-                    <h6 class="text-center">No Coupon found!!! Please create coupon</h6>
+                    <h6 class="text-center mt-3">ไม่พบคูปอง !!! กรุณาสร้างคูปอง</h6>
                 @endif
             </div>
         </div>

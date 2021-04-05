@@ -122,7 +122,7 @@
                                             @endphp
                                             <p class="price"><del
                                                     class="text-muted">${{ number_format($product->price, 2) }}</del>
-                                                ${{ number_format($org, 2) }} </p>
+                                                ฿{{ number_format($org, 2) }} </p>
 
                                         </div>
                                     </div>
@@ -230,8 +230,11 @@
                                                     $after_discount = $product->price - ($product->price * $product->discount) / 100;
                                                 @endphp
                                                 <span>฿{{ number_format($after_discount, 2) }}</span>
-                                                <del
-                                                    style="padding-left:4%;">฿{{ number_format($product->price, 2) }}</del>
+                                                @if ($product->discount != null)
+
+                                                    <del
+                                                        style="padding-left:4%;">฿{{ number_format($product->price, 2) }}</del>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -246,7 +249,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 justify-content-center d-flex">
-                                {{-- {{ $products->appends($_GET)->links() }} --}}
+                                {{-- {{ $products->links() }} --}}
                             </div>
                         </div>
 

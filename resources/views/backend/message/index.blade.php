@@ -50,7 +50,7 @@
                     {{ $messages->links() }}
                 </nav>
             @else
-                <h2>Messages Empty!</h2>
+                <h2>ข้อความว่างเปล่า!</h2>
             @endif
         </div>
     </div>

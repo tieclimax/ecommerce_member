@@ -21,7 +21,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
@@ -31,7 +31,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>รูป</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
@@ -99,7 +99,7 @@
                     </table>
                     <span style="float:right">{{ $banners->links() }}</span>
                 @else
-                    <h6 class="text-center">No banners found!!! Please create banner</h6>
+                    <h6 class="text-center mt-3">ไม่พบแบนเนอร์ !!! กรุณาสร้างแบนเนอร์</h6>
                 @endif
             </div>
         </div>

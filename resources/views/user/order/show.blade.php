@@ -41,7 +41,7 @@
                                 @foreach ($shipping_charge as $data) $
                                     {{ number_format($data, 2) }} @endforeach
                             </td>
-                            <td>${{ number_format($order->total_amount, 2) }}</td>
+                            <td>฿{{ number_format($order->total_amount, 2) }}</td>
                             <td>
                                 @if ($order->status == 'new')
                                     <span class="badge badge-primary">{{ $order->status }}</span>
@@ -131,7 +131,7 @@
                                             <td> : {{ $order->email }}</td>
                                         </tr>
                                         <tr>
-                                           <td> เบอร์โทรศัพท์ </td>
+                                            <td> เบอร์โทรศัพท์ </td>
                                             <td> : {{ $order->phone }}</td>
                                         </tr>
                                         <tr>

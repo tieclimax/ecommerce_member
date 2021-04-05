@@ -9,10 +9,11 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Post Category Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left"> รายการหมวดหมู่โพสต์ </h6>
             <a href="{{ route('superadminpost-category.create') }}" class="btn btn-primary btn-sm float-right"
-                data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post
-                Category</a>
+                data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i>
+                เพิ่มหมวดหมู่โพสต์
+            </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -22,7 +23,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -31,7 +32,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -64,33 +65,14 @@
                                                     class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </td>
-                                    {{-- Delete Modal --}}
-                                    {{-- <div class="modal fade" id="delModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="#delModal{{$user->id}}Label" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form method="post" action="{{ route('banners.destroy',$user->id) }}">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                    </div> --}}
+
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <span style="float:right">{{ $postCategories->links() }}</span>
                 @else
-                    <h6 class="text-center">No Post Category found!!! Please create post category</h6>
+                    <h6 class="text-center mt-3">ไม่พบหมวดหมู่โพสต์ !!! โปรดสร้างหมวดหมู่โพสต์</h6>
                 @endif
             </div>
         </div>

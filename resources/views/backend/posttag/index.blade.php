@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Post Tag Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left"> โพสต์รายการแท็ก </h6>
             <a href="{{ route('post-tag.create') }}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip"
-                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Tag</a>
+                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> เพิ่มแท็กโพสต์ </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -21,7 +21,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -30,7 +30,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -68,7 +68,7 @@
                     </table>
                     <span style="float:right">{{ $postTags->links() }}</span>
                 @else
-                    <h6 class="text-center">No Post Tag found!!! Please create post tag</h6>
+                    <h6 class="text-center mt-3">ไม่พบโพสต์แท็ก !!! โปรดสร้างแท็กโพสต์</h6>
                 @endif
             </div>
         </div>

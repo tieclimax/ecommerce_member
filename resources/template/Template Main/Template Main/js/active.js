@@ -1,8 +1,8 @@
 /* =====================================
-Template Name: Eshop
+Template Name: TopShop
 Author Name: Naimur Rahman
 Author URI: http://www.wpthemesgrid.com/
-Description: Eshop - eCommerce HTML5 Template.
+Description: TopShop - eCommerce HTML5 Template.
 Version:1.0
 ========================================*/
 /*=======================================

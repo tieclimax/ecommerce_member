@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Post Category Lists</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left"> รายการหมวดหมู่โพสต์ </h6>
             <a href="{{ route('post-category.create') }}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip"
-                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Category</a>
+                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> เพิ่มหมวดหมู่โพสต์ </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -21,7 +21,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -30,7 +30,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
-                                <th>Slug</th>
+                                <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -88,7 +88,7 @@
                     </table>
                     <span style="float:right">{{ $postCategories->links() }}</span>
                 @else
-                    <h6 class="text-center">No Post Category found!!! Please create post category</h6>
+                    <h6 class="text-center mt-3">ไม่พบหมวดหมู่โพสต์ !!! โปรดสร้างหมวดหมู่โพสต์</h6>
                 @endif
             </div>
         </div>

@@ -25,7 +25,12 @@ class Product extends Model
     public static function getMyProduct()
     {
         $id = Auth::user()->id;
-        return Product::where('owner_id', $id)->with(['cat_info', 'sub_cat_info'])->orderBy('id', 'desc')->get();
+        return Product::where('owner_id', $id)->where('product_confirmed', '1')->with(['cat_info', 'sub_cat_info'])->orderBy('id', 'desc')->paginate(6);
+    }
+    public static function getMyProductPadding()
+    {
+        $id = Auth::user()->id;
+        return Product::where('owner_id', $id)->where('product_confirmed', '0')->with(['cat_info', 'sub_cat_info'])->orderBy('id', 'desc')->paginate(6);
     }
     public function rel_prods()
     {

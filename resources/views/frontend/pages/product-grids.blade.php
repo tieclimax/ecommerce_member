@@ -120,8 +120,8 @@
                                                 $org = $product->price - ($product->price * $product->discount) / 100;
                                             @endphp
                                             <p class="price"><del
-                                                    class="text-muted">${{ number_format($product->price, 2) }}</del>
-                                                ${{ number_format($org, 2) }} </p>
+                                                    class="text-muted">฿{{ number_format($product->price, 2) }}</del>
+                                                ฿{{ number_format($org, 2) }} </p>
 
                                         </div>
                                     </div>
@@ -137,6 +137,7 @@
                                         $brands = DB::table('brands')
                                             ->orderBy('title', 'ASC')
                                             ->where('status', 'active')
+                                            ->limit(3)
                                             ->get();
                                     @endphp
                                     @foreach ($brands as $brand)
@@ -227,9 +228,12 @@
                                                 @php
                                                     $after_discount = $product->price - ($product->price * $product->discount) / 100;
                                                 @endphp
-                                                <span>${{ number_format($after_discount, 2) }}</span>
-                                                <del
-                                                    style="padding-left:4%;">${{ number_format($product->price, 2) }}</del>
+                                                <span>฿{{ number_format($after_discount, 2) }}</span>
+                                                @if ($product->discount != null)
+
+                                                    <del
+                                                        style="padding-left:4%;">฿{{ number_format($product->price, 2) }}</del>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -242,8 +246,9 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-12 justify-content-center d-flex">
-                                {{ $products->appends($_GET)->links('frontend.layouts.pagination', ['paginator' => $products, 'link_limit' => $products->perPage()]) }}
+                            <div class="col-md-12 d-flex justify-content-center">
+                                {{-- {{ $products->appends($_GET)->links('frontend.layouts.pagination', ['paginator' => $products, 'link_limit' => $products->perPage()]) }} --}}
+                                {{ $products->appends($_GET)->links() }}
                             </div>
                         </div>
 
@@ -327,7 +332,7 @@
                                             $after_discount = $product->price - ($product->price * $product->discount) / 100;
                                         @endphp
                                         <h3><small><del
-                                                    class="text-muted">${{ number_format($product->price, 2) }}</del></small>
+                                                    class="text-muted">฿{{ number_format($product->price, 2) }}</del></small>
                                             ฿{{ number_format($after_discount, 2) }} </h3>
                                         <div class="quickview-peragraph">
                                             <p>{!! html_entity_decode($product->summary) !!}</p>
@@ -421,9 +426,9 @@
     <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
 
     <style>
-        /* .pagination {
-                    display: inline-flex;
-                } */
+        .pagination {
+            display: inline-flex;
+        }
 
         .filter_button {
             /* height:20px; */

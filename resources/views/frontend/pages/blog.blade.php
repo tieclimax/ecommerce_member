@@ -61,9 +61,9 @@
                                 <!-- End Single Blog  -->
                             </div>
                         @endforeach
-                        <div class="col-12">
+                        <div class="col-12 d-flex justify-content-center">
                             <!-- Pagination -->
-                            {{-- {{$posts->appends($_GET)->links()}} --}}
+                            {{ $posts->appends($_GET)->links() }}
                             <!--/ End Pagination -->
                         </div>
                     </div>

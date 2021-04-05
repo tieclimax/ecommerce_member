@@ -29,7 +29,7 @@
 
 
                 <div class="form-group">
-                    <label for="is_parent">Is Parent</label><br>
+                    <label for="is_parent"> หมวดหมู่หลัก </label><br>
                     <input type="checkbox" name=' is_parent' id='is_parent' value='{{ $category->is_parent }}'
                         {{ $category->is_parent == 1 ? 'checked' : '' }}> Yes
                 </div>
@@ -37,7 +37,7 @@
                 {{-- {{$category}} --}}
 
                 <div class="form-group {{ $category->is_parent == 1 ? 'd-none' : '' }}" id='parent_cat_div'>
-                    <label for="parent_id">Parent Category</label>
+                    <label for="parent_id"> หมวดหมู่ย่อย </label>
                     <select name="parent_id" class="form-control">
                         <option value="">-->เลือกหมวดหมู่ใดก็ได้<--< /option>
                                 @foreach ($parent_cats as $key => $parent_cat)
