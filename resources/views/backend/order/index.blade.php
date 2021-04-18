@@ -28,6 +28,7 @@
                                 <th>ค่าบริการเพิ่มเติม</th>
                                 <th> จำนวนเงินทั้งหมด </th>
                                 <th>สถานะ</th>
+                                <th> รูปภาพการโอนเงิน</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
@@ -42,6 +43,7 @@
                                 <th>ค่าบริการเพิ่มเติม</th>
                                 <th> จำนวนเงินทั้งหมด </th>
                                 <th>สถานะ</th>
+                                <th> รูปภาพการโอนเงิน</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </tfoot>
@@ -77,6 +79,19 @@
                                             <span class="badge badge-success">{{ $order->status }}</span>
                                         @else
                                             <span class="badge badge-danger">{{ $order->status }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($order->slip_photo)
+                                            @php
+                                                $photo = explode(',', $order->slip_photo);
+                                                // dd($photo);
+                                            @endphp
+                                            <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:80px"
+                                                alt="{{ $product->photo }}">
+                                        @else
+                                            <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
+                                                style="max-width:80px" alt="avatar.png">
                                         @endif
                                     </td>
                                     <td>
@@ -116,6 +131,17 @@
     <style>
         div.dataTables_wrapper div.dataTables_paginate {
             display: none;
+        }
+
+    </style>
+    <style>
+        .zoom {
+            transition: transform .2s;
+            /* Animation */
+        }
+
+        .zoom:hover {
+            transform: scale(3);
         }
 
     </style>

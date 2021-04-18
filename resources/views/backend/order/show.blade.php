@@ -20,6 +20,7 @@
                         <tr>
                             <th>ลำดับ</th>
                             <th> หมายเลขคำสั่งซื้อ </th>
+                            <th> หมายเลขพัสดุ </th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
                             <th> ปริมาณ </th>
@@ -33,6 +34,12 @@
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->order_number }}</td>
+                            @if (isset($order->post_number))
+                                <td>{{ $order->post_number }}</td>
+
+                            @else
+                                <td>ไม่มีหมายเลขพัสดุ</td>
+                            @endif
                             <td>{{ $order->first_name }} {{ $order->last_name }}</td>
                             <td>{{ $order->email }}</td>
                             <td>{{ $order->quantity }}</td>
@@ -80,6 +87,14 @@
                                         <tr class="">
                                             <td> หมายเลขคำสั่งซื้อ </td>
                                             <td> : {{ $order->order_number }}</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td> หมายเลขพัสดุ </td>
+                                            @if (isset($order->post_number))
+                                                <td> : {{ $order->post_number }}</td>
+                                            @else
+                                                <td>: ไม่มีหมายเลขพัสดุ</td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <td> วันที่สั่งซื้อ </td>
@@ -156,16 +171,52 @@
                                     </table>
                                 </div>
                             </div>
+
+                            <div class="col-lg-6 col-lx-4">
+                                <div class="shipping-info">
+                                    <h4 class="text-center pb-4"> ข้อมูลการโอนเงิน </h4>
+
+                                    <p> รูปภาพสลิปการโอนเงิน </p>
+
+                                    @if ($order->slip_photo)
+                                        @php
+                                            $photo = explode(',', $order->slip_photo);
+                                            // dd($photo);
+                                        @endphp
+                                        <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:256px;"
+                                            alt="{{ $product->photo }}">
+                                    @else
+                                        <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
+                                            style="max-width:80px" alt="avatar.png">
+                                    @endif
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </section>
-            @endif
-
         </div>
+    </div>
+    </section>
+    @endif
+
+    </div>
     </div>
 @endsection
 
 @push('styles')
+    <style>
+        .zoom {
+            transition: transform .2s;
+
+            /* Animation */
+        }
+
+        .zoom:hover {
+            transform: scale(1.2);
+        }
+
+    </style>
     <style>
         .order-info,
         .shipping-info {
