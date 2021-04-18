@@ -216,6 +216,8 @@ Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
     //  Order
     Route::get('/order', "HomeController@orderIndex")->name('user.order.index');
     Route::get('/order/show/{id}', "HomeController@orderShow")->name('user.order.show');
+    Route::get('/order/edit/{id}', "HomeController@orderEdit")->name('user.order.edit');
+    Route::patch('/order/upload/{id}', "HomeController@slipUpload")->name('user.order.slipupload');
     Route::delete('/order/delete/{id}', 'HomeController@userOrderDelete')->name('user.order.delete');
     // Product Review
     Route::get('/user-review', 'HomeController@productReviewIndex')->name('user.productreview.index');

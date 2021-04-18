@@ -29,7 +29,7 @@
                                 <th> เงื่อนไข </th>
                                 <th> แบรนด์ </th>
                                 <th> อยู่ในคลัง </th>
-                                <th>รูป</th>
+                                <th>รูปภาพ</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -46,7 +46,7 @@
                                 <th> เงื่อนไข </th>
                                 <th> แบรนด์ </th>
                                 <th> อยู่ในคลัง </th>
-                                <th>รูป</th>
+                                <th>รูปภาพ</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
@@ -170,8 +170,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <style>
         /* div.dataTables_wrapper div.dataTables_paginate {
-                                                                                                            display: none;
-                                                                                                        } */
+                                                                                                                display: none;
+                                                                                                            } */
 
         .zoom {
             transition: transform .2s;

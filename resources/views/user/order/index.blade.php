@@ -25,6 +25,7 @@
                                 <th>ค่าบริการเพิ่มเติม</th>
                                 <th> จำนวนเงินทั้งหมด </th>
                                 <th>สถานะ</th>
+                                <th>รูปภาพ</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
@@ -38,6 +39,7 @@
                                 <th>ค่าบริการเพิ่มเติม</th>
                                 <th> จำนวนเงินทั้งหมด </th>
                                 <th>สถานะ</th>
+                                <th>รูปภาพ</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </tfoot>
@@ -71,10 +73,27 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if ($order->slip_photo)
+                                            @php
+                                                $photo = explode(',', $order->slip_photo);
+                                                // dd($photo);
+                                            @endphp
+                                            <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:80px"
+                                                alt="{{ $product->photo }}">
+                                        @else
+                                            <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
+                                                style="max-width:80px" alt="avatar.png">
+                                        @endif
+                                    </td>
+                                    <td>
                                         <a href="{{ route('user.order.show', $order->id) }}"
                                             class="btn btn-warning btn-sm float-left mr-1"
                                             style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                             title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('user.order.edit', $order->id) }}"
+                                            class="btn btn-primary btn-sm float-left mr-1"
+                                            style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
+                                            title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                         <form method="POST" action="{{ route('user.order.delete', [$order->id]) }}">
                                             @csrf
                                             @method('delete')
@@ -103,6 +122,17 @@
     <style>
         div.dataTables_wrapper div.dataTables_paginate {
             display: none;
+        }
+
+    </style>
+    <style>
+        .zoom {
+            transition: transform .2s;
+            /* Animation */
+        }
+
+        .zoom:hover {
+            transform: scale(3);
         }
 
     </style>

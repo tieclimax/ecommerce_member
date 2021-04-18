@@ -89,6 +89,32 @@ class HomeController extends Controller
         // return $order;
         return view('user.order.show')->with('order', $order);
     }
+    public function orderEdit($id)
+    {
+        $order = Order::find($id);
+        return view('user.order.edit')->with('order', $order);
+    }
+
+    public function slipUpload(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $this->validate($request, [
+            'slip_photo' => 'string|required'
+        ]);
+        $data = $request->all();
+        // dd($order->status);
+        if ($order->status != "new") {
+            request()->session()->flash('error', 'อัปโหลดรูปภาพไม่สำเร็จ สถานะกำลังอยู่ระหว่างดำเนินการ!');
+            return redirect()->route('user.order.index');
+        }
+        $status = $order->fill($data)->save();
+        if ($status) {
+            request()->session()->flash('success', 'อัปโหลดรูปภาพสำเร็จ');
+        } else {
+            request()->session()->flash('error', 'อัปโหลดรูปภาพไม่สำเร็จ');
+        }
+        return redirect()->route('user.order.index');
+    }
     // Product Review
     public function productReviewIndex()
     {
