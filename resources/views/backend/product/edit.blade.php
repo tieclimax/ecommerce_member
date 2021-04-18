@@ -45,10 +45,11 @@
                 <div class="form-group">
                     <label for="cat_id"> หมวดหมู่ <span class="text-danger">*</span></label>
                     <select name="cat_id" id="cat_id" class="form-control">
-                        <option value="">-->เลือกหมวดหมู่ใดก็ได้<--< /option>
-                                @foreach ($categories as $key => $cat_data)
-                        <option value='{{ $cat_data->id }}' {{ $product->cat_id == $cat_data->id ? 'selected' : '' }}>
-                            {{ $cat_data->title }}</option>
+                        <option value="">--เลือกหมวดหมู่ใดก็ได้--</option>
+                        @foreach ($categories as $key => $cat_data)
+                            <option value='{{ $cat_data->id }}'
+                                {{ $product->cat_id == $cat_data->id ? 'selected' : '' }}>
+                                {{ $cat_data->title }}</option>
                         @endforeach
                     </select>
                 </div>

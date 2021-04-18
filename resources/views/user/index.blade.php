@@ -100,6 +100,7 @@
                         <tr>
                             <th>ลำดับ</th>
                             <th> หมายเลขคำสั่งซื้อ </th>
+                            <th> หมายเลขพัสดุ </th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
                             <th> ปริมาณ </th>
@@ -112,6 +113,7 @@
                         <tr>
                             <th>ลำดับ</th>
                             <th> หมายเลขคำสั่งซื้อ </th>
+                            <th> หมายเลขพัสดุ </th>
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
                             <th> ปริมาณ </th>
@@ -126,6 +128,11 @@
                                 <tr>
                                     <td>{{ $order->id }}</td>
                                     <td>{{ $order->order_number }}</td>
+                                    @if (isset($order->post_number))
+                                        <td>{{ $order->post_number }}</td>
+                                    @else
+                                        <td>ไม่มีหมายเลขพัสดุ</td>
+                                    @endif
                                     <td>{{ $order->first_name }} {{ $order->last_name }}</td>
                                     <td>{{ $order->email }}</td>
                                     <td>{{ $order->quantity }}</td>

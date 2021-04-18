@@ -43,9 +43,9 @@
                 <div class="form-group">
                     <label for="post_cat_id"> หมวดหมู่ <span class="text-danger">*</span></label>
                     <select name="post_cat_id" class="form-control">
-                        <option value="">-->เลือกหมวดหมู่ใดก็ได้<--< /option>
-                                @foreach ($categories as $key => $data)
-                        <option value='{{ $data->id }}'>{{ $data->title }}</option>
+                        <option value="">--เลือกหมวดหมู่ใดก็ได้--</option>
+                        @foreach ($categories as $key => $data)
+                            <option value='{{ $data->id }}'>{{ $data->title }}</option>
                         @endforeach
                     </select>
                 </div>

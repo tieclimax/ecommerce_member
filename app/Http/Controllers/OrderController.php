@@ -185,11 +185,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $order = Order::find($id);
         $this->validate($request, [
             'status' => 'required|in:new,process,delivered,cancel'
         ]);
         $data = $request->all();
+        // dd($data);
         // return $request->status;
         if ($request->status == 'delivered') {
             foreach ($order->cart as $cart) {
