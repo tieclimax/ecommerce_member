@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Shipping List</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left">รายการประภทการจัดส่ง</h6>
             <a href="{{ route('shipping.create') }}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip"
-                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Shipping</a>
+                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> เพิ่มการจัดส่ง</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
