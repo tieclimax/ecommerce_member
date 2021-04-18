@@ -38,14 +38,14 @@
             </div>
             <div class="tracking_box_inner mt-5">
 
-                <p>หากต้องการติดตามส่ิงของของคุณกรุณากดลิ้งค์เพื่อตรวจสอบสถานะสิ่งของ</p>
+                <p>หากต้องการติดตามพัสดุของคุณกรุณากดลิ้งค์เพื่อตรวจสอบสถานะพัสดุ</p>
                 <div class="card mt-3" style="width: 18rem;">
                     <div class="card-body">
                         <img src={{ asset('images/icons/thaipost.jpeg') }} alt="thaipost" sizes="10%" srcset="">
                         {{-- <h5 class="card-title">Special title treatment</h5> --}}
                         {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
                         <a href="https://track.thailandpost.co.th" class="btn btn-primary mt-3 text-white"
-                            target="_blank">ติดตามสิ่งของ</a>
+                            target="_blank">ติดตามพัสดุ</a>
                     </div>
                 </div>
 
