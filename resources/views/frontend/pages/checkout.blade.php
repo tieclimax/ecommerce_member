@@ -372,7 +372,7 @@
                                             ค่าใช้จ่ายในการจัดส่งสินค้า
                                             @if (count(Helper::shipping()) > 0 && Helper::cartCount() > 0)
                                                 <select name="shipping" class="nice-select">
-                                                    <option value="">เลือกที่อยู่ของคุณ</option>
+                                                    <option value="">เลือกรูปแบบการจัดส่ง</option>
                                                     @foreach (Helper::shipping() as $shipping)
                                                         <option value="{{ $shipping->id }}" class="shippingOption"
                                                             data-price="{{ $shipping->price }}">{{ $shipping->type }}:
@@ -415,7 +415,10 @@
                                         <form-group>
                                             <input name="payment_method" type="radio" value="cod">
                                             <label>ชำระเงินปลายทาง</label><br>
-                                            <input name="payment_method" type="radio" value="paypal"> <label> PayPal</label>
+                                            <input name="payment_method" type="radio" value="netbank">
+                                            <label>อินเนทอร์เน็ตแบงค์กิ้ง</label><br>
+                                            <input name="payment_method" type="radio" value="paypal">
+                                            <label> PayPal</label>
                                         </form-group>
 
                                     </div>

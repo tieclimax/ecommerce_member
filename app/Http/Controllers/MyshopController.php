@@ -38,7 +38,8 @@ class MyshopController extends Controller
 
     public function create()
     {
-        $brand = Brand::get();
+        $owner_id = Auth::user();
+        $brand = Brand::where('owner_id', $owner_id->id)->get();
         $category = Category::where('is_parent', 1)->get();
 
 

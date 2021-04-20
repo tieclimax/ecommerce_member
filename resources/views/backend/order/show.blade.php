@@ -4,9 +4,10 @@
 
 @section('main-content')
     <div class="card">
-        <h5 class="card-header">คำสั่งซื้อ <a href="{{ route('order.pdf', $order->id) }}"
+        <h5 class="card-header">คำสั่งซื้อ
+            {{-- <a href="{{ route('order.pdf', $order->id) }}"
                 class=" btn btn-sm btn-primary shadow-sm float-right"><i class="fas fa-download fa-sm text-white-50"></i>
-                สร้าง PDF</a>
+                สร้าง PDF</a> --}}
         </h5>
         <div class="card-body">
             @if ($order)
@@ -76,6 +77,76 @@
                         </tr>
                     </tbody>
                 </table>
+                <table class="table table-striped table-hover mb-5">
+                    <thead>
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th> ชื่อสินค้า </th>
+                            <th> ชื่อผู้ขาย </th>
+                            <th>ราคา</th>
+                            <th>รูปภาพสินค้า</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {{-- @for ($i = 1; $i <= $cnts; $i++) --}}
+                        @foreach ($product_carts as $product_cart)
+                            @php
+                                $product_title = DB::table('products')
+                                    ->select('title', 'owner_id', 'photo')
+                                    ->where('id', $product_cart->product_id)
+                                    ->get();
+                            @endphp
+                            <tr>
+                                <td>{{ $order->id }}</td>
+                                <td>
+                                    @foreach ($product_title as $item)
+                                        {{ $item->title }}
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($product_title as $item)
+                                        @php
+                                            $product_owners = DB::table('users')
+                                                ->select('name')
+                                                ->where('id', $item->owner_id)
+                                                ->get();
+                                        @endphp
+                                        @foreach ($product_owners as $product_owner)
+                                            {{ $product_owner->name }}
+                                        @endforeach
+                                    @endforeach
+                                </td>
+                                <td>฿ {{ number_format($product_cart->price, 2) }} </td>
+                                <td>
+                                    @foreach ($product_title as $item)
+                                        @php
+                                            $product_photos = DB::table('products')
+                                                ->select('photo')
+                                                ->where('id', $product_cart->product_id)
+                                                ->get();
+                                        @endphp
+                                        @foreach ($product_photos as $product_photo)
+                                            @if ($product_photo->photo)
+                                                @php
+                                                    $photo = explode(',', $product_photo->photo);
+
+                                                @endphp
+                                                <img src="{{ $photo[0] }}" class="img-fluid zoom"
+                                                    style="max-width:80px" alt="{{ $product_photo->photo }}">
+                                            @else
+                                                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
+                                                    class="img-fluid" style="max-width:80px" alt="avatar.png">
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                </td>
+                            </tr>
+                        @endforeach
+                        {{-- @endfor --}}
+                    </tbody>
+                </table>
 
                 <section class="confirmation_part section_padding">
                     <div class="order_boxes">
@@ -107,7 +178,18 @@
                                         </tr>
                                         <tr>
                                             <td> สถานะการสั่งซื้อ </td>
-                                            <td> : {{ $order->status }}</td>
+                                            <td> :
+                                                @if ($order->status == 'delivered')
+                                                    จัดส่งเเล้ว
+                                                @elseif ($order->status == 'process')
+                                                    กำลังดำเนินการ
+                                                @elseif ($order->status == 'cancel')
+                                                    ถูกยกเลิก
+                                                @else
+                                                    คำสั่งซื้อใหม่
+                                                @endif
+
+                                            </td>
                                         </tr>
                                         <tr>
                                             @php
@@ -116,25 +198,34 @@
                                                     ->pluck('price');
                                             @endphp
                                             <td> ค่าจัดส่ง </td>
-                                            <td> : $ {{ number_format($shipping_charge[0], 2) }}</td>
+                                            <td> : ฿ {{ number_format($shipping_charge[0], 2) }}</td>
                                         </tr>
                                         <tr>
                                             <td>Coupon</td>
-                                            <td> : $ {{ number_format($order->coupon, 2) }}</td>
+                                            <td> : ฿ {{ number_format($order->coupon, 2) }}</td>
                                         </tr>
                                         <tr>
                                             <td> จำนวนเงินทั้งหมด </td>
-                                            <td> : $ {{ number_format($order->total_amount, 2) }}</td>
+                                            <td> : ฿ {{ number_format($order->total_amount, 2) }}</td>
                                         </tr>
                                         <tr>
                                             <td> วิธีการชำระเงิน </td>
-                                            <td> : @if ($order->payment_method == 'cod')
-                                                เก็บเงินปลายทาง @else Paypal @endif
+                                            <td> :
+                                                @if ($order->payment_method == 'cod')
+                                                    เก็บเงินปลายทาง
+                                                @elseif ($order->payment_method == 'netbank')
+                                                    อินเนทอร์เน็ตแบงค์กิ้ง
+                                                @else Paypal @endif
                                             </td>
                                         </tr>
                                         <tr>
                                             <td> สถานะการชำระเงิน </td>
-                                            <td> : {{ $order->payment_status }}</td>
+                                            <td> :
+                                                @if ($order->payment_status == 'paid')
+                                                    จ่ายแล้ว
+                                                @else ยังไม่จ่าย
+                                                @endif
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

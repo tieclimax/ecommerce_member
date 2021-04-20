@@ -87,11 +87,11 @@
                                         </tr>
                                         <tr>
                                             <td> ค่าจัดส่ง </td>
-                                            <td> : $ {{ number_format($order->delivery_charge, 2) }}</td>
+                                            <td> : ฿ {{ number_format($order->delivery_charge, 2) }}</td>
                                         </tr>
                                         <tr>
                                             <td> จำนวนเงินทั้งหมด </td>
-                                            <td> : $ {{ number_format($order->total_amount, 2) }}</td>
+                                            <td> : ฿ {{ number_format($order->total_amount, 2) }}</td>
                                         </tr>
                                         <tr>
                                             <td> วิธีการชำระเงิน </td>

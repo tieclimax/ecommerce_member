@@ -3,7 +3,7 @@
 @section('main-content')
 
     <div class="card">
-        <h5 class="card-header">Add My Product</h5>
+        <h5 class="card-header">เพิ่มสินค้าของฉัน</h5>
         <div class="card-body">
             <form method="post" action="{{ route('myproduct.store') }}">
                 {{ csrf_field() }}
@@ -20,8 +20,8 @@
                 <input type="hidden" name="owner_id" value={{ Auth::user()->id }}>
                 <div class="form-group">
                     <label for="inputTitle" class="col-form-label"> หัวข้อ <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="title" placeholder="Enter title" value="{{ old('title') }}"
-                        class="form-control">
+                    <input id="inputTitle" type="text" name="title" placeholder="กรอกชื่อหัวข้อ"
+                        value="{{ old('title') }}" class="form-control">
                     @error('title')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description" class="col-form-label"> คำอธิบาย </label>
+                    <label for="description" class="col-form-label">คำอธิบาย</label>
                     <textarea class="form-control" id="description" name="description">{{ old('description') }}</textarea>
                     @error('description')
                         <span class="text-danger">{{ $message }}</span>
@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                     <label for="is_featured"> กำลังมาแรง </label><br>
-                    <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> Yes
+                    <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> ใช่
                 </div>
                 {{-- {{$categories}} --}}
 
@@ -72,7 +72,7 @@
 
                 <div class="form-group">
                     <label for="price" class="col-form-label"> ราคา(THB) <span class="text-danger">*</span></label>
-                    <input id="price" type="number" name="price" placeholder="Enter price" value="{{ old('price') }}"
+                    <input id="price" type="number" name="price" placeholder="กรอกราคาสินค้า" value="{{ old('price') }}"
                         class="form-control">
                     @error('price')
                         <span class="text-danger">{{ $message }}</span>
@@ -81,7 +81,7 @@
 
                 <div class="form-group">
                     <label for="discount" class="col-form-label"> ส่วนลด(%) </label>
-                    <input id="discount" type="number" name="discount" min="0" max="100" placeholder="Enter discount"
+                    <input id="discount" type="number" name="discount" min="0" max="100" placeholder="กรอกส่วนลด"
                         value="{{ old('discount') }}" class="form-control">
                     @error('discount')
                         <span class="text-danger">{{ $message }}</span>
@@ -122,7 +122,7 @@
 
                 <div class="form-group">
                     <label for="stock"> ปริมาณ <span class="text-danger">*</span></label>
-                    <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"
+                    <input id="quantity" type="number" name="stock" min="0" placeholder="กรอกจำนวนสินค้าที่จะลงขาย"
                         value="{{ old('stock') }}" class="form-control">
                     @error('stock')
                         <span class="text-danger">{{ $message }}</span>

@@ -52,7 +52,7 @@
                                 </td>
                             @else
                                 <td>ไม่มีค่าบริการเพิ่มเติม</td>
-                            @endif 
+                            @endif
                             <td>฿ {{ number_format($order->total_amount, 2) }}</td>
                             <td>
                                 @if ($order->status == 'new')
@@ -167,7 +167,12 @@
                                         </tr>
                                         <tr class="">
                                             <td> หมายเลขพัสดุ </td>
-                                            <td> : {{ $order->post_number }}</td>
+                                            {{-- <td> : {{ $order->post_number }}</td> --}}
+                                            @if (isset($order->post_number))
+                                                <td>: {{ $order->post_number }}</td>
+                                            @else
+                                                <td>: ไม่มีหมายเลขพัสดุ</td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <td> วันที่สั่งซื้อ </td>
@@ -189,21 +194,31 @@
                                                     ->pluck('price');
                                             @endphp
                                             <td> ค่าจัดส่ง </td>
-                                            <td> : $ {{ number_format($shipping_charge[0], 2) }}</td>
+                                            <td> : ฿ {{ number_format($shipping_charge[0], 2) }}</td>
                                         </tr>
                                         <tr>
                                             <td> จำนวนเงินทั้งหมด </td>
-                                            <td> : $ {{ number_format($order->total_amount, 2) }}</td>
+                                            <td> : ฿ {{ number_format($order->total_amount, 2) }}</td>
                                         </tr>
                                         <tr>
                                             <td> วิธีการชำระเงิน </td>
-                                            <td> : @if ($order->payment_method == 'cod')
-                                                เก็บเงินปลายทาง @else Paypal @endif
+                                            <td> :
+                                                @if ($order->payment_method == 'cod')
+                                                    เก็บเงินปลายทาง
+                                                @elseif ($order->payment_method == 'netbank')
+                                                    อินเนทอร์เน็ตแบงค์กิ้ง
+                                                @else Paypal
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>
                                             <td> สถานะการชำระเงิน </td>
-                                            <td> : {{ $order->payment_status }}</td>
+                                            <td> :
+                                                @if ($order->payment_status == 'paid')
+                                                    จ่ายแล้ว
+                                                @else ยังไม่จ่าย
+                                                @endif
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

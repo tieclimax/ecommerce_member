@@ -125,8 +125,8 @@
                 // alert(dataID);
                 e.preventDefault();
                 swal({
-                        title: "Are you sure?",
-                        text: "Once deleted, you will not be able to recover this data!",
+                        title: "คุณแน่ใจไหม?",
+                        text: "เมื่อลบแล้วคุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -135,7 +135,7 @@
                         if (willDelete) {
                             form.submit();
                         } else {
-                            swal("Your data is safe!");
+                            swal("ข้อมูลของคุณปลอดภัย!");
                         }
                     });
             })

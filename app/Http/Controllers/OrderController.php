@@ -119,6 +119,10 @@ class OrderController extends Controller
         if (request('payment_method') == 'paypal') {
             $order_data['payment_method'] = 'paypal';
             $order_data['payment_status'] = 'paid';
+        }
+        if (request('payment_method') == 'netbank') {
+            $order_data['payment_method'] = 'netbank';
+            $order_data['payment_status'] = 'Unpaid';
         } else {
             $order_data['payment_method'] = 'cod';
             $order_data['payment_status'] = 'Unpaid';
@@ -133,7 +137,7 @@ class OrderController extends Controller
             // dd($order->id);
             $users = User::where('role', 'admin')->first();
         $details = [
-            'title' => 'New order created',
+            'title' => 'สร้างคำสั่งซื้อใหม่แล้ว',
             'actionURL' => route('order.show', $order->id),
             'fas' => 'fa-file-alt'
         ];
@@ -160,8 +164,9 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
+        $product_carts = Cart::where("order_id", $id)->get();
         // return $order;
-        return view('backend.order.show')->with('order', $order);
+        return view('backend.order.show', compact("order", "product_carts"));
     }
 
     /**

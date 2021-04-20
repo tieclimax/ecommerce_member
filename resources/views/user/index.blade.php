@@ -90,8 +90,10 @@
         <div class="row">
             @php
                 $orders = DB::table('orders')
+                    ->orderBy('id')
                     ->where('user_id', auth()->user()->id)
-                    ->paginate(10);
+                    ->whereIn('status', ['delivered', 'process', 'cancle'])
+                    ->paginate(6);
             @endphp
             <!-- Order -->
             <div class="col-xl-12 col-lg-12">
@@ -178,8 +180,46 @@
 
     </div>
 @endsection
+@push('styles')
+    <link href="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <style>
+        div.dataTables_wrapper div.dataTables_paginate {
+            display: none;
+        }
 
+    </style>
+@endpush
 @push('scripts')
+    <!-- Page level plugins -->
+    <script src="{{ asset('backend/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
+    <script>
+        // $('#user-dataTable').DataTable({
+        //     "columnDefs": [{
+        //         "orderable": false,
+        //         "targets": [6, 7]
+        //     }]
+        // });
+        $(document).ready(function() {
+            $('#order-dataTable').dataTable({
+                "order": [
+                    [0, "desc"]
+                ],
+                "bOrdering": true,
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": false
+            });
+        });
+
+    </script>
     <script type="text/javascript">
         const url = "{{ route('product.order.income') }}";
 
@@ -309,17 +349,6 @@
                         }
                     }
                 });
-
-
-
-
-
-
-
-
-
-
-
             })
             .catch(function(error) {
                 //   vm.answer = 'Error! Could not reach the API. ' + error

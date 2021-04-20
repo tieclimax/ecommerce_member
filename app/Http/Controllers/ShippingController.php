@@ -48,7 +48,7 @@ class ShippingController extends Controller
         if ($status) {
             request()->session()->flash('success', 'สร้างการจัดส่งเรียบร้อยแล้ว');
         } else {
-            request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
+            request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
         }
         return redirect()->route('shipping.index');
     }
@@ -98,9 +98,9 @@ class ShippingController extends Controller
         // return $data;
         $status = $shipping->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Shipping successfully updated');
+            request()->session()->flash('success', 'อัปเดตการจัดส่งเรียบร้อยแล้ว');
         } else {
-            request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
+            request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
         }
         return redirect()->route('shipping.index');
     }
@@ -117,9 +117,9 @@ class ShippingController extends Controller
         if ($shipping) {
             $status = $shipping->delete();
             if ($status) {
-                request()->session()->flash('success', 'Shipping successfully deleted');
+                request()->session()->flash('success', 'ลบการจัดส่งเรียบร้อยแล้ว');
             } else {
-                request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
+                request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
             }
             return redirect()->route('shipping.index');
         } else {

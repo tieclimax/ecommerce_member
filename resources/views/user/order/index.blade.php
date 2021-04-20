@@ -90,10 +90,12 @@
                                             class="btn btn-warning btn-sm float-left mr-1"
                                             style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                             title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
-                                        <a href="{{ route('user.order.edit', $order->id) }}"
-                                            class="btn btn-primary btn-sm float-left mr-1"
-                                            style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                            title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                                        @if ($order->payment_method == 'netbank')
+                                            <a href="{{ route('user.order.edit', $order->id) }}"
+                                                class="btn btn-primary btn-sm float-left mr-1"
+                                                style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
+                                                title="add slip" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                                        @endif
                                         <form method="POST" action="{{ route('user.order.delete', [$order->id]) }}">
                                             @csrf
                                             @method('delete')
@@ -148,12 +150,6 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
     <script>
-        // $('#order-dataTable').DataTable({
-        //     "columnDefs": [{
-        //         "orderable":true,
-        //         "targets": [0]
-        //     }]
-        // });
         $(document).ready(function() {
             $('#order-dataTable').dataTable({
                 "order": [

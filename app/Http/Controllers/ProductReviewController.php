@@ -62,7 +62,7 @@ class ProductReviewController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Thank you for your feedback');
         } else {
-            request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
+            request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
         }
         return redirect()->back();
     }
@@ -117,12 +117,12 @@ class ProductReviewController extends Controller
             // ];
             // Notification::send($user,new StatusNotification($details));
             if ($status) {
-                request()->session()->flash('success', 'Review Successfully updated');
+                request()->session()->flash('success', 'อัปเดตรีวิวเรียบร้อยแล้ว');
             } else {
-                request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
+                request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
             }
         } else {
-            request()->session()->flash('error', 'Review not found!!');
+            request()->session()->flash('error', 'ไม่พบรีวิว !!');
         }
 
         return redirect()->route('review.index');
@@ -139,9 +139,9 @@ class ProductReviewController extends Controller
         $review = ProductReview::find($id);
         $status = $review->delete();
         if ($status) {
-            request()->session()->flash('success', 'Successfully deleted review');
+            request()->session()->flash('success', 'ลบบทวิจารณ์เรียบร้อยแล้ว');
         } else {
-            request()->session()->flash('error', 'Something went wrong! Try again');
+            request()->session()->flash('error', 'บางอย่างผิดพลาด! ลองอีกครั้ง');
         }
         return redirect()->route('review.index');
     }

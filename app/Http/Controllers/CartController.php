@@ -39,7 +39,7 @@ class CartController extends Controller
             $already_cart->quantity = $already_cart->quantity + 1;
             $already_cart->amount = $product->price + $already_cart->amount;
             // return $already_cart->quantity;
-            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'สินค้าไม่เพียงพอ!');
             $already_cart->save();
         } else {
 
@@ -49,7 +49,7 @@ class CartController extends Controller
             $cart->price = ($product->price - ($product->price * $product->discount) / 100);
             $cart->quantity = 1;
             $cart->amount = $cart->price * $cart->quantity;
-            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'สินค้าไม่เพียงพอ!');
             $cart->save();
             $wishlist = Wishlist::where('user_id', auth()->user()->id)->where('cart_id', null)->update(['cart_id' => $cart->id]);
         }
@@ -84,7 +84,7 @@ class CartController extends Controller
             // $already_cart->price = ($product->price * $request->quant[1]) + $already_cart->price ;
             $already_cart->amount = ($product->price * $request->quant[1]) + $already_cart->amount;
 
-            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'สินค้าไม่เพียงพอ!');
 
             $already_cart->save();
         } else {
@@ -95,7 +95,7 @@ class CartController extends Controller
             $cart->price = ($product->price - ($product->price * $product->discount) / 100);
             $cart->quantity = $request->quant[1];
             $cart->amount = ($product->price * $request->quant[1]);
-            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'สินค้าไม่เพียงพอ!');
             // return $cart;
             $cart->save();
         }

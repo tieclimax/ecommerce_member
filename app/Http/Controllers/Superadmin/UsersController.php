@@ -59,7 +59,7 @@ class UsersController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Successfully added user');
         } else {
-            request()->session()->flash('error', 'Error occurred while adding user');
+            request()->session()->flash('error', 'เกิดข้อผิดพลาด while adding user');
         }
         return redirect()->route('superadminusers.index');
     }

@@ -42,7 +42,7 @@ class SuperadminController extends Controller
         $data = $request->all();
         $status = $user->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Successfully updated your profile');
+            request()->session()->flash('success', 'ทำการอัพเดทโปรไฟล์ของคุณเรียบร้อยแล้ว');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
         }

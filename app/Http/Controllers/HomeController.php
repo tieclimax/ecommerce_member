@@ -51,7 +51,7 @@ class HomeController extends Controller
         // dd($data);
         $status = $user->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Successfully updated your profile');
+            request()->session()->flash('success', 'ทำการอัพเดทโปรไฟล์ของคุณเรียบร้อยแล้ว');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
         }
@@ -89,7 +89,7 @@ class HomeController extends Controller
     {
         $order = Order::find($id);
         $product_carts = Cart::where("order_id", $id)->get();
-       
+
         return view('user.order.show', compact("order", "product_carts"));
     }
     public function orderEdit($id)
@@ -146,12 +146,12 @@ class HomeController extends Controller
             $data = $request->all();
             $status = $review->fill($data)->update();
             if ($status) {
-                request()->session()->flash('success', 'Review Successfully updated');
+                request()->session()->flash('success', 'อัปเดตรีวิวเรียบร้อยแล้ว');
             } else {
-                request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
+                request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
             }
         } else {
-            request()->session()->flash('error', 'Review not found!!');
+            request()->session()->flash('error', 'ไม่พบรีวิว !!');
         }
 
         return redirect()->route('user.productreview.index');
@@ -168,9 +168,9 @@ class HomeController extends Controller
         $review = ProductReview::find($id);
         $status = $review->delete();
         if ($status) {
-            request()->session()->flash('success', 'Successfully deleted review');
+            request()->session()->flash('success', 'ลบบทวิจารณ์เรียบร้อยแล้ว');
         } else {
-            request()->session()->flash('error', 'Something went wrong! Try again');
+            request()->session()->flash('error', 'บางอย่างผิดพลาด! ลองอีกครั้ง');
         }
         return redirect()->route('user.productreview.index');
     }
@@ -186,13 +186,13 @@ class HomeController extends Controller
         if ($comment) {
             $status = $comment->delete();
             if ($status) {
-                request()->session()->flash('success', 'Post Comment successfully deleted');
+                request()->session()->flash('success', 'ลบความคิดเห็นของโพสต์เรียบร้อยแล้ว');
             } else {
-                request()->session()->flash('error', 'Error occurred กรุณาลองอีกครั้ง!');
+                request()->session()->flash('error', 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง!');
             }
             return back();
         } else {
-            request()->session()->flash('error', 'Post Comment not found');
+            request()->session()->flash('error', 'ไม่พบโพสต์ความคิดเห็น');
             return redirect()->back();
         }
     }
@@ -202,7 +202,7 @@ class HomeController extends Controller
         if ($comments) {
             return view('user.comment.edit')->with('comment', $comments);
         } else {
-            request()->session()->flash('error', 'Comment not found');
+            request()->session()->flash('error', 'ไม่พบความคิดเห็น');
             return redirect()->back();
         }
     }
@@ -222,13 +222,13 @@ class HomeController extends Controller
             // return $data;
             $status = $comment->fill($data)->update();
             if ($status) {
-                request()->session()->flash('success', 'Comment successfully updated');
+                request()->session()->flash('success', 'อัปเดตความคิดเห็นเรียบร้อยแล้ว');
             } else {
-                request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
+                request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
             }
             return redirect()->route('user.post-comment.index');
         } else {
-            request()->session()->flash('error', 'Comment not found');
+            request()->session()->flash('error', 'ไม่พบความคิดเห็น');
             return redirect()->back();
         }
     }

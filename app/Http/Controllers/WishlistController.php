@@ -42,7 +42,7 @@ class WishlistController extends Controller
             $wishlist->price = ($product->price - ($product->price * $product->discount) / 100);
             $wishlist->quantity = 1;
             $wishlist->amount = $wishlist->price * $wishlist->quantity;
-            if ($wishlist->product->stock < $wishlist->quantity || $wishlist->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($wishlist->product->stock < $wishlist->quantity || $wishlist->product->stock <= 0) return back()->with('error', 'สินค้าไม่เพียงพอ!');
             $wishlist->save();
         }
         request()->session()->flash('success', 'Product successfully added to wishlist');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class BrandController extends Controller
@@ -15,7 +16,9 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brand = Brand::orderBy('id', 'DESC')->paginate();
+        $user_id = Auth::user();
+        // dd($user_id);
+        $brand = Brand::orderBy('id', 'DESC')->where('owner_id', $user_id->id)->paginate(5);
         return view('backend.brand.index')->with('brands', $brand);
     }
 
@@ -52,7 +55,7 @@ class BrandController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Brand successfully created');
         } else {
-            request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
+            request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
         }
         return redirect()->route('brand.index');
     }
@@ -103,7 +106,7 @@ class BrandController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Brand successfully updated');
         } else {
-            request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
+            request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
         }
         return redirect()->route('brand.index');
     }
@@ -122,7 +125,7 @@ class BrandController extends Controller
             if ($status) {
                 request()->session()->flash('success', 'Brand successfully deleted');
             } else {
-                request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
+                request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
             }
             return redirect()->route('brand.index');
         } else {

@@ -59,7 +59,7 @@ class PostCommentController extends Controller
         if ($status) {
             request()->session()->flash('success', 'Thank you for your comment');
         } else {
-            request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
+            request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
         }
         return redirect()->back();
     }
@@ -87,7 +87,7 @@ class PostCommentController extends Controller
         if ($comments) {
             return view('backend.comment.edit')->with('comment', $comments);
         } else {
-            request()->session()->flash('error', 'Comment not found');
+            request()->session()->flash('error', 'ไม่พบความคิดเห็น');
             return redirect()->back();
         }
     }
@@ -107,13 +107,13 @@ class PostCommentController extends Controller
             // return $data;
             $status = $comment->fill($data)->update();
             if ($status) {
-                request()->session()->flash('success', 'Comment successfully updated');
+                request()->session()->flash('success', 'อัปเดตความคิดเห็นเรียบร้อยแล้ว');
             } else {
-                request()->session()->flash('error', 'Something went wrong! กรุณาลองอีกครั้ง!!');
+                request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
             }
             return redirect()->route('comment.index');
         } else {
-            request()->session()->flash('error', 'Comment not found');
+            request()->session()->flash('error', 'ไม่พบความคิดเห็น');
             return redirect()->back();
         }
     }
@@ -130,13 +130,13 @@ class PostCommentController extends Controller
         if ($comment) {
             $status = $comment->delete();
             if ($status) {
-                request()->session()->flash('success', 'Post Comment successfully deleted');
+                request()->session()->flash('success', 'ลบความคิดเห็นของโพสต์เรียบร้อยแล้ว');
             } else {
-                request()->session()->flash('error', 'Error occurred กรุณาลองอีกครั้ง!');
+                request()->session()->flash('error', 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง!');
             }
             return back();
         } else {
-            request()->session()->flash('error', 'Post Comment not found');
+            request()->session()->flash('error', 'ไม่พบโพสต์ความคิดเห็น');
             return redirect()->back();
         }
     }

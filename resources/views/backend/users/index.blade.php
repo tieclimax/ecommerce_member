@@ -128,18 +128,25 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
     <script>
-        $('#user-dataTable').DataTable({
-            "columnDefs": [{
-                "orderable": false,
-                "targets": [6, 7]
-            }]
+        // $('#user-dataTable').DataTable({
+        //     "columnDefs": [{
+        //         "orderable": false,
+        //         "targets": [6, 7]
+        //     }]
+        // });
+        $(document).ready(function() {
+            $('#user-dataTable').dataTable({
+                "order": [
+                    [0, "desc"]
+                ],
+                "bOrdering": true,
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": false
+            });
         });
-
-        // Sweet alert
-
-        function deleteData(id) {
-
-        }
 
     </script>
     <script>
@@ -155,8 +162,8 @@
                 // alert(dataID);
                 e.preventDefault();
                 swal({
-                        title: "Are you sure?",
-                        text: "Once deleted, you will not be able to recover this data!",
+                        title: "คุณแน่ใจไหม?",
+                        text: "เมื่อลบแล้วคุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -165,7 +172,7 @@
                         if (willDelete) {
                             form.submit();
                         } else {
-                            swal("Your data is safe!");
+                            swal("ข้อมูลของคุณปลอดภัย!");
                         }
                     });
             })

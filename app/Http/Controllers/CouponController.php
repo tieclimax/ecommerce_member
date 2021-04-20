@@ -120,7 +120,7 @@ class CouponController extends Controller
             if ($status) {
                 request()->session()->flash('success', 'Coupon successfully deleted');
             } else {
-                request()->session()->flash('error', 'Error, กรุณาลองอีกครั้ง!');
+                request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
             }
             return redirect()->route('coupon.index');
         } else {

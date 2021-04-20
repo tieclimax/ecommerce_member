@@ -11,7 +11,7 @@
                 <input type="hidden" name="owner_id" value={{ Auth::user()->id }}>
                 <div class="form-group">
                     <label for="inputTitle" class="col-form-label"> หัวข้อ <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="title" placeholder="Enter title"
+                    <input id="inputTitle" type="text" name="title" placeholder="กรอกชื่อหัวข้อ"
                         value="{{ $product->title }}" class="form-control">
                     @error('title')
                         <span class="text-danger">{{ $message }}</span>
@@ -72,8 +72,8 @@
 
                 <div class="form-group">
                     <label for="price" class="col-form-label">ราคา(THB) <span class="text-danger">*</span></label>
-                    <input id="price" type="number" name="price" placeholder="Enter price" value="{{ $product->price }}"
-                        class="form-control">
+                    <input id="price" type="number" name="price" placeholder="กรอกราคาสินค้า"
+                        value="{{ $product->price }}" class="form-control">
                     @error('price')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -81,7 +81,7 @@
 
                 <div class="form-group">
                     <label for="discount" class="col-form-label">ส่วนลด(%)</label>
-                    <input id="discount" type="number" name="discount" min="0" max="100" placeholder="Enter discount"
+                    <input id="discount" type="number" name="discount" min="0" max="100" placeholder="กรอกส่วนลด"
                         value="{{ $product->discount }}" class="form-control">
                     @error('discount')
                         <span class="text-danger">{{ $message }}</span>
@@ -127,7 +127,7 @@
 
                 <div class="form-group">
                     <label for="stock"> ปริมาณสินค้า <span class="text-danger">*</span></label>
-                    <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"
+                    <input id="quantity" type="number" name="stock" min="0" placeholder="กรอกจำนวนสินค้าที่จะลงขาย"
                         value="{{ $product->stock }}" class="form-control">
                     @error('stock')
                         <span class="text-danger">{{ $message }}</span>
