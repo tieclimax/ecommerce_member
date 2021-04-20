@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Order;
@@ -9,6 +10,7 @@ use App\Models\ProductReview;
 use App\Models\PostComment;
 use App\Rules\MatchOldPassword;
 use Hash;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -86,8 +88,9 @@ class HomeController extends Controller
     public function orderShow($id)
     {
         $order = Order::find($id);
-        // return $order;
-        return view('user.order.show')->with('order', $order);
+        $product_carts = Cart::where("order_id", $id)->get();
+       
+        return view('user.order.show', compact("order", "product_carts"));
     }
     public function orderEdit($id)
     {

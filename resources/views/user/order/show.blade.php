@@ -11,7 +11,7 @@
         </h5>
         <div class="card-body">
             @if ($order)
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover mb-5">
                     <thead>
                         <tr>
                             <th>ลำดับ</th>
@@ -32,6 +32,7 @@
                                 $shipping_charge = DB::table('shippings')
                                     ->where('id', $order->shipping_id)
                                     ->pluck('price');
+
                             @endphp
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->order_number }}</td>
@@ -43,11 +44,16 @@
                             <td>{{ $order->first_name }} {{ $order->last_name }}</td>
                             <td>{{ $order->email }}</td>
                             <td>{{ $order->quantity }}</td>
-                            <td>
-                                @foreach ($shipping_charge as $data) $
-                                    {{ number_format($data, 2) }} @endforeach
-                            </td>
-                            <td>฿{{ number_format($order->total_amount, 2) }}</td>
+                            @if (isset($order->shipping_id))
+                                <td>
+                                    @foreach ($shipping_charge as $data)
+                                        ฿ {{ number_format($data, 2) }}
+                                    @endforeach
+                                </td>
+                            @else
+                                <td>ไม่มีค่าบริการเพิ่มเติม</td>
+                            @endif 
+                            <td>฿ {{ number_format($order->total_amount, 2) }}</td>
                             <td>
                                 @if ($order->status == 'new')
                                     <span class="badge badge-primary">{{ $order->status }}</span>
@@ -70,6 +76,81 @@
                             </td>
 
                         </tr>
+                    </tbody>
+                </table>
+
+                {{-- product order list --}}
+                <div>
+                    <h5>รายการสินค้าที่สั่งซื้อ</h5>
+                </div>
+                <table class="table table-striped table-hover mb-5">
+                    <thead>
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th> ชื่อสินค้า </th>
+                            <th> ชื่อผู้ขาย </th>
+                            <th>ราคา</th>
+                            <th>รูปภาพสินค้า</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {{-- @for ($i = 1; $i <= $cnts; $i++) --}}
+                        @foreach ($product_carts as $product_cart)
+                            @php
+                                $product_title = DB::table('products')
+                                    ->select('title', 'owner_id', 'photo')
+                                    ->where('id', $product_cart->product_id)
+                                    ->get();
+                            @endphp
+                            <tr>
+                                <td>{{ $order->id }}</td>
+                                <td>
+                                    @foreach ($product_title as $item)
+                                        {{ $item->title }}
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($product_title as $item)
+                                        @php
+                                            $product_owners = DB::table('users')
+                                                ->select('name')
+                                                ->where('id', $item->owner_id)
+                                                ->get();
+                                        @endphp
+                                        @foreach ($product_owners as $product_owner)
+                                            {{ $product_owner->name }}
+                                        @endforeach
+                                    @endforeach
+                                </td>
+                                <td>฿ {{ number_format($product_cart->price, 2) }} </td>
+                                <td>
+                                    @foreach ($product_title as $item)
+                                        @php
+                                            $product_photos = DB::table('products')
+                                                ->select('photo')
+                                                ->where('id', $product_cart->product_id)
+                                                ->get();
+                                        @endphp
+                                        @foreach ($product_photos as $product_photo)
+                                            @if ($product_photo->photo)
+                                                @php
+                                                    $photo = explode(',', $product_photo->photo);
+
+                                                @endphp
+                                                <img src="{{ $photo[0] }}" class="img-fluid zoom"
+                                                    style="max-width:80px" alt="{{ $product_photo->photo }}">
+                                            @else
+                                                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
+                                                    class="img-fluid" style="max-width:80px" alt="avatar.png">
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                </td>
+                            </tr>
+                        @endforeach
+                        {{-- @endfor --}}
                     </tbody>
                 </table>
 
@@ -159,6 +240,26 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-lx-4">
+                                <div class="shipping-info">
+                                    <h4 class="text-center pb-4"> ข้อมูลการโอนเงิน </h4>
+
+                                    <p> รูปภาพสลิปการโอนเงิน </p>
+
+                                    @if ($order->slip_photo)
+                                        @php
+                                            $photo = explode(',', $order->slip_photo);
+                                            // dd($photo);
+                                        @endphp
+                                        <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:256px;"
+                                            alt="{{ $product->photo }}">
+                                    @else
+                                        <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
+                                            style="max-width:80px" alt="avatar.png">
+                                    @endif
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -179,6 +280,15 @@
         .order-info h4,
         .shipping-info h4 {
             text-decoration: underline;
+        }
+
+        .zoom {
+            transition: transform .2s;
+            /* Animation */
+        }
+
+        .zoom:hover {
+            transform: scale(4);
         }
 
     </style>

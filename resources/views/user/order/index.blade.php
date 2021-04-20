@@ -148,11 +148,24 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
     <script>
-        $('#order-dataTable').DataTable({
-            "columnDefs": [{
-                "orderable": false,
-                "targets": [8]
-            }]
+        // $('#order-dataTable').DataTable({
+        //     "columnDefs": [{
+        //         "orderable":true,
+        //         "targets": [0]
+        //     }]
+        // });
+        $(document).ready(function() {
+            $('#order-dataTable').dataTable({
+                "order": [
+                    [0, "desc"]
+                ],
+                "bOrdering": true,
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": false
+            });
         });
 
         // Sweet alert
@@ -175,8 +188,8 @@
                 // alert(dataID);
                 e.preventDefault();
                 swal({
-                        title: "Are you sure?",
-                        text: "Once deleted, you will not be able to recover this data!",
+                        title: "คุณแน่ใจไหม?",
+                        text: "เมื่อลบแล้วคุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -185,7 +198,7 @@
                         if (willDelete) {
                             form.submit();
                         } else {
-                            swal("Your data is safe!");
+                            swal("ข้อมูลของคุณปลอดภัย!");
                         }
                     });
             })

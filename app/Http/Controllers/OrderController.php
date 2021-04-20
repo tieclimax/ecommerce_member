@@ -125,7 +125,7 @@ class OrderController extends Controller
         }
         $carts =  Cart::where('user_id', auth()->user()->id)->where('order_id', null)->first();
         $owner_product = Product::where('id', $carts->product_id)->first();
-        dd($owner_product->owner_id);
+        // dd($owner_product->owner_id);
         $order_data['owner_id'] = $owner_product->owner_id;
         $order->fill($order_data);
         $status = $order->save();
