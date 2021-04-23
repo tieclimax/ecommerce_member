@@ -150,7 +150,7 @@
                                                 <a href="{{ route('product-detail', $product->slug) }}">
                                                     @php
                                                         $photo = explode(',', $product->photo);
-                                                        
+
                                                     @endphp
                                                     <img class="default-img" style="height: 160px"
                                                         src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
@@ -191,7 +191,7 @@
 
                                                     @php
                                                         $after_discount = $product->price - ($product->price * $product->discount) / 100;
-                                                        
+
                                                     @endphp
                                                     <span>฿ {{ number_format($after_discount, 2) }}</span>
                                                     @if ($product->discount != null)
@@ -355,9 +355,18 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12 no-padding">
                                             <div class="content">
-                                                <h4 class="title"><a href="#">{{ $product->title }}</a></h4>
+                                                <h4 class="title"><a
+                                                        href="{{ route('product-detail', $product->slug) }}">{{ $product->title }}</a>
+                                                </h4>
+                                                @if ($product->discount != null)
+                                                    <del style="">฿
+                                                        {{ number_format($product->price, 2) }}</del><br>
+                                                @endif
+                                                @php
+                                                    $after_discount = $product->price - ($product->price * $product->discount) / 100;
+                                                @endphp
                                                 <p class="price with-discount">
-                                                    ${{ number_format($product->discount, 2) }}
+                                                    ฿{{ number_format($after_discount, 2) }}
                                                 </p>
                                             </div>
                                         </div>
@@ -752,7 +761,7 @@
     </script> --}}
     <script>
         /*==================================================================
-                                                                                                                                                                                                                                                                                                                        [ Isotope ]*/
+                                                                                                                                                                                                                                                                                                                                                                                            [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 
