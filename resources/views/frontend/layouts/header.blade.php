@@ -9,7 +9,7 @@
                         <ul class="list-main">
                             @php
                                 $settings = DB::table('settings')->get();
-                                
+
                             @endphp
                             <li><i class="ti-headphone-alt"></i>
                                 @foreach ($settings as $data) {{ $data->phone }}
@@ -27,6 +27,7 @@
                     <!-- Top Right -->
                     <div class="right-content">
                         <ul class="list-main">
+
                             <li><i class="ti-location-pin"></i> <a href="{{ route('order.track') }}">ติดตามสินค้า</a>
                             </li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
@@ -40,6 +41,9 @@
                                             target="_blank">แดชบอร์ด</a>
                                     </li>
                                 @else
+                                    <li><i class="ti-shopping-cart-full"></i> <a
+                                            href="{{ route('register.seller') }}">ขายสินค้ากับท็อปช็อป</a>
+                                    </li>
                                     <li><i class="ti-user"></i> <a href="{{ route('user') }}" target="_blank">แดชบอร์ด</a>
                                     </li>
                                 @endif

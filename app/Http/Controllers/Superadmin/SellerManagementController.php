@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Superadmin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\User;
 use Illuminate\Http\Request;
 
-class ProductManagementController extends Controller
+class SellerManagementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class ProductManagementController extends Controller
      */
     public function index()
     {
-        $products = Product::getAllProduct()->where('product_confirmed', '0');
-        // dd($products);
-        return view('superadmin.product.index')->with('products', $products);
+        $sellers = User::where('status', 'pending')->paginate(5);
+        // dd($seller);
+        return view('superadmin.seller.index', compact('sellers'));
     }
 
     /**
@@ -48,9 +48,7 @@ class ProductManagementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return 'showqe';
-    }
+    { }
 
     /**
      * Show the form for editing the specified resource.
@@ -60,8 +58,9 @@ class ProductManagementController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-        return view('superadmin.product.edit')->with('product', $product);
+        $seller = User::where('status', 'pending')->where('id', $id)->first();
+        // dd($seller);
+        return view('superadmin.seller.edit', compact('seller'));
     }
 
     /**
@@ -73,19 +72,19 @@ class ProductManagementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd('update');
-        $product = Product::findOrFail($id);
-        $product->product_confirmed = '1';
-        $status = $product->save();
-        // dd($status);
+        // dd($request->all());
+        $user = User::findOrFail($id);
+        // dd($user);
+        $data = $request->all();
+        // dd($data);
+        $status = $user->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'อนุมัติสินค้าเรียบร้อยแล้ว');
+            request()->session()->flash('success', 'ทำการอัพเดทสถานะของผู้ขายสินค้าเรียบร้อยแล้ว');
         } else {
-            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
         }
-        return redirect()->route('product-management.index');
+        return redirect()->route('seller-management.index');
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -95,17 +94,6 @@ class ProductManagementController extends Controller
      */
     public function destroy($id)
     {
-        // dd('cancel');
-        $product = Product::findOrFail($id);
-        // dd($product);
-        $product->product_confirmed = '3';
-        $status = $product->save();
-        // dd($status);
-        if ($status) {
-            request()->session()->flash('success', 'ยกเลิกสินค้าเรียบร้อยแล้ว');
-        } else {
-            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
-        }
-        return redirect()->route('product-management.index');
+        //
     }
 }

@@ -41,6 +41,12 @@
             <i class="fab  fa-fw fa-product-hunt"></i>
             <span>จัดการสินค้า</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('seller-management.index') }}">
+
+            <i class="fab  fa-fw fa-product-hunt"></i>
+            <span>จัดการผู้ลงทะเบียนขายสินค้า</span></a>
+    </li>
 
     <!-- Reviews -->
     <li class="nav-item">

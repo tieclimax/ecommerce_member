@@ -39,19 +39,39 @@ class HomeController extends Controller
     public function profile()
     {
         $profile = Auth()->user();
+        $seller = User::where('provider_id', $profile->id)->first();
+        // dd($seller);
         // return $profile;
-        return view('user.users.profile')->with('profile', $profile);
+        return view('user.users.profile', compact('profile', 'seller'));
     }
 
     public function profileUpdate(Request $request, $id)
     {
         // return $request->all();
+
+        // dd($request->all())
         $user = User::findOrFail($id);
         $data = $request->all();
         // dd($data);
         $status = $user->fill($data)->save();
         if ($status) {
             request()->session()->flash('success', 'ทำการอัพเดทโปรไฟล์ของคุณเรียบร้อยแล้ว');
+        } else {
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
+        }
+        return redirect()->back();
+    }
+    public function certUpdate(Request $request, $id)
+    {
+
+        // dd($request->all());
+        $user = User::findOrFail($id);
+
+        $data = $request->all();
+
+        $status = $user->fill($data)->save();
+        if ($status) {
+            request()->session()->flash('success', 'ทำการอัพเดทใบอนุญาติการลงขายสินค้าของคุณเรียบร้อยแล้ว');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
         }

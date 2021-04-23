@@ -22,6 +22,10 @@ Route::get('user/logout', 'FrontendController@logout')->name('user.logout');
 
 Route::get('user/register', 'FrontendController@register')->name('register.form');
 Route::post('user/register', 'FrontendController@registerSubmit')->name('register.submit');
+// Register Seller
+Route::get('user/registerseller', 'FrontendController@registerSeller')->name('register.seller');
+Route::get('user/registersellerpolicy', 'FrontendController@registerSellerPolicy')->name('register.seller.policy');
+Route::post('user/registerseller', 'FrontendController@registerSellerSubmit')->name('register.seller.submit');
 // Reset password
 Route::get('password-reset', 'FrontendController@showResetForm')->name('password.reset');
 Route::post('password-reset', 'FrontendController@sentResetPassword')->name('resetpassword.sent');
@@ -200,6 +204,10 @@ Route::group(['prefix' => '/superadmin', 'middleware' => ['auth', 'superadmin']]
     // Products Managemecnt
     Route::resource('/product-management', 'Superadmin\ProductManagementController');
     Route::post('/product-management/{id}', 'Superadmin\ProductManagementController@cancel')->name('product-management.cancel');
+
+    // Seller Managemecnt
+    Route::resource('/seller-management', 'Superadmin\SellerManagementController');
+    // Route::post('/seller-management/{id}', 'Superadmin\SellerManagementController')->name('seller-management.update');
 });
 
 
@@ -213,6 +221,7 @@ Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
     // โปรไฟล์
     Route::get('/profile', 'HomeController@profile')->name('user-profile');
     Route::post('/profile/{id}', 'HomeController@profileUpdate')->name('user-profile-update');
+    Route::post('/profile/cert/{id}', 'HomeController@certUpdate')->name('user-cert-update');
     //  Order
     Route::get('/order', "HomeController@orderIndex")->name('user.order.index');
     Route::get('/order/show/{id}', "HomeController@orderShow")->name('user.order.show');

@@ -373,6 +373,9 @@ class FrontendController extends Controller
             Session::put('user', $data['email']);
             request()->session()->flash('success', 'เข้าสู่ระบบสำเร็จ');
             return redirect()->route('home');
+        } elseif (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'status' => 'inactive'])) {
+            request()->session()->flash('error', 'อีเมลของคุณยังไม่ได้รับการอนุมัติจากผู้ดูแลการขายสินค้า');
+            return redirect()->back();
         } else {
             request()->session()->flash('error', 'อีเมลและรหัสผ่านไม่ถูกต้องโปรดลองอีกครั้ง!');
             return redirect()->back();
@@ -393,7 +396,7 @@ class FrontendController extends Controller
     }
     public function registerSubmit(Request $request)
     {
-        // return $request->all();
+
         $this->validate($request, [
             'name' => 'string|required|min:2',
             'email' => 'string|required|unique:users,email',
@@ -411,6 +414,36 @@ class FrontendController extends Controller
             return back();
         }
     }
+    public function registerSellerPolicy()
+    {
+        return view('frontend.pages.policy');
+    }
+    public function registerSeller()
+    {
+        return view('frontend.pages.registerseller');
+    }
+    public function registerSellerSubmit(Request $request)
+    {
+        // return $request->all();
+        $this->validate($request, [
+            'name' => 'string|required|min:2',
+            'email' => 'string|required|unique:users,email',
+            'password' => 'required|min:6|confirmed',
+            'status' => 'string|required',
+            'photo_cert' => 'required',
+        ]);
+        $data = $request->all();
+        // dd($data);
+        $check = $this->createSeller($data);
+        Session::put('admin', $data['email']);
+        if ($check) {
+            request()->session()->flash('success', 'ลงทะเบียนเป็นผู้ขายสินค้าเรียบร้อยแล้ว โปรดรอผู้ดูแลตรวจสอบข้อมูล!');
+            return redirect()->route('home');
+        } else {
+            request()->session()->flash('error', 'กรุณาลองอีกครั้ง!');
+            return back();
+        }
+    }
     public function create(array $data)
     {
         return User::create([
@@ -418,6 +451,21 @@ class FrontendController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'status' => 'active'
+        ]);
+    }
+    public function createSeller(array $data)
+    {
+        $user = Auth::user();
+
+        // dd($user);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'role' => 'admin',
+            'status' => 'pending',
+            'photo_cert' => $data['photo_cert'],
+            'provider_id' => $user->id,
         ]);
     }
     // Reset password
