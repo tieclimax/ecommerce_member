@@ -4,6 +4,11 @@
 
 @section('main-content')
     <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                @include('backend.layouts.notification')
+            </div>
+        </div>
         <h5 class="card-header">คำสั่งซื้อ
             {{-- <a href="{{ route('order.pdf', $order->id) }}"
                 class=" btn btn-sm btn-primary shadow-sm float-right"><i class="fas fa-download fa-sm text-white-50"></i>
@@ -223,6 +228,8 @@
                                             <td> :
                                                 @if ($order->payment_status == 'paid')
                                                     จ่ายแล้ว
+                                                @elseif ($order->payment_status == 'cancel')
+                                                    ถูกยกเลิก
                                                 @else ยังไม่จ่าย
                                                 @endif
                                             </td>
@@ -274,11 +281,27 @@
                                             $photo = explode(',', $order->slip_photo);
                                             // dd($photo);
                                         @endphp
-                                        <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:256px;"
-                                            alt="{{ $product->photo }}">
+                                        <div class="row">
+                                            <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:256px;"
+                                                alt="{{ $product->photo }}">
+                                        </div>
+                                        <form method="POST" action="{{ route('slip.update', $order->id) }}">
+                                            @csrf
+                                            <p class="mt-3">อัปเดทสถานะการโอนเงิน </p>
+                                            <div class="row mt-2 ">
+                                                @if (isset($photo))
+                                                    <button type="submit" name="payment_status" value="paid"
+                                                        class="btn btn-success btn-sm mx-2">ยืนยัน</button>
+                                                    <button type="submit" name="payment_status" value="cancel"
+                                                        class="btn btn-danger btn-sm mx-2">ยกเลิก</button>
+                                                @endif
+                                            </div>
+                                        </form>
                                     @else
-                                        <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
-                                            style="max-width:80px" alt="avatar.png">
+                                        <div class="row">
+                                            <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
+                                                style="max-width:80px" alt="avatar.png">
+                                        </div>
                                     @endif
 
                                 </div>

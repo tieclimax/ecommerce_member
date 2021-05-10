@@ -216,6 +216,8 @@
                                             <td> :
                                                 @if ($order->payment_status == 'paid')
                                                     จ่ายแล้ว
+                                                @elseif ($order->payment_status == 'cancel')
+                                                    ถูกยกเลิก
                                                 @else ยังไม่จ่าย
                                                 @endif
                                             </td>

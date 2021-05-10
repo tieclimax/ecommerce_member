@@ -37,7 +37,7 @@
                         </p>
                         <div class="button">
                             <a href="{{ route('blog') }}" class="btn">บล็อกของเรา</a>
-                            <a href="{{ route('contact') }}" class="btn primary">ติดต่อเรา</a>
+                            <a href="{{ route('contact') }}" class="btn">ติดต่อเรา</a>
                         </div>
                     </div>
                 </div>
@@ -46,8 +46,7 @@
                         {{-- <div class="button">
 								<a href="https://www.youtube.com/watch?v=nh2aYrGMrIE" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
 							</div> --}}
-                        <img src="@foreach ($settings as $data) {{ $data->photo }} @endforeach" alt="          @foreach ($settings as
-                            $data)
+                        <img src="@foreach ($settings as $data) {{ $data->photo }} @endforeach" alt="                               @foreach ($settings as $data)
                         {{ $data->photo }} @endforeach">
                     </div>
                 </div>
@@ -57,133 +56,76 @@
     <!-- End About Us -->
 
     <!-- Start Team -->
-    {{-- <section id="team" class="team section">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="section-title">
-						<h2>Our Expert Team</h2>
-						<p>Business consulting excepteur sint occaecat cupidatat consulting non proident, sunt in culpa qui officia deserunt laborum market. </p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!-- Single Team -->
-				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-team">
-						<!-- Image -->
-						<div class="image">
-							<img src="images/team/team1.jpg" alt="#">
-						</div>
-						<!-- End Image -->
-						<div class="info-head">
-							<!-- Info Box -->
-							<div class="info-box">
-								<h4 class="name"><a href="#">Dahlia Moore</a></h4>
-								<span class="designation">Senior Manager</span>
-							</div>
-							<!-- End Info Box -->
-							<!-- Social -->
-							<div class="social-links">
-								<ul class="social">
-									<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-								</ul>
-							</div>
-							<!-- End Social -->
-						</div>
-					</div>
-				</div>
-				<!-- End Single Team -->
-				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-team">
-						<!-- Image -->
-						<div class="image">
-							<img src="images/team/team2.jpg" alt="#">
-						</div>
-						<!-- End Image -->
-						<div class="info-head">
-							<!-- Info Box -->
-							<div class="info-box">
-								<h4 class="name"><a href="#">Jhone digo</a></h4>
-								<span class="designation">Markeitng</span>
-							</div>
-							<!-- End Info Box -->
-							<!-- Social -->
-							<div class="social-links">
-								<ul class="social">
-									<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-								</ul>
-							</div>
-							<!-- End Social -->
-						</div>
-					</div>
-				</div>
-				<!-- End Single Team -->
-				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-team">
-						<!-- Image -->
-						<div class="image">
-							<img src="images/team/team3.jpg" alt="#">
-						</div>
-						<!-- End Image -->
-						<div class="info-head">
-							<!-- Info Box -->
-							<div class="info-box">
-								<h4 class="name"><a href="#">Zara tingo</a></h4>
-								<span class="designation">Web Developer</span>
-							</div>
-							<!-- End Info Box -->
-							<!-- Social -->
-							<div class="social-links">
-								<ul class="social">
-									<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-								</ul>
-							</div>
-							<!-- End Social -->
-						</div>
-					</div>
-				</div>
-				<!-- End Single Team -->
-				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-team">
-						<!-- Image -->
-						<div class="image">
-							<img src="images/team/team4.jpg" alt="#">
-						</div>
-						<!-- End Image -->
-						<div class="info-head">
-							<!-- Info Box -->
-							<div class="info-box">
-								<h4 class="name"><a href="#">David Zone</a></h4>
-								<span class="designation">SEO Expert</span>
-							</div>
-							<!-- End Info Box -->
-							<!-- Social -->
-							<div class="social-links">
-								<ul class="social">
-									<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-								</ul>
-							</div>
-							<!-- End Social -->
-						</div>
-					</div>
-				</div>
-				<!-- End Single Team -->
-			</div>
-		</div>
-	</section> --}}
+    <section id="team" class="team section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>ทีมผู้เชี่ยวชาญของเรา</h2>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <!-- Single Team -->
+                <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="single-team" style="width: 260px">
+                        <!-- Image -->
+                        <div class="image">
+                            {{-- <img src="images/team/team1.jpg" alt="#"> --}}
+                        </div>
+                        <!-- End Image -->
+                        <div class="info-head">
+                            <!-- Info Box -->
+                            <div class="info-box">
+                                <h4 class="name"><a href="#">Panuwat Khrai-udom</a></h4>
+                                <span class="designation">Full Stack Website Developer</span>
+                            </div>
+                            <!-- End Info Box -->
+                            <!-- Social -->
+                            <div class="social-links">
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- End Social -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Team -->
+                <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="single-team" style="width: 260px">
+                        <!-- Image -->
+                        <div class="image">
+                            {{-- <img src="images/team/team2.jpg" alt="#"> --}}
+                        </div>
+                        <!-- End Image -->
+                        <div class="info-head">
+                            <!-- Info Box -->
+                            <div class="info-box">
+                                <h4 class="name"><a href="#">Pherapoj Sunhathum</a></h4>
+                                <span class="designation">Editor</span>
+                            </div>
+                            <!-- End Info Box -->
+                            <!-- Social -->
+                            <div class="social-links">
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- End Social -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!--/ End Team Area -->
 
     <!-- Start Shop Services Area -->

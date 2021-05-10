@@ -55,7 +55,7 @@ class OrderController extends Controller
             'post_code' => 'string|nullable',
             'email' => 'string|required'
         ]);
-        // return $request->all();
+        // dd($request->all());
 
         if (empty(Cart::where('user_id', auth()->user()->id)->where('order_id', null)->first())) {
             request()->session()->flash('error', 'ตะกร้าว่าง !');
@@ -119,14 +119,14 @@ class OrderController extends Controller
         if (request('payment_method') == 'paypal') {
             $order_data['payment_method'] = 'paypal';
             $order_data['payment_status'] = 'paid';
-        }
-        if (request('payment_method') == 'netbank') {
+        } elseif (request('payment_method') == 'netbank') {
             $order_data['payment_method'] = 'netbank';
             $order_data['payment_status'] = 'Unpaid';
         } else {
             $order_data['payment_method'] = 'cod';
             $order_data['payment_status'] = 'Unpaid';
         }
+
         $carts =  Cart::where('user_id', auth()->user()->id)->where('order_id', null)->first();
         $owner_product = Product::where('id', $carts->product_id)->first();
         // dd($owner_product->owner_id);
@@ -236,6 +236,26 @@ class OrderController extends Controller
             request()->session()->flash('error', 'Order can not found');
             return redirect()->back();
         }
+    }
+    public function updateSlip(Request $request, $id)
+    {
+        // dd($request->all());
+        $order = Order::find($id);
+        $this->validate($request, [
+            'payment_status' => 'required|in:paid,cancel'
+        ]);
+        $data = $request->all();
+        // dd($data);
+
+        $status = $order->fill($data)->save();
+        // dd($status);
+        if ($status) {
+            request()->session()->flash('success', 'อัปเดตการโอนเงินสำเร็จแล้ว');
+        } else {
+            request()->session()->flash('error', 'อัปเดตการโอนเงินไม่สำเร็จแล้ว');
+        }
+        // return redirect()->route('order.index');
+        return redirect()->back();
     }
 
     public function orderTrack()

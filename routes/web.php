@@ -132,6 +132,8 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
 
     // Order
     Route::resource('/order', 'OrderController');
+    Route::post('/order/slip-iupdate/{id}', 'OrderController@updateSlip')->name('slip.update');
+
     // Shipping
     Route::resource('/shipping', 'ShippingController');
     // Coupon
