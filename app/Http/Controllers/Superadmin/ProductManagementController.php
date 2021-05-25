@@ -15,7 +15,8 @@ class ProductManagementController extends Controller
      */
     public function index()
     {
-        $products = Product::getAllProduct()->where('product_confirmed', '0');
+        // $products = Product::getAllProduct()->where('product_confirmed', '0');
+        $products = Product::where('product_confirmed', '0')->orderBy('updated_at', 'ASC')->get();
         // dd($products);
         return view('superadmin.product.index')->with('products', $products);
     }
@@ -49,7 +50,7 @@ class ProductManagementController extends Controller
      */
     public function show($id)
     {
-        return 'showqe';
+        return '';
     }
 
     /**

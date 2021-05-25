@@ -163,7 +163,7 @@ class MyshopController extends Controller
         } else {
             $data['size'] = '';
         }
-        // return $data;
+        $data['product_confirmed'] = $request->input('product_confirmed', 0);
         $status = $product->fill($data)->save();
         if ($status) {
             request()->session()->flash('success', 'แก้ไขสินค้าสำเร็จ!');
@@ -178,13 +178,17 @@ class MyshopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-        $status = $product->delete();
+        $data = $request->all();
+        $data['product_confirmed'] = $request->input('product_confirmed', 2);
+        // dd($data);
+        $status = $product->fill($data)->save();
+        // dd($status);
 
         if ($status) {
-            request()->session()->flash('success', 'ลบสินค้าสำเร็จ!');
+            request()->session()->flash('success', 'ลบสินค้าสำเร็จ');
         } else {
             request()->session()->flash('error', 'ลบสินค้าไม่สำเร็จ!');
         }
