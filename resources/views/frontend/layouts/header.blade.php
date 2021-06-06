@@ -99,12 +99,12 @@
                 <div class="col-lg-8 col-md-7 col-12">
                     <div class="search-bar-top">
                         <div class="search-bar">
-                            <select>
+                            {{-- <select>
                                 <option>หมวดหมู่ทั้งหมด</option>
                                 @foreach (Helper::getAllCategory() as $cat)
                                     <option>{{ $cat->title }}</option>
                                 @endforeach
-                            </select>
+                            </select> --}}
                             <form method="POST" action="{{ route('product.search') }}">
                                 @csrf
                                 <input name="search" placeholder="ค้นหาสินค้า ..." type="search">
@@ -231,14 +231,14 @@
                                             <li class="{{ Request::path() == 'home' ? 'active' : '' }}"><a
                                                     href="{{ route('home') }}">หน้าแรก</a></li>
                                             {{ Helper::getHeaderCategory() }}
-                                            <li class="{{ Request::path() == 'about-us' ? 'active' : '' }}"><a
-                                                    href="{{ route('about-us') }}">เกี่ยวกับเรา</a></li>
                                             <li class="@if (Request::path()=='product-grids' ||
                                                 Request::path()=='product-lists' ) active @endif"><a href="{{ route('product-grids') }}">สินค้าทั้งหมด</a><span
                                                     class="new">สินค้าใหม่</span></li>
                                             <li class="{{ Request::path() == 'blog' ? 'active' : '' }}"><a
                                                     href="{{ route('blog') }}">บทความ</a></li>
 
+                                            <li class="{{ Request::path() == 'about-us' ? 'active' : '' }}"><a
+                                                    href="{{ route('about-us') }}">เกี่ยวกับเรา</a></li>
                                             <li class="{{ Request::path() == 'contact' ? 'active' : '' }}"><a
                                                     href="{{ route('contact') }}">ติดต่อเรา</a></li>
                                         </ul>
