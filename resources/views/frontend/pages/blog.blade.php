@@ -31,7 +31,8 @@
                             <div class="col-lg-6 col-md-6 col-12">
                                 <!-- Start Single Blog  -->
                                 <div class="shop-single-blog">
-                                    <img src="{{ $post->photo }}" alt="{{ $post->photo }}">
+                                    <img style="width: 300px;height:256px" src="{{ $post->photo }}"
+                                        alt="{{ $post->photo }}">
                                     <div class="content">
                                         @php
                                             $author_info = DB::table('users')

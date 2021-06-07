@@ -71,21 +71,21 @@ class FrontendController extends Controller
             // dd($slug);
             $cat_ids = Category::select('id')->whereIn('slug', $slug)->pluck('id')->toArray();
             // dd($cat_ids);
-            $products->whereIn('cat_id', $cat_ids);
+            $products->where('product_confirmed', 1)->whereIn('cat_id', $cat_ids);
             // return $products;
         }
         if (!empty($_GET['brand'])) {
             $slugs = explode(',', $_GET['brand']);
             $brand_ids = Brand::select('id')->whereIn('slug', $slugs)->pluck('id')->toArray();
             return $brand_ids;
-            $products->whereIn('brand_id', $brand_ids);
+            $products->where('product_confirmed', 1)->whereIn('brand_id', $brand_ids);
         }
         if (!empty($_GET['sortBy'])) {
             if ($_GET['sortBy'] == 'title') {
-                $products = $products->where('status', 'active')->orderBy('title', 'ASC');
+                $products = $products->where('status', 'active')->where('product_confirmed', 1)->orderBy('title', 'ASC');
             }
             if ($_GET['sortBy'] == 'price') {
-                $products = $products->orderBy('price', 'ASC');
+                $products = $products->where('product_confirmed', 1)->orderBy('price', 'ASC');
             }
         }
 
@@ -101,9 +101,9 @@ class FrontendController extends Controller
         $recent_products = Product::where('status', 'active')->where('product_confirmed', 1)->orderBy('id', 'DESC')->limit(3)->get();
         // Sort by number
         if (!empty($_GET['show'])) {
-            $products = $products->where('status', 'active')->paginate($_GET['show']);
+            $products = $products->where('status', 'active')->where('product_confirmed', 1)->paginate($_GET['show']);
         } else {
-            $products = $products->where('status', 'active')->paginate(9);
+            $products = $products->where('status', 'active')->where('product_confirmed', 1)->orderBy('title', 'ASC')->paginate(9);
         }
         // Sort by name , price, category
 
@@ -213,6 +213,7 @@ class FrontendController extends Controller
             ->orwhere('description', 'like', '%' . $request->search . '%')
             ->orwhere('summary', 'like', '%' . $request->search . '%')
             ->orwhere('price', 'like', '%' . $request->search . '%')
+            ->where('product_confirmed', 1)
             ->orderBy('id', 'DESC')
             ->paginate('9');
         return view('frontend.pages.product-grids')->with('products', $products)->with('recent_products', $recent_products);
