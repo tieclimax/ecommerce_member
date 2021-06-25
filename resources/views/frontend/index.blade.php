@@ -89,8 +89,10 @@
                                         <img src="https://via.placeholder.com/600x370" alt="#">
                                     @endif
                                     <div class="content">
-                                        <h3>{{ $cat->title }}</h3>
-                                        <a href="{{ route('product-cat', $cat->slug) }}">ค้นพบเดี๋ยวนี้
+                                        <h2 style="color: white;text-shadow: 2px 2px #f6931d;font-size: 30px;">
+                                            {{ $cat->title }}</h2>
+                                        <a href="{{ route('product-cat', $cat->slug) }}"
+                                            style="color: white; border-bottom: 2px solid red;font-size: 18px;">ค้นพบเดี๋ยวนี้
                                         </a>
                                     </div>
                                 </div>
@@ -763,7 +765,7 @@
     </script> --}}
     <script>
         /*==================================================================
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        [ Isotope ]*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 
@@ -804,7 +806,6 @@
                 $(this).addClass('how-active1');
             });
         });
-
     </script>
     <script>
         function cancelFullScreen(el) {
@@ -835,7 +836,6 @@
             }
             return false
         }
-
     </script>
 
 @endpush
