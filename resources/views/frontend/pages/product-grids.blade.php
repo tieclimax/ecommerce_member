@@ -198,9 +198,9 @@
                                                         $photo = explode(',', $product->photo);
                                                     @endphp
                                                     <img class="default-img" src="{{ $photo[0] }}"
-                                                        alt="{{ $photo[0] }}">
+                                                        alt="{{ $photo[0] }}" style="height: 220px;">
                                                     <img class="hover-img" src="{{ $photo[0] }}"
-                                                        alt="{{ $photo[0] }}">
+                                                        alt="{{ $photo[0] }} " style="height: 220px">
                                                     @if ($product->discount)
                                                         <span class="price-dec">{{ $product->discount }} % Off</span>
                                                     @endif
@@ -515,6 +515,5 @@
         $(document).ready(function() {
             $('.product-dataTable').DataTable();
         });
-
     </script>
 @endpush

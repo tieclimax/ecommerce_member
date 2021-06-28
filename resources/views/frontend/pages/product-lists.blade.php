@@ -111,7 +111,8 @@
                                     @endphp
                                     <div class="single-post first">
                                         <div class="image">
-                                            <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
+                                            <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}"
+                                                style="height: 220px">
                                         </div>
                                         <div class="content">
                                             <h5><a
@@ -500,7 +501,6 @@
                     "  -  " + m_currency + $("#slider-range").slider("values", 1));
             }
         })
-
     </script>
 
 @endpush
