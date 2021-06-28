@@ -111,8 +111,7 @@
                                     @endphp
                                     <div class="single-post first">
                                         <div class="image">
-                                            <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}"
-                                                style="height: 220px">
+                                            <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
                                         </div>
                                         <div class="content">
                                             <h5><a
@@ -200,8 +199,8 @@
                                                         $photo = explode(',', $product->photo);
                                                     @endphp
                                                     <img class="default-img" src="{{ $photo[0] }}"
-                                                        alt="{{ $photo[0] }}">
-                                                    <img class="hover-img" src="{{ $photo[0] }}"
+                                                        style="height: 220px" alt="{{ $photo[0] }}">
+                                                    <img class="hover-img" src="{{ $photo[0] }}" style="height: 220px"
                                                         alt="{{ $photo[0] }}">
                                                     @if ($product->discount)
                                                         <span class="price-dec">{{ $product->discount }} % Off</span>
