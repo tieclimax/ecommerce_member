@@ -53,7 +53,7 @@ class BrandController extends Controller
         // return $data;
         $status = Brand::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Brand successfully created');
+            request()->session()->flash('success', 'สร้างยี่ห้อสำเร็จ');
         } else {
             request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
         }
@@ -104,7 +104,7 @@ class BrandController extends Controller
 
         $status = $brand->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Brand successfully updated');
+            request()->session()->flash('success', 'อัพเดทยี่ห้อสำเร็จ');
         } else {
             request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
         }
@@ -123,7 +123,7 @@ class BrandController extends Controller
         if ($brand) {
             $status = $brand->delete();
             if ($status) {
-                request()->session()->flash('success', 'Brand successfully deleted');
+                request()->session()->flash('success', 'ลบยี่ห้อสำเร็จ');
             } else {
                 request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
             }

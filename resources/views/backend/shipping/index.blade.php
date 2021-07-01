@@ -19,26 +19,17 @@
                     <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
                                 <th>หัวข้อ</th>
                                 <th>ราคา</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>หัวข้อ</th>
-                                <th>ราคา</th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             @foreach ($shippings as $shipping)
                                 <tr>
-                                    <td>{{ $shipping->id }}</td>
+
                                     <td>{{ $shipping->type }}</td>
                                     <td>฿{{ $shipping->price }}</td>
                                     <td>
@@ -137,7 +128,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -167,6 +157,5 @@
                     });
             })
         })
-
     </script>
 @endpush

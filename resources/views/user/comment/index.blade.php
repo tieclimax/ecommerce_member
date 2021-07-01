@@ -17,7 +17,7 @@
                     <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th> ผู้แต่ง </th>
                                 <th> หัวข้อโพสต์ </th>
                                 <th> ข้อความ </th>
@@ -26,17 +26,7 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th> ผู้แต่ง </th>
-                                <th> หัวข้อโพสต์ </th>
-                                <th> ข้อความ </th>
-                                <th> วันที่ </th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             @foreach ($comments as $comment)
                                 {{-- {{$comment}} --}}
@@ -47,7 +37,7 @@
                                         ->get();
                                 @endphp
                                 <tr>
-                                    <td>{{ $comment->id }}</td>
+
                                     <td>{{ $comment->user_info['name'] }}</td>
                                     <td>
                                         @foreach ($title as $data){{ $data->title }}
@@ -123,7 +113,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -153,6 +142,5 @@
                     });
             })
         })
-
     </script>
 @endpush

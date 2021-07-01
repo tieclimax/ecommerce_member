@@ -19,7 +19,7 @@
                     <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>หัวข้อ</th>
                                 <th>คำอธิบายสั้น</th>
                                 <th>รูป</th>
@@ -27,20 +27,11 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>หัวข้อ</th>
-                                <th>คำอธิบายสั้น</th>
-                                <th>รูป</th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             @foreach ($banners as $banner)
                                 <tr>
-                                    <td>{{ $banner->id }}</td>
+
                                     <td>{{ $banner->title }}</td>
                                     <td>{{ $banner->slug }}</td>
                                     <td>
@@ -148,7 +139,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -178,6 +168,5 @@
                     });
             })
         })
-
     </script>
 @endpush

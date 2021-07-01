@@ -17,7 +17,7 @@
                     <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th> หมายเลขคำสั่งซื้อ </th>
                                 <th>ชื่อ</th>
                                 <th>อีเมล</th>
@@ -29,20 +29,7 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th> หมายเลขคำสั่งซื้อ </th>
-                                <th>ชื่อ</th>
-                                <th>อีเมล</th>
-                                <th> ปริมาณ </th>
-                                <th>ค่าบริการเพิ่มเติม</th>
-                                <th> จำนวนเงินทั้งหมด </th>
-                                <th>สถานะ</th>
-                                <th>รูปภาพ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             @foreach ($orders as $order)
                                 @php
@@ -51,7 +38,7 @@
                                         ->pluck('price');
                                 @endphp
                                 <tr>
-                                    <td>{{ $order->id }}</td>
+
                                     <td>{{ $order->order_number }}</td>
                                     <td>{{ $order->first_name }} {{ $order->last_name }}</td>
                                     <td>{{ $order->email }}</td>
@@ -63,13 +50,13 @@
                                     <td>฿{{ number_format($order->total_amount, 2) }}</td>
                                     <td>
                                         @if ($order->status == 'new')
-                                            <span class="badge badge-primary">{{ $order->status }}</span>
+                                            <span class="badge badge-primary">รอการยืนยัน</span>
                                         @elseif($order->status=='process')
-                                            <span class="badge badge-warning">{{ $order->status }}</span>
+                                            <span class="badge badge-warning">กำลังดำเนินการ</span>
                                         @elseif($order->status=='delivered')
-                                            <span class="badge badge-success">{{ $order->status }}</span>
+                                            <span class="badge badge-success">จัดส่งแล้ว</span>
                                         @else
-                                            <span class="badge badge-danger">{{ $order->status }}</span>
+                                            <span class="badge badge-danger">ยกเลิก</span>
                                         @endif
                                     </td>
                                     <td>
@@ -169,7 +156,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -199,6 +185,5 @@
                     });
             })
         })
-
     </script>
 @endpush

@@ -77,7 +77,7 @@ class PostController extends Controller
 
         $status = Post::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Post Successfully added');
+            request()->session()->flash('success', 'ลบโพสสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -145,7 +145,7 @@ class PostController extends Controller
 
         $status = $post->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Post Successfully updated');
+            request()->session()->flash('success', 'อีพเดทโพสสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -165,9 +165,9 @@ class PostController extends Controller
         $status = $post->delete();
 
         if ($status) {
-            request()->session()->flash('success', 'Post successfully deleted');
+            request()->session()->flash('success', 'ลบโพสสำเร็จ');
         } else {
-            request()->session()->flash('error', 'Error while deleting post ');
+            request()->session()->flash('error', 'ไม่สามารถลบโพสได้ในขณะนี้');
         }
         return redirect()->route('superadminpost.index');
     }

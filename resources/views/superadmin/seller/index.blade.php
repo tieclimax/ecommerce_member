@@ -17,7 +17,7 @@
                     <table class="table table-bordered" id="seller-dataTable" width="100%">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>ชื่อ</th>
                                 <th>อีเมล</th>
                                 <th>รูปโปรไฟล์</th>
@@ -28,25 +28,13 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>ชื่อ</th>
-                                <th>อีเมล</th>
-                                <th>รูปโปรไฟล์</th>
-                                <th>รูปใบอนุญาติการลงขายสินค้า</th>
-                                <th>บทบาท</th>
-                                <th>สถานะ</th>
-                                <th>วันที่ลงทะเบียน</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
 
                             @foreach ($sellers as $seller)
 
                                 <tr>
-                                    <td>{{ $seller->id }}</td>
+
                                     <td>{{ $seller->name }}</td>
                                     <td>{{ $seller->email }}</td>
                                     <td>
@@ -171,7 +159,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -221,6 +208,5 @@
                     });
             })
         })
-
     </script>
 @endpush

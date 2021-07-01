@@ -108,7 +108,7 @@ class CartController extends Controller
         $cart = Cart::find($request->id);
         if ($cart) {
             $cart->delete();
-            request()->session()->flash('success', 'Cart successfully removed');
+            request()->session()->flash('success', 'ลบสินค้าในตะกร้าสำเร็จ');
             return back();
         }
         request()->session()->flash('error', 'Error กรุณาลองอีกครั้ง!');

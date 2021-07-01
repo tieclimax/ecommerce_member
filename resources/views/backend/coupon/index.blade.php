@@ -19,7 +19,7 @@
                     <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>Coupon Code</th>
                                 <th>Type</th>
                                 <th>Value</th>
@@ -27,20 +27,11 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>Coupon Code</th>
-                                <th>Type</th>
-                                <th>Value</th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             @foreach ($coupons as $coupon)
                                 <tr>
-                                    <td>{{ $coupon->id }}</td>
+
                                     <td>{{ $coupon->code }}</td>
                                     <td>
                                         @if ($coupon->type == 'fixed')
@@ -152,7 +143,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -182,6 +172,5 @@
                     });
             })
         })
-
     </script>
 @endpush

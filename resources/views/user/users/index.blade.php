@@ -18,7 +18,7 @@
                 <table class="table table-bordered" id="user-dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ลำดับ</th>
+
                             <th>ชื่อ</th>
                             <th>อีเมล</th>
                             <th>รูป</th>
@@ -28,22 +28,11 @@
                             <th> การกระทำ </th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ลำดับ</th>
-                            <th>ชื่อ</th>
-                            <th>อีเมล</th>
-                            <th>รูป</th>
-                            <th>วันที่เข้าร่วม</th>
-                            <th> บทบาท </th>
-                            <th>สถานะ</th>
-                            <th> การกระทำ </th>
-                        </tr>
-                    </tfoot>
+
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->id }}</td>
+
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
@@ -140,7 +129,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -170,6 +158,5 @@
                     });
             })
         })
-
     </script>
 @endpush

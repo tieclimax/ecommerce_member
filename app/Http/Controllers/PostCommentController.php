@@ -57,7 +57,7 @@ class PostCommentController extends Controller
         ];
         Notification::send($user, new StatusNotification($details));
         if ($status) {
-            request()->session()->flash('success', 'Thank you for your comment');
+            request()->session()->flash('success', 'ขอขอบคุณที่แสดงความคิดเห็นกับเรา');
         } else {
             request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
         }

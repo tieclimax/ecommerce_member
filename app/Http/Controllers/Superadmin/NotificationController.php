@@ -26,14 +26,14 @@ class NotificationController extends Controller
         if ($notification) {
             $status = $notification->delete();
             if ($status) {
-                request()->session()->flash('success', 'Notification successfully deleted');
+                request()->session()->flash('success', 'ลบการประกาศแจ้งเตือนสำเร็จ');
                 return back();
             } else {
-                request()->session()->flash('error', 'Error กรุณาลองอีกครั้ง!');
+                request()->session()->flash('error', 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง!');
                 return back();
             }
         } else {
-            request()->session()->flash('error', 'Notification not found');
+            request()->session()->flash('error', 'ไม่พบการแจ้งเตือน');
             return back();
         }
     }

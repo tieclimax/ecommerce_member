@@ -84,7 +84,7 @@ class ProductController extends Controller
         // return $data;
         $status = Product::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Product Successfully added');
+            request()->session()->flash('success', 'เพิ่มสินค้าสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -177,9 +177,9 @@ class ProductController extends Controller
         $status = $product->delete();
 
         if ($status) {
-            request()->session()->flash('success', 'Product successfully deleted');
+            request()->session()->flash('success', 'ลบสินค้าสำเร็จ');
         } else {
-            request()->session()->flash('error', 'Error while deleting product');
+            request()->session()->flash('error', 'เกิดข้อผิดพลาดในการลบสินค้า');
         }
         return redirect()->route('product.index');
     }

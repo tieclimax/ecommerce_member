@@ -19,7 +19,7 @@
                     <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>หัวข้อ</th>
                                 <th>หมวดหมู่</th>
                                 <th>กำลังมาเเรง</th>
@@ -34,23 +34,7 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>หัวข้อ</th>
-                                <th>หมวดหมู่</th>
-                                <th>กำลังมาเเรง</th>
-                                <th>ราคา</th>
-                                <th>ส่วนลด</th>
-                                <th>ขนาด</th>
-                                <th> เงื่อนไข </th>
-                                <th> แบรนด์ </th>
-                                <th> อยู่ในคลัง </th>
-                                <th>รูป</th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
 
                             @foreach ($products as $product)
@@ -66,7 +50,7 @@
                                         ->get();
                                 @endphp
                                 <tr>
-                                    <td>{{ $product->id }}</td>
+
                                     <td>{{ $product->title }}</td>
                                     <td>{{ $product->cat_info['title'] }}
                                         <sub>
@@ -106,9 +90,9 @@
                                     </td>
                                     <td>
                                         @if ($product->status == 'active')
-                                            <span class="badge badge-success">{{ $product->status }}</span>
+                                            <span class="badge badge-success">กำลังขาย</span>
                                         @else
-                                            <span class="badge badge-warning">{{ $product->status }}</span>
+                                            <span class="badge badge-warning">ไม่ได้ขาย</span>
                                         @endif
                                     </td>
                                     <td>
@@ -200,7 +184,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -230,6 +213,5 @@
                     });
             })
         })
-
     </script>
 @endpush

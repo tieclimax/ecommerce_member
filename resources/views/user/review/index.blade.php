@@ -17,7 +17,7 @@
                     <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>รีวิวโดย</th>
                                 <th> ชื่อสินค้า </th>
                                 <th> รีวิว</th>
@@ -27,18 +27,7 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>รีวิวโดย</th>
-                                <th> ชื่อสินค้า </th>
-                                <th> รีวิว</th>
-                                <th> คะแนน </th>
-                                <th> วันที่ </th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             @foreach ($reviews as $review)
                                 @php
@@ -48,7 +37,7 @@
                                         ->get();
                                 @endphp
                                 <tr>
-                                    <td>{{ $review->id }}</td>
+
                                     <td>{{ $review->user_info['name'] }}</td>
                                     <td>
                                         @foreach ($title as $data){{ $data->title }}
@@ -136,7 +125,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -166,6 +154,5 @@
                     });
             })
         })
-
     </script>
 @endpush

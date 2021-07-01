@@ -19,7 +19,7 @@
                     <table class="table table-bordered" id="" width="100%">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>หัวข้อ</th>
                                 <th>คำอธิบายสั้น</th>
                                 <th> หมวดหมู่หลัก </th>
@@ -30,19 +30,7 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>หัวข้อ</th>
-                                <th>คำอธิบายสั้น</th>
-                                <th> หมวดหมู่หลัก </th>
-                                <th> หมวดหมู่ย่อย </th>
-                                <th>รูป</th>
-                                <th>สถานะ</th>
-                                <th>กำลังมาแรง</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
 
                             @foreach ($categories as $category)
@@ -54,7 +42,7 @@
                                     // dd($parent_cats);
                                 @endphp
                                 <tr>
-                                    <td>{{ $category->id }}</td>
+
                                     <td>{{ $category->title }}</td>
                                     <td>{{ $category->slug }}</td>
                                     <td>{{ $category->is_parent == 1 ? 'Yes' : 'No' }}</td>
@@ -168,7 +156,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -198,6 +185,5 @@
                     });
             })
         })
-
     </script>
 @endpush

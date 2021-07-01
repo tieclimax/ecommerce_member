@@ -280,7 +280,7 @@
                                             @endphp
                                             @foreach ($photo as $data)
                                                 <div class="single-slider">
-                                                    <img src="{{ $data }}" alt="{{ $data }}">
+                                                    <ma src="{{ $data }}" alt="{{ $data }}">
                                                 </div>
                                             @endforeach
                                         </div>

@@ -51,7 +51,7 @@ class PostCategoryController extends Controller
         $data['slug'] = $slug;
         $status = PostCategory::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Post Category Successfully added');
+            request()->session()->flash('success', 'เพิ่มหมวดหมู่โพสสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -99,7 +99,7 @@ class PostCategoryController extends Controller
         $data = $request->all();
         $status = $postCategory->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Post Category Successfully updated');
+            request()->session()->flash('success', 'อัพเดทหมวดหมู่โพสสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -119,9 +119,9 @@ class PostCategoryController extends Controller
         $status = $postCategory->delete();
 
         if ($status) {
-            request()->session()->flash('success', 'Post Category successfully deleted');
+            request()->session()->flash('success', 'ลบหมวดหมู่โพสสำเร็จ');
         } else {
-            request()->session()->flash('error', 'Error while deleting post category');
+            request()->session()->flash('error', 'เกิดข้อผิดพลาดในการลบหมวดหมู่โพส');
         }
         return redirect()->route('post-category.index');
     }

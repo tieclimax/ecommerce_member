@@ -51,7 +51,7 @@ class PostTagController extends Controller
         $data['slug'] = $slug;
         $status = PostTag::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Post Tag Successfully added');
+            request()->session()->flash('success', 'เพิ่มโพสแท็คสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -99,7 +99,7 @@ class PostTagController extends Controller
         $data = $request->all();
         $status = $postTag->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Post Tag Successfully updated');
+            request()->session()->flash('success', 'ลบโพสแท็คสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -119,7 +119,7 @@ class PostTagController extends Controller
         $status = $postTag->delete();
 
         if ($status) {
-            request()->session()->flash('success', 'Post Tag successfully deleted');
+            request()->session()->flash('success', 'ลบโพสแท็คสำเร็จ');
         } else {
             request()->session()->flash('error', 'Error while deleting post tag');
         }

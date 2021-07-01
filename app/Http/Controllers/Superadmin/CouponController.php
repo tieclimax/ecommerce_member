@@ -48,7 +48,7 @@ class CouponController extends Controller
         $data = $request->all();
         $status = Coupon::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Coupon Successfully added');
+            request()->session()->flash('success', 'ใช้งานคูปองสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -100,7 +100,7 @@ class CouponController extends Controller
 
         $status = $coupon->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Coupon Successfully updated');
+            request()->session()->flash('success', 'อัพเดทคูปองสำเร็จ');
         } else {
             request()->session()->flash('error', 'กรุณาลองอีกครั้ง!!');
         }
@@ -119,13 +119,13 @@ class CouponController extends Controller
         if ($coupon) {
             $status = $coupon->delete();
             if ($status) {
-                request()->session()->flash('success', 'Coupon successfully deleted');
+                request()->session()->flash('success', 'ลบคูปองสำเร็จ');
             } else {
                 request()->session()->flash('error', 'ข้อผิดพลาด, กรุณาลองอีกครั้ง!');
             }
             return redirect()->route('superadmincoupon.index');
         } else {
-            request()->session()->flash('error', 'Coupon not found');
+            request()->session()->flash('error', 'ไม่พบคูปอง');
             return redirect()->back();
         }
     }
@@ -147,7 +147,7 @@ class CouponController extends Controller
                 'code' => $coupon->code,
                 'value' => $coupon->discount($total_price)
             ]);
-            request()->session()->flash('success', 'Coupon successfully applied');
+            request()->session()->flash('success', 'ใช้งานคูปองสำเร็จ');
             return redirect()->back();
         }
     }

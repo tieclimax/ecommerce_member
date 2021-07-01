@@ -60,7 +60,7 @@ class ProductReviewController extends Controller
         ];
         Notification::send($user, new StatusNotification($details));
         if ($status) {
-            request()->session()->flash('success', 'Thank you for your feedback');
+            request()->session()->flash('success', 'ขอขอบคุณที่ให้การตอบกลับกับเรา');
         } else {
             request()->session()->flash('error', 'บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!!');
         }

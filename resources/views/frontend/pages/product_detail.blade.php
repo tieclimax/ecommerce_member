@@ -202,7 +202,7 @@
                                                 <div class="col-12">
 
                                                     <!-- Review -->
-                                                    <div class="comment-review">
+                                                    {{-- <div class="comment-review">
                                                         <div class="add-review">
                                                             <h5>เพิ่มรีวิวสินค้า</h5>
                                                             <p>ที่อยู่อีเมลของคุณจะไม่ถูกเผยแพร่
@@ -265,7 +265,7 @@
                                                                         </div>
                                                                         <div class="col-lg-12 col-12">
                                                                             <div class="form-group">
-                                                                                <label>แสดงความคิดเห็น</label>
+                                                                         <label>แสดงความคิดเห็น</label>
                                                                                 <textarea name="review" rows="6"
                                                                                     placeholder=""></textarea>
                                                                             </div>
@@ -288,7 +288,7 @@
                                                                 <!--/ End Form -->
                                                             @endauth
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="ratting-main">
                                                         <div class="avg-ratting">

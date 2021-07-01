@@ -57,9 +57,9 @@ class UsersController extends Controller
         $status = User::create($data);
         // dd($status);
         if ($status) {
-            request()->session()->flash('success', 'Successfully added user');
+            request()->session()->flash('success', 'เพิ่มผู้ใช้งานสำเร็จ');
         } else {
-            request()->session()->flash('error', 'เกิดข้อผิดพลาด while adding user');
+            request()->session()->flash('error', 'เกิดข้อผิดพลาด');
         }
         return redirect()->route('superadminusers.index');
     }
@@ -113,9 +113,9 @@ class UsersController extends Controller
 
         $status = $user->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Successfully updated');
+            request()->session()->flash('success', 'อัพเดทผู้ใช้งานสำเร็จ');
         } else {
-            request()->session()->flash('error', 'Error occured while updating');
+            request()->session()->flash('error', 'เกิดข้อผิดพลาด');
         }
         return redirect()->route('superadminusers.index');
     }
@@ -131,9 +131,9 @@ class UsersController extends Controller
         $delete = User::findorFail($id);
         $status = $delete->delete();
         if ($status) {
-            request()->session()->flash('success', 'User Successfully deleted');
+            request()->session()->flash('success', 'ลบผู้ใช้งานสำเร็จ');
         } else {
-            request()->session()->flash('error', 'There is an error while deleting users');
+            request()->session()->flash('error', 'เกิดข้อผิดพลาด');
         }
         return redirect()->route('superadminusers.index');
     }

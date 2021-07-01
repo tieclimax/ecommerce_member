@@ -54,7 +54,7 @@ class BannerController extends Controller
         // return $slug;
         $status = Banner::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Banner successfully added');
+            request()->session()->flash('success', 'เพิ่มแบนเนอร์สำเร็จ');
         } else {
             request()->session()->flash('error', 'เกิดข้อผิดพลาด while adding banner');
         }
@@ -110,7 +110,7 @@ class BannerController extends Controller
         // return $slug;
         $status = $banner->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Banner successfully updated');
+            request()->session()->flash('success', 'อัพเดทแบนเนอร์สำเร็จ');
         } else {
             request()->session()->flash('error', 'เกิดข้อผิดพลาด while updating banner');
         }
@@ -128,7 +128,7 @@ class BannerController extends Controller
         $banner = Banner::findOrFail($id);
         $status = $banner->delete();
         if ($status) {
-            request()->session()->flash('success', 'Banner successfully deleted');
+            request()->session()->flash('success', 'ลบแบนเนอร์สำเร็จ');
         } else {
             request()->session()->flash('error', 'เกิดข้อผิดพลาด while deleting banner');
         }

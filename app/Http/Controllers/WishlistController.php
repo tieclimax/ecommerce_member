@@ -45,7 +45,7 @@ class WishlistController extends Controller
             if ($wishlist->product->stock < $wishlist->quantity || $wishlist->product->stock <= 0) return back()->with('error', 'สินค้าไม่เพียงพอ!');
             $wishlist->save();
         }
-        request()->session()->flash('success', 'Product successfully added to wishlist');
+        request()->session()->flash('success', 'เพิ่มไปยังสินค้าที่ชื่นชอบเเล้ว');
         return back();
     }
 
@@ -54,10 +54,10 @@ class WishlistController extends Controller
         $wishlist = Wishlist::find($request->id);
         if ($wishlist) {
             $wishlist->delete();
-            request()->session()->flash('success', 'Wishlist successfully removed');
+            request()->session()->flash('success', 'ลบสินค้าออกจากที่ชื่นชอบเเล้ว');
             return back();
         }
-        request()->session()->flash('error', 'Error กรุณาลองอีกครั้ง!');
+        request()->session()->flash('error', 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง!');
         return back();
     }
 }

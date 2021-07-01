@@ -120,7 +120,7 @@ class MessageController extends Controller
         $message = Message::find($id);
         $status = $message->delete();
         if ($status) {
-            request()->session()->flash('success', 'Successfully deleted message');
+            request()->session()->flash('success', 'ลบข้อความสำเร็จ');
         } else {
             request()->session()->flash('error', 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง!');
         }

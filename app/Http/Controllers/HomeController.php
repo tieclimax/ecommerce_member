@@ -93,14 +93,14 @@ class HomeController extends Controller
             } else {
                 $status = $order->delete();
                 if ($status) {
-                    request()->session()->flash('success', 'Order Successfully deleted');
+                    request()->session()->flash('success', 'ลบคำสั่งซื้อสำเร็จ');
                 } else {
-                    request()->session()->flash('error', 'Order can not deleted');
+                    request()->session()->flash('error', 'ไม่สามารถลบคำสั่งซื้อได้ในขณะนี้');
                 }
                 return redirect()->route('user.order.index');
             }
         } else {
-            request()->session()->flash('error', 'Order can not found');
+            request()->session()->flash('error', 'ไม่พบคำสั่งซื้อ');
             return redirect()->back();
         }
     }

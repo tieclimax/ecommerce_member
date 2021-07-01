@@ -19,7 +19,7 @@
                     <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>หัวข้อ</th>
                                 <th>หมวดหมู่</th>
                                 <th>Tag</th>
@@ -29,18 +29,7 @@
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>หัวข้อ</th>
-                                <th>หมวดหมู่</th>
-                                <th>Tag</th>
-                                <th> ผู้แต่ง </th>
-                                <th>รูป</th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
 
                             @foreach ($posts as $post)
@@ -53,8 +42,8 @@
                                     // dd($author_info);
                                 @endphp
                                 <tr>
-                                    <td>{{ $post->id }}</td>
-                                    <td>{{ $post->title }}</td>
+
+
                                     <td>{{ $post->cat_info->title }}</td>
                                     <td>{{ $post->tags }}</td>
 
@@ -148,7 +137,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -178,6 +166,5 @@
                     });
             })
         })
-
     </script>
 @endpush

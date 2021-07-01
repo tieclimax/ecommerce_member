@@ -19,26 +19,18 @@
                     <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+
                                 <th>หัวข้อ</th>
                                 <th>คำอธิบายสั้น</th>
                                 <th>สถานะ</th>
                                 <th> การกระทำ </th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>หัวข้อ</th>
-                                <th>คำอธิบายสั้น</th>
-                                <th>สถานะ</th>
-                                <th> การกระทำ </th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             @foreach ($postTags as $data)
                                 <tr>
-                                    <td>{{ $data->id }}</td>
+
                                     <td>{{ $data->title }}</td>
                                     <td>{{ $data->slug }}</td>
                                     <td>
@@ -108,7 +100,6 @@
         function deleteData(id) {
 
         }
-
     </script>
     <script>
         $(document).ready(function() {
@@ -138,6 +129,5 @@
                     });
             })
         })
-
     </script>
 @endpush
