@@ -45,6 +45,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'first_name' => 'string|required',
             'last_name' => 'string|required',
@@ -53,9 +54,13 @@ class OrderController extends Controller
             'coupon' => 'nullable|numeric',
             'phone' => 'numeric|required',
             'post_code' => 'string|nullable',
-            'email' => 'string|required'
+            'email' => 'string|required',
         ]);
-        // dd($request->all());
+
+        if ($request->shipping == null) {
+            request()->session()->flash('error', 'กรุณาเลือกรูปแบบการจัดส่ง !');
+            return back()->withInput($request->all());
+        }
 
         if (empty(Cart::where('user_id', auth()->user()->id)->where('order_id', null)->first())) {
             request()->session()->flash('error', 'ตะกร้าว่าง !');

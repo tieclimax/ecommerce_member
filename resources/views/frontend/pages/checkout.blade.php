@@ -369,24 +369,31 @@
                                         <li class="order_subtotal" data-price="{{ Helper::totalCartPrice() }}">
                                             ผลรวมย่อย<span>฿{{ number_format(Helper::totalCartPrice(), 2) }}</span></li>
                                         <li class="shipping">
-                                            ค่าใช้จ่ายในการจัดส่งสินค้า
+                                            เลือกรูปแบบการจัดส่งสินค้า
                                             @if (count(Helper::shipping()) > 0 && Helper::cartCount() > 0)
                                                 <select name="shipping" class="nice-select">
-                                                    <option value="">เลือกรูปแบบการจัดส่ง</option>
+                                                    <option value="">เลือกรูปแบบการจัดส่งสินค้า</option>
                                                     @foreach (Helper::shipping() as $shipping)
+
+
                                                         <option value="{{ $shipping->id }}" class="shippingOption"
-                                                            data-price="{{ $shipping->price }}">{{ $shipping->type }}:
-                                                            ฿{{ $shipping->price }}</option>
+                                                            data-price="{{ $shipping->price }}">
+                                                            {{ $shipping->type }}:
+                                                            ฿{{ $shipping->price }}
+                                                        </option>
+
+
                                                     @endforeach
                                                 </select>
+
                                             @else
                                                 <span>ฟรีค่าจัดส่ง</span>
                                             @endif
                                         </li>
 
                                         @if (session('coupon'))
-                                            <li class="coupon_price" data-price="{{ session('coupon')['value'] }}">You
-                                                ประหยัดไป<span>฿{{ number_format(session('coupon')['value'], 2) }}</span>
+                                            <li class="coupon_price" data-price="{{ session('coupon')['value'] }}">
+                                                คุณประหยัดไป<span>฿{{ number_format(session('coupon')['value'], 2) }}</span>
                                             </li>
                                         @endif
                                         @php
@@ -436,7 +443,7 @@
                             <div class="single-widget get-button">
                                 <div class="content">
                                     <div class="button">
-                                        <button type="submit" class="btn">ดำเนินการชำระเงิน</button>
+                                        <button id="submit" type="submit" class="btn">ดำเนินการชำระเงิน</button>
                                     </div>
                                 </div>
                             </div>
@@ -557,7 +564,6 @@
             $("select.select2").select2();
         });
         $('select.nice-select').niceSelect();
-
     </script>
     <script>
         function showMe(box) {
@@ -572,20 +578,24 @@
             }
             document.getElementById(box).style.display = vis;
         }
-
     </script>
     <script>
         $(document).ready(function() {
             $('.shipping select[name=shipping]').change(function() {
+                let check = $('.shipping select[name=shipping]').val()
+                if (check == "") {
+                    alert("Hey")
+                }
+
                 let cost = parseFloat($(this).find('option:selected').data('price')) || 0;
                 let subtotal = parseFloat($('.order_subtotal').data('price'));
                 let coupon = parseFloat($('.coupon_price').data('price')) || 0;
                 // alert(coupon);
+
                 $('#order_total_price span').text('$' + (subtotal + cost - coupon).toFixed(2));
             });
 
         });
-
     </script>
 
 @endpush
